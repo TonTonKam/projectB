@@ -1,0 +1,14 @@
+package vue;
+
+import javax.swing.JPanel;
+
+public class PanelMenuClient extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public PanelMenuClient(int longueurM) {
+		setBounds(0, 100, longueurM, 100);
+	}
+
+}

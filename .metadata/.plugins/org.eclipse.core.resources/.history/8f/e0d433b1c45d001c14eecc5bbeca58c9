@@ -1,0 +1,17 @@
+package vue;
+
+import javax.swing.JPanel;
+
+public class PanelListArticles extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public PanelListArticles(int longueurM, int hauteurM) {
+		int longueurMenu = longueurM / 4;
+		int longueur = longueurM * 3 / 4 ;
+		int haut = hauteurM - 300;
+		setBounds(longueurMenu, 300, longueur, haut);
+	}
+
+}

@@ -1,0 +1,14 @@
+package vue;
+
+import javax.swing.JPanel;
+
+public class PanelMenuGeneral extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public PanelMenuGeneral() {
+		setBounds(100, 100, 450, 300);
+	}
+
+}

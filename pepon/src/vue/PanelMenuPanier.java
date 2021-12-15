@@ -1,6 +1,6 @@
 package vue;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 import java.awt.Color;
 import javax.swing.SpringLayout;
 
@@ -10,10 +10,10 @@ public class PanelMenuPanier extends JPanel {
 	 * Create the panel.
 	 */
 	public PanelMenuPanier(int longueurM, int hauteurM) {
-		setBackground(Color.CYAN);
+		setBackground(new Color(128, 128, 255));
 		int longueur = longueurM / 4;
 		int haut = hauteurM - 200;
-		System.out.println("panier : "+longueur+ " "+ haut);
+		
 		setBounds(0, 200, longueur, haut);
 		setLayout(new SpringLayout());
 	}

@@ -1,3 +1,4 @@
+package vue;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -9,7 +10,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class CreationArticle<AcceuilAdministration, ArticleDao> extends JPanel {
+public class PanelCreationArticle<AcceuilAdministration, ArticleDao> extends JPanel {
 	private JTextField nom_article;
 	private JTextField nutripoint;
 	private JTextField prix;
@@ -18,7 +19,7 @@ public class CreationArticle<AcceuilAdministration, ArticleDao> extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public CreationArticle() {
+	public PanelCreationArticle() {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();

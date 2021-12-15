@@ -32,12 +32,12 @@ public class Main extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	//private final int longueurMax = 1000;
-	//private final int hauteurMax = 600;
+	private final int longueurMax = 1000;
+	private final int hauteurMax = 500;
 	public Main() {
 		super("Pepon");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(1000,600);
+		this.setSize(longueurMax,hauteurMax);
 		this.setLocationRelativeTo(null);
 		//contentPane.setBounds(100,100,1000,600);
 		contentPane = new JPanel();
@@ -47,9 +47,9 @@ public class Main extends JFrame {
 		
 		
 		
-		AcceuilArticles acceuil = new AcceuilArticles(contentPane);
-		contentPane.add(acceuil);
-		acceuil.setVisible(true);
+		PanelLogin login = new PanelLogin(contentPane,longueurMax,hauteurMax);
+		contentPane.add(login);
+		login.setVisible(true);
 		
 		
 		

@@ -48,11 +48,9 @@ public class ArticleDao {
 				ResultSet rs = req.executeQuery();
 				//System.out.println(req);
 				while(rs.next()) {
-					Article article = new Article();
-					article.setId_article(rs.getInt("id_article"));
-					article.setNom_article(rs.getString("nom_article"));
-					article.setPrix(rs.getDouble("prix"));
-					article.setCategorie(rs.getInt("categorie"));
+					//String nom_article, int nutripoint, double prix, int categorie
+					Article article = new Article(rs.getString("nom_article"),rs.getInt("nutripoint"),rs.getDouble("prix"),rs.getInt("categorie"),rs.getInt("id_article"));
+				
 					
 					listeArticle.add(article);
 				}
@@ -73,11 +71,7 @@ public class ArticleDao {
 				ResultSet rs = req.executeQuery();
 				
 				while(rs.next()) {
-					Article article = new Article();
-					article.setId_article(rs.getInt("id_article"));
-					article.setNom_article(rs.getString("nom_article"));
-					article.setPrix(rs.getDouble("prix"));
-					article.setCategorie(rs.getInt("categorie"));
+					Article article = new Article(rs.getString("nom_article"),rs.getInt("nutripoint"),rs.getDouble("prix"),rs.getInt("categorie"),rs.getInt("id_article"));
 					
 					listearticle.add(article);
 				}

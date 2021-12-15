@@ -22,12 +22,12 @@ import java.util.List;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
 
-public class AcceuilAdministrateur extends JPanel {
+public class PanelAcceuilAdministrateur extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
-	public AcceuilAdministrateur(JPanel contentPane) {
+	public PanelAcceuilAdministrateur(JPanel contentPane, int longueurMax, int hauteurMax) {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -45,7 +45,7 @@ public class AcceuilAdministrateur extends JPanel {
 		JButton btnNewButton = new JButton("Retour");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AcceuilArticles bout = new AcceuilArticles(contentPane);
+				PanelLogin bout = new PanelLogin(contentPane, longueurMax, hauteurMax);
 				contentPane.removeAll();
 				contentPane.add(bout);
 				contentPane.repaint();
@@ -58,7 +58,6 @@ public class AcceuilAdministrateur extends JPanel {
 		JPanel panel_2 = new JPanel();
 		panel_2.setBounds(61, 72, 440, 269);
 		panel.add(panel_2);
-
 	}
 	}
 

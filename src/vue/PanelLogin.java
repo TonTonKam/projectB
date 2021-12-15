@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 
-public class AcceuilArticles extends JPanel {
+public class PanelLogin extends JPanel {
 	private JTextField textField;
 	private JTextField textField_1;
 
@@ -16,23 +16,25 @@ public class AcceuilArticles extends JPanel {
 	 * Create the panel.
 	 */
 	
-	public AcceuilArticles(JPanel contentPane) {
+	public PanelLogin(JPanel contentPane,int longueurMax,int hauteurMax) {
 		setLayout(null);
+		System.out.println("login");
 		
 		
+		//JPanel panel = new JPanel();
+		this.setBackground(new Color(160, 82, 45));
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(160, 82, 45));
-		panel.setBounds(6, 6, 438, 288);
-		add(panel);
-		panel.setLayout(null);
+		this.setBounds(0,0,longueurMax,hauteurMax);
+		
+		//add(panel);
+		this.setLayout(null);
 		
 	
 		
 		JButton btnNewButton = new JButton("Connexion");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AcceuilAdministrateur acc = new AcceuilAdministrateur(contentPane);
+				PanelAcceuilAdministrateur acc = new PanelAcceuilAdministrateur(contentPane, longueurMax, hauteurMax);
 				contentPane.removeAll();
 				contentPane.add(acc);
 				contentPane.repaint();
@@ -40,31 +42,31 @@ public class AcceuilArticles extends JPanel {
 				
 			}
 		});
-		btnNewButton.setBounds(122, 182, 175, 29);
-		panel.add(btnNewButton);
+		btnNewButton.setBounds(longueurMax/5, hauteurMax/2, 175, 29);
+		this.add(btnNewButton);
 		
 		textField = new JTextField();
 		textField.setBounds(251, 121, 130, 26);
-		panel.add(textField);
+		this.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
 		textField_1.setBounds(251, 73, 130, 26);
-		panel.add(textField_1);
+		this.add(textField_1);
 		
 		JLabel lblNewLabel = new JLabel("Identifiant");
 		lblNewLabel.setBounds(52, 78, 105, 16);
-		panel.add(lblNewLabel);
+		this.add(lblNewLabel);
 		
 		JLabel lblMotDePasse = new JLabel("Mot de Passe");
 		lblMotDePasse.setBounds(52, 126, 130, 16);
-		panel.add(lblMotDePasse);
+		this.add(lblMotDePasse);
 		
 		JButton btnInscription = new JButton("Inscription");
 		btnInscription.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Inscription formulaire = new Inscription();
+				PanelInscription formulaire = new PanelInscription();
 				contentPane.removeAll();
 				contentPane.add(formulaire);
 				contentPane.repaint();
@@ -72,10 +74,13 @@ public class AcceuilArticles extends JPanel {
 			}
 		});
 		btnInscription.setBounds(122, 233, 175, 29);
-		panel.add(btnInscription);
+		this.add(btnInscription);
 
 	// BorderLayout 
 		// setPreferredSize(new Dimension(200,0));
 		//contentPane.add(objet, BorderLayout.LEFT);
 	}
+
+
 }
+	

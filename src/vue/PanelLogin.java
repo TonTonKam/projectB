@@ -37,12 +37,12 @@ public class PanelLogin extends JPanel {
 		this.setLayout(null);
 		
 		JButton connexion = new JButton("Connexion");
-		connexion.setBounds(278, 217, 175, 29);
+		connexion.setBounds(3*longueurMax/8, 4*hauteurMax/8, 175, 29);
 		this.add(connexion);
 		
 		identifiant = new JTextField();
 		identifiant.setColumns(10);
-		identifiant.setBounds(251, 73, 130, 26);
+		identifiant.setBounds(4*longueurMax/8, 2*hauteurMax/8, 130, 26);
 		this.add(identifiant);
 		
 		
@@ -57,11 +57,11 @@ public class PanelLogin extends JPanel {
 		
 		
 		JLabel lblNewLabel = new JLabel("Identifiant");
-		lblNewLabel.setBounds(52, 78, 105, 16);
+		lblNewLabel.setBounds(2*longueurMax/8, 2*hauteurMax/8, 105, 16);
 		this.add(lblNewLabel);
 		
 		JLabel lblMotDePasse = new JLabel("Mot de Passe");
-		lblMotDePasse.setBounds(52, 126, 130, 16);
+		lblMotDePasse.setBounds(2*longueurMax/8, 3*hauteurMax/8, 130, 16);
 		this.add(lblMotDePasse);
 		
 		JButton inscription = new JButton("Inscription");
@@ -76,11 +76,11 @@ public class PanelLogin extends JPanel {
 		});
 		
 			
-		inscription.setBounds(278, 258, 175, 29);
+		inscription.setBounds(3*longueurMax/8, 5*hauteurMax/8, 175, 29);
 		this.add(inscription);
 		
 		password = new JPasswordField();
-		password.setBounds(251, 121, 130, 26);
+		password.setBounds(4*longueurMax/8, 3*hauteurMax/8, 130, 26);
 		add(password);
 
 	// BorderLayout 

@@ -29,7 +29,7 @@ public class ControllerInscription {
 		User marc = new User(nom_saisie,prenom_saisie,email_saisie,password_saisie);
 		UserDao marco = new UserDao();
 		if(!(Pattern.matches("^[a-zA-Z0-9_.-]+[@][a-zA-Z0-9-]+[.]+[a-zA-Z0-9]+$", email_saisie) )) {
-			JOptionPane.showMessageDialog(null, "Mail pas valide","Error",JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Mail invalide","Error",JOptionPane.ERROR_MESSAGE);
 		}
 		else if(!marco.mailExist(email_saisie)) {
 			JOptionPane.showMessageDialog(null, "Cette adresse est associée à un compte","Error",JOptionPane.ERROR_MESSAGE);

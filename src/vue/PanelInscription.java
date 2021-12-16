@@ -36,41 +36,41 @@ public class PanelInscription extends JPanel {
 		
 		
 		this.setBackground(new Color(152, 251, 152));
-		this.setBounds(6, 6, 559, 338);
+		this.setBounds(6, 6, longueurMax-6, hauteurMax-6);
 		this.setLayout(null);
 		
 		nom = new JTextField();
 		nom.setText("");
-		nom.setBounds(303, 63, 130, 26);
+		nom.setBounds(4*longueurMax/8, 2*hauteurMax/8, 130, 26);
 		this.add(nom);
 		nom.setColumns(10);
 		
 		prenom = new JTextField();
 		prenom.setText("");
 		prenom.setColumns(10);
-		prenom.setBounds(303, 107, 130, 26);
+		prenom.setBounds(4*longueurMax/8, 3*hauteurMax/8, 130, 26);
 		this.add(prenom);
 		
 		email = new JTextField();
 		email.setText("");
 		email.setColumns(10);
-		email.setBounds(303, 145, 130, 26);
+		email.setBounds(4*longueurMax/8, 4*hauteurMax/8, 130, 26);
 		this.add(email);
 		
 		JLabel lblNewLabel = new JLabel("Nom");
-		lblNewLabel.setBounds(92, 68, 61, 16);
+		lblNewLabel.setBounds(2*longueurMax/8, 2*hauteurMax/8, 61, 16);
 		this.add(lblNewLabel);
 		
 		JLabel lblPrnom = new JLabel("Prénom");
-		lblPrnom.setBounds(92, 112, 61, 16);
+		lblPrnom.setBounds(2*longueurMax/8, 3*hauteurMax/8, 61, 16);
 		this.add(lblPrnom);
 		
 		JLabel lblEmail = new JLabel("Email");
-		lblEmail.setBounds(92, 150, 61, 16);
+		lblEmail.setBounds(2*longueurMax/8, 4*hauteurMax/8, 61, 16);
 		this.add(lblEmail);
 		
 		JLabel lblPasseword = new JLabel("Passeword");
-		lblPasseword.setBounds(91, 200, 98, 16);
+		lblPasseword.setBounds(2*longueurMax/8, 5*hauteurMax/8, 98, 16);
 		this.add(lblPasseword);
 		
 		JButton btnNewButton = new JButton("S'inscrire");
@@ -80,16 +80,16 @@ public class PanelInscription extends JPanel {
 				}
 		});
 		
-		btnNewButton.setBounds(200, 247, 117, 29);
+		btnNewButton.setBounds(3*longueurMax/8, 6*hauteurMax/8, 117, 29);
 		this.add(btnNewButton);
 		
 		password = new JPasswordField();
-		password.setBounds(306, 195, 127, 26);
+		password.setBounds(4*longueurMax/8, 5*hauteurMax/8, 127, 26);
 		add(password);
 		
 		JLabel lblNewLabel_1 = new JLabel("Bienvenue sur Pepon");
 		lblNewLabel_1.setFont(new Font("Lao MN", Font.PLAIN, 29));
-		lblNewLabel_1.setBounds(107, 6, 312, 36);
+		lblNewLabel_1.setBounds(2*longueurMax/8, 1*hauteurMax/8, 312, 36);
 		add(lblNewLabel_1);
 
 		JButton btnNewButton_1 = new JButton("Retour");
@@ -104,7 +104,7 @@ public class PanelInscription extends JPanel {
 			}
 		});
 		
-		btnNewButton_1.setBounds(6, 253, 117, 29);
+		btnNewButton_1.setBounds(longueurMax/8, 6*hauteurMax/8, 117, 29);
 		this.add(btnNewButton_1);
 		
 	}

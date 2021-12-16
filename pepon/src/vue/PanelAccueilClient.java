@@ -4,9 +4,9 @@ import javax.swing.JPanel;
 
 import model.ColorPanel;
 
-public class PanelGeneralClient extends JPanel{
+public class PanelAccueilClient extends JPanel{
 
-	public PanelGeneralClient(int longueurM, int hauteurM) {
+	public PanelAccueilClient(int longueurM, int hauteurM) {
 		ColorPanel color = new ColorPanel();
 		setBackground(color.vertClair());
 		int longueurMenu = longueurM / 4;

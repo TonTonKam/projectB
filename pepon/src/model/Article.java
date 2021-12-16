@@ -44,8 +44,4 @@ public class Article {
 		return categorie;
 	}
 
-	public int getId_article() {
-		return id_article;
-	}
-
 }

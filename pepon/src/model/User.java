@@ -58,9 +58,5 @@ public class User {
 	public int getId_statut() {
 		return id_statut;
 	}
-
-	public int getId_user() {
-		return id_user;
-	}
 	
 }

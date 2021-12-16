@@ -1,3 +1,6 @@
+package model;
+
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class PanelModelArticle extends JPanel {

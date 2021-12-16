@@ -10,20 +10,13 @@ import model.Article;
 
 public class ArticleDao {
 
-<<<<<<< HEAD
 	Connection connect = GetConnection.getConnectionWindows();
-=======
-	Connection connect = GetConnection.getConnection();
->>>>>>> 6d7319baf082b906d212f196d4edad7b79fbdf01
 	
 	public boolean ajout(Article object) {
 		
 		boolean message = false;
 		try {
-<<<<<<< HEAD
-=======
-			
->>>>>>> 6d7319baf082b906d212f196d4edad7b79fbdf01
+
 			PreparedStatement req = connect.prepareStatement("INSERT INTO article"
 					+ "(nom_article,nutripoint,prix,categorie) VALUES (?,?,?,?,?) ");
 			
@@ -42,11 +35,11 @@ public class ArticleDao {
 			
 		}
 		return message;
-<<<<<<< HEAD
+
 	}
 
 	//Affichage des articles
-	public List<Article> read() {
+	public List<Article>  readArt(){
 		List<Article> listeArticle = new ArrayList<>();
 		
 		try {
@@ -87,54 +80,5 @@ public class ArticleDao {
 		}
 		return listearticle;
 	}
-=======
-		
-	}
-
-	//Affichage des articles
-		public List<Article> read() {
-			List<Article> listeArticle = new ArrayList<>();
-			
-			try {
-				PreparedStatement req = connect.prepareStatement("SELECT * FROM article");
-				
-				ResultSet rs = req.executeQuery();
-				//System.out.println(req);
-				while(rs.next()) {
-					//String nom_article, int nutripoint, double prix, int categorie
-					Article article = new Article(rs.getString("nom_article"),rs.getInt("nutripoint"),rs.getDouble("prix"),rs.getInt("categorie"),rs.getInt("id_article"));
-				
-					
-					listeArticle.add(article);
-				}
-				//System.out.println("-------------------"+listeArticle);
-			}catch(Exception e) {
-				e.printStackTrace();
-				System.out.println("Insertion KO - KO - KO");
-			}
-			return listeArticle;
-		}
-
-		public List<Article> findById(int id) {
-			List<Article> listearticle = new ArrayList<>();
-			try {
-				PreparedStatement req = connect.prepareStatement("SELECT * FROM article WHERE id=?");
-				req.setInt(1, id);
-				
-				ResultSet rs = req.executeQuery();
-				
-				while(rs.next()) {
-					Article article = new Article(rs.getString("nom_article"),rs.getInt("nutripoint"),rs.getDouble("prix"),rs.getInt("categorie"),rs.getInt("id_article"));
-					
-					listearticle.add(article);
-				}
-				System.out.println(listearticle);
-			}catch(Exception e) {
-				e.printStackTrace();
-				System.out.println("Insertion KO - KO - KO");
-			}
-			return listearticle;
-		}
->>>>>>> 6d7319baf082b906d212f196d4edad7b79fbdf01
 
 }

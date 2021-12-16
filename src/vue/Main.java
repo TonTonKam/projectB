@@ -11,8 +11,10 @@ import javax.swing.border.EmptyBorder;
 
 public class Main extends JFrame {
 
+	private final int longueurMax = 1000;
+	private final int hauteurMax = 800;
 	private JPanel contentPane;
-
+	
 	/**
 	 * Launch the application.
 	 */
@@ -28,12 +30,11 @@ public class Main extends JFrame {
 			}
 		});
 	}
-
+	
 	/**
 	 * Create the frame.
 	 */
-	private final int longueurMax = 1000;
-	private final int hauteurMax = 500;
+	
 	public Main() {
 		super("Pepon");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

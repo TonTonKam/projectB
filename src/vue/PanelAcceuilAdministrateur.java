@@ -27,7 +27,7 @@ public class PanelAcceuilAdministrateur extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PanelAcceuilAdministrateur(JPanel contentPane, int longueurMax, int hauteurMax) {
+	public PanelAcceuilAdministrateur(JPanel contentPane,int longueurMax, int hauteurMax) {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -45,7 +45,7 @@ public class PanelAcceuilAdministrateur extends JPanel {
 		JButton btnNewButton = new JButton("Retour");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PanelLogin bout = new PanelLogin(contentPane, longueurMax, hauteurMax);
+				PanelLogin bout = new PanelLogin(contentPane,longueurMax, hauteurMax);
 				contentPane.removeAll();
 				contentPane.add(bout);
 				contentPane.repaint();
@@ -54,10 +54,31 @@ public class PanelAcceuilAdministrateur extends JPanel {
 		});
 		btnNewButton.setBounds(6, 253, 117, 29);
 		panel.add(btnNewButton);
-		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(61, 72, 440, 269);
-		panel.add(panel_2);
+		noir noire = new noir();
+		JButton btnNewButton_1 = new JButton("Rouge");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				panel.add(noire);
+				panel.repaint();
+				panel.revalidate();
+			}
+		});
+		btnNewButton_1.setBounds(229, 24, 117, 29);
+		panel.add(btnNewButton_1);
+		JButton btnNewButton_2 = new JButton("Rouge");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				panel.remove(noire);
+				panel.repaint();
+				panel.revalidate();
+			}
+		});
+		btnNewButton_2.setBounds(229, 84, 217, 109);
+		panel.add(btnNewButton_2);
 	}
 	}
 

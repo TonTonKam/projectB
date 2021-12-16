@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JTextField;
 
-import controler.UserDao;
+import controller.UserDao;
 import model.User;
 
 import javax.swing.JLabel;
@@ -13,12 +13,14 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.regex.Pattern;
 import java.awt.event.ActionEvent;
+import javax.swing.JPasswordField;
+import java.awt.Font;
 
 public class PanelInscription extends JPanel {
 	private JTextField nom;
 	private JTextField prenom;
 	private JTextField email;
-	private JTextField password;
+	private JPasswordField password;
 
 	/**
 	 * Create the panel.
@@ -48,12 +50,6 @@ public class PanelInscription extends JPanel {
 		email.setColumns(10);
 		email.setBounds(303, 145, 130, 26);
 		this.add(email);
-		
-		password = new JTextField();
-		password.setText("");
-		password.setColumns(10);
-		password.setBounds(303, 195, 130, 26);
-		this.add(password);
 		
 		JLabel lblNewLabel = new JLabel("Nom");
 		lblNewLabel.setBounds(92, 68, 61, 16);
@@ -91,8 +87,16 @@ public class PanelInscription extends JPanel {
 		
 		btnNewButton.setBounds(200, 247, 117, 29);
 		this.add(btnNewButton);
+		
+		password = new JPasswordField();
+		password.setBounds(306, 195, 127, 26);
+		add(password);
+		
+		JLabel lblNewLabel_1 = new JLabel("Bienvenue sur Pepon");
+		lblNewLabel_1.setFont(new Font("Lao MN", Font.PLAIN, 29));
+		lblNewLabel_1.setBounds(107, 6, 312, 36);
+		add(lblNewLabel_1);
 
 		
 	}
-
 }

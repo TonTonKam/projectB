@@ -10,12 +10,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.ControllerLogin;
+import javax.swing.JPasswordField;
 
 
 public class PanelLogin extends JPanel {
-	private JTextField password;
 	private JTextField identifiant;
 	private ControllerLogin controllerLogin;
+	private JPasswordField password;
 
 	/**
 	 * Create the panel.
@@ -39,11 +40,6 @@ public class PanelLogin extends JPanel {
 		connexion.setBounds(278, 217, 175, 29);
 		this.add(connexion);
 		
-		password = new JTextField();
-		password.setBounds(251, 121, 130, 26);
-		this.add(password);
-		password.setColumns(10);
-		
 		identifiant = new JTextField();
 		identifiant.setColumns(10);
 		identifiant.setBounds(251, 73, 130, 26);
@@ -60,10 +56,6 @@ public class PanelLogin extends JPanel {
 		
 		
 		
-		
-		
-		
-		
 		JLabel lblNewLabel = new JLabel("Identifiant");
 		lblNewLabel.setBounds(52, 78, 105, 16);
 		this.add(lblNewLabel);
@@ -73,16 +65,27 @@ public class PanelLogin extends JPanel {
 		this.add(lblMotDePasse);
 		
 		JButton inscription = new JButton("Inscription");
+		inscription.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+		PanelInscription philippe = new PanelInscription(contentPane, longueurMax, hauteurMax);
+		contentPane.removeAll();
+		contentPane.add(philippe);
+		contentPane.repaint();
+		contentPane.revalidate();
+			}
+		});
 		
 			
 		inscription.setBounds(278, 258, 175, 29);
 		this.add(inscription);
+		
+		password = new JPasswordField();
+		password.setBounds(251, 121, 130, 26);
+		add(password);
 
 	// BorderLayout 
 		// setPreferredSize(new Dimension(200,0));
 		//contentPane.add(objet, BorderLayout.LEFT);
 	}
-
-
 }
 	

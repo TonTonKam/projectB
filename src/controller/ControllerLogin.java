@@ -8,10 +8,12 @@ import javax.swing.JPasswordField;
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.regex.Pattern;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import java.util.regex.Pattern;
 
 import vue.Main;
 import vue.PanelAcceuilAdministrateur;
@@ -34,25 +36,22 @@ public class ControllerLogin {
 	usDao.login(identifiant_saisi,pwd_saisie);
 	
 	
-	if(usDao.login(identifiant_saisi, pwd_saisie)) {
-		
+	if(!(Pattern.matches("^[a-zA-Z0-9_.-]+[@][a-zA-Z0-9-]+[.]+[a-zA-Z0-9]+$", identifiant_saisi) )) {
+		JOptionPane.showMessageDialog(null, "Veuillez vérifier le format de votre identifiant","Error",JOptionPane.ERROR_MESSAGE);}
+	else if(usDao.mailExist(identifiant_saisi)) {
+		JOptionPane.showMessageDialog(null, "Identifiant inconnu");
+	}
+	else if(usDao.login(identifiant_saisi, pwd_saisie)) {
 		JOptionPane.showMessageDialog(null, "F�licitation");
 		PanelAcceuilAdministrateur acc = new PanelAcceuilAdministrateur(contentPane,longueurMax, hauteurMax);
 		contentPane.removeAll();
 		contentPane.add(acc);
 		contentPane.repaint();
 		contentPane.revalidate();
-		
-	
 		}
 	else {
-		JOptionPane.showMessageDialog(null, "Bienvenue chez Pepon");
-		JOptionPane.showMessageDialog(null,"Plus qu'une étape avant de bénéficier de notre système nutripoint");
-		PanelInscription inscrip = new PanelInscription();
-		contentPane.removeAll();
-		contentPane.add(inscrip);
-		contentPane.repaint();
-		contentPane.revalidate();
+		JOptionPane.showMessageDialog(null, "Mot de Passe incorrect");
+		
 	}
 	}
 	

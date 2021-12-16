@@ -55,7 +55,7 @@ public class PanelAcceuilAdministrateur extends JPanel {
 		btnNewButton.setBounds(6, 253, 117, 29);
 		panel.add(btnNewButton);
 		noir noire = new noir();
-		JButton btnNewButton_1 = new JButton("Rouge");
+		JButton btnNewButton_1 = new JButton("Noir");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

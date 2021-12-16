@@ -5,26 +5,26 @@ public class User {
 	private String nom;
 	private String prenom;
 	private String email;
-	private String mot_passe;
-	private int id_statut;
-	private  int id_user;
+	private String motPasse;
+	private int idStatut;
+	private int idUser;
 	
-	public User(String nom, String prenom, String email, String mot_passe, int id_statut) {
+	public User(String nom, String prenom, String email, String motPasse, int idStatut) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
-		this.mot_passe = mot_passe;
-		this.id_statut = id_statut;
+		this.motPasse = motPasse;
+		this.idStatut = idStatut;
 	}
 
 	
-	public User(String nom, String prenom, String email, String mot_passe) {
+	public User(String nom, String prenom, String email, String motPasse) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
-		this.mot_passe = mot_passe;
+		this.motPasse = motPasse;
 	}
 
 
@@ -33,9 +33,9 @@ public class User {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
-		this.mot_passe = mot_passe;
-		this.id_statut = id_statut;
-		this.id_user = id_user;
+		this.motPasse = mot_passe;
+		this.idStatut = id_statut;
+		this.idUser = id_user;
 	}
 
 
@@ -57,18 +57,18 @@ public class User {
 	}
 
 
-	public String getMot_passe() {
-		return mot_passe;
+	public String getMotPasse() {
+		return motPasse;
 	}
 
 
 	public int getId_statut() {
-		return id_statut;
+		return idStatut;
 	}
 
 
 	public int getId_user() {
-		return id_user;
+		return idUser;
 	}
 	
 	

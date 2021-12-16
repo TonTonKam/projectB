@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JTextField;
 
+import controller.ControllerInscription;
 import controller.UserDao;
 import model.User;
 
@@ -21,11 +22,16 @@ public class PanelInscription extends JPanel {
 	private JTextField prenom;
 	private JTextField email;
 	private JPasswordField password;
+	private JPanel contentPane;
+	private int longueurMax;
+	private int hauteurMax;
+	private ControllerInscription controllerInscription;
 
 	/**
 	 * Create the panel.
 	 */
-	public PanelInscription() {
+	public PanelInscription(JPanel contentPane, int longueurMax, int hauteurMax) {
+		controllerInscription = new ControllerInscription();
 		setLayout(null);
 		
 		
@@ -70,19 +76,8 @@ public class PanelInscription extends JPanel {
 		JButton btnNewButton = new JButton("S'inscrire");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String nom_saisie = nom.getText();
-				String prenom_saisie = prenom.getText();
-				String email_saisie = email.getText();
-				String password_saisie = password.getText();
-				
-				User marc = new User(nom_saisie,prenom_saisie,email_saisie,password_saisie);
-				
-				UserDao marco = new UserDao();
-				marco.inscription(marc);
-				
-				
-				
-			}
+				controllerInscription.inscrire(nom,prenom,email,password,contentPane, longueurMax, hauteurMax);
+				}
 		});
 		
 		btnNewButton.setBounds(200, 247, 117, 29);
@@ -97,6 +92,20 @@ public class PanelInscription extends JPanel {
 		lblNewLabel_1.setBounds(107, 6, 312, 36);
 		add(lblNewLabel_1);
 
+		JButton btnNewButton_1 = new JButton("Retour");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PanelLogin back = new PanelLogin(contentPane,longueurMax,hauteurMax);
+				contentPane.removeAll();
+				contentPane.add(back);
+				contentPane.repaint();
+				contentPane.revalidate();
+				
+			}
+		});
+		
+		btnNewButton_1.setBounds(6, 253, 117, 29);
+		this.add(btnNewButton_1);
 		
 	}
 }

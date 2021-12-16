@@ -20,7 +20,7 @@ public class ArticleDao {
 			PreparedStatement req = connect.prepareStatement("INSERT INTO article"
 					+ "(nom_article,nutripoint,prix,categorie) VALUES (?,?,?,?,?) ");
 			
-			req.setString(1, object.getNom_article());
+			req.setString(1, object.getNomArticle());
 			req.setInt(2, object.getNutripoint());
 			req.setDouble(3, object.getPrix());
 			req.setInt(4, object.getCategorie());
@@ -49,7 +49,7 @@ public class ArticleDao {
 				//System.out.println(req);
 				while(rs.next()) {
 					//String nom_article, int nutripoint, double prix, int categorie
-					Article article = new Article(rs.getString("nom_article"),rs.getInt("nutripoint"),rs.getDouble("prix"),rs.getInt("categorie"),rs.getInt("id_article"));
+					Article article = new Article(rs.getString("nomArticle"),rs.getInt("nutripoint"),rs.getDouble("prix"),rs.getInt("categorie"),rs.getInt("idArticle"));
 				
 					
 					listeArticle.add(article);
@@ -71,7 +71,7 @@ public class ArticleDao {
 				ResultSet rs = req.executeQuery();
 				
 				while(rs.next()) {
-					Article article = new Article(rs.getString("nom_article"),rs.getInt("nutripoint"),rs.getDouble("prix"),rs.getInt("categorie"),rs.getInt("id_article"));
+					Article article = new Article(rs.getString("nomArticle"),rs.getInt("nutripoint"),rs.getDouble("prix"),rs.getInt("categorie"),rs.getInt("idArticle"));
 					
 					listearticle.add(article);
 				}

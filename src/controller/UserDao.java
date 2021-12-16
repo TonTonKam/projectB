@@ -12,12 +12,12 @@ public class UserDao {
 		Connection connect = GetConnection.getConnection();
 		public static User currentUser ;
 		
-		public boolean mailExist(String mail) {
+		public boolean mailExist(String email) {
 			Boolean msg = false;
 			try {
 				PreparedStatement sql = connect.prepareStatement("SELECT * FROM user WHERE email = ?");
 				
-				sql.setString(1, mail);
+				sql.setString(1, email);
 				
 				ResultSet rs = sql.executeQuery();
 				
@@ -37,11 +37,11 @@ public class UserDao {
 			
 			try {
 				PreparedStatement sql = connect.prepareStatement("INSERT INTO user (nom, prenom,email,mot_passe)"
-						+ " VALUES (?,?,?,?)	");
+						+ " VALUES (?,?,?,PASSWORD(?))	");
 				sql.setString(1, user.getNom());
 				sql.setString(2, user.getPrenom());
 				sql.setString(3, user.getEmail());
-				sql.setString(4, user.getMot_passe());
+				sql.setString(4, user.getMotPasse());
 				
 				sql.executeUpdate();
 				
@@ -76,13 +76,13 @@ public class UserDao {
 			return msg;
 			
 		}*/
-		public boolean login(String identifiant, String mot_passe) {
+		public boolean login(String identifiant, String motPasse) {
 			  
 			Boolean msg = false;
 			try {
-				PreparedStatement sql = connect.prepareStatement("SELECT * FROM user WHERE email=? AND mot_passe=?");
+				PreparedStatement sql = connect.prepareStatement("SELECT * FROM user WHERE email=? AND mot_passe=PASSWORD(?)");
 				sql.setString(1, identifiant);
-				sql.setString(2, mot_passe);
+				sql.setString(2, motPasse);
 				
 				///System.out.println(sql);
 				ResultSet rs = sql.executeQuery();

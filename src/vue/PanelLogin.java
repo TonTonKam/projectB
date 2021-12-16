@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 
 import controller.ControllerLogin;
 import javax.swing.JPasswordField;
+import javax.swing.JTextPane;
 
 
 public class PanelLogin extends JPanel {
@@ -26,13 +27,14 @@ public class PanelLogin extends JPanel {
 		controllerLogin = new ControllerLogin();
 		setLayout(null);
 		System.out.println("login");
+		System.out.println(this.getSize());
 		
 		
 		//JPanel panel = new JPanel();
-		this.setBackground(new Color(160, 82, 45));
+		this.setBackground(new Color(0, 128, 0));
 		
 		this.setBounds(0,0,1000,800);
-		
+		System.out.println(this.getWidth());
 		//add(panel);
 		this.setLayout(null);
 		

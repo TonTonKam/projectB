@@ -46,7 +46,7 @@ public class PanelMenuGeneral extends JPanel {
 		btnDeconnexion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				
+				//on se redirige vers la page login avec les variables de vider
 			}
 		});
 		add(btnDeconnexion);

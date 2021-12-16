@@ -3,33 +3,33 @@ package model;
 public class Article {
 	
 	//attributs
-	private String nom_article;
-	private int nutripoint, categorie, id_article;
+	private String nomArticle;
+	private int nutripoint, idCategorie, idArticle;
 	private double prix;
 	
-	public Article(String nom_article, int nutripoint, double prix, int categorie) {
-		this.nom_article = nom_article;
+	public Article(String nomArticle, int nutripoint, double prix, int idCategorie) {
+		this.nomArticle = nomArticle;
 		this.nutripoint = nutripoint;
 		this.prix = prix;
-		this.categorie = categorie;
+		this.idCategorie = idCategorie;
 	}
 
-	public Article(String nom_article, int nutripoint, double prix, int categorie, int id_article) {
+	public Article(String nomArticle, int nutripoint, double prix, int idCategorie, int idArticle) {
 		super();
-		this.nom_article = nom_article;
+		this.nomArticle = nomArticle;
 		this.nutripoint = nutripoint;
 		this.prix = prix;
-		this.categorie = categorie;
-		this.id_article = id_article;
+		this.idCategorie = idCategorie;
+		this.idArticle = idArticle;
 	}
 
 	//getter
-	public int getId_article() {
-		return id_article;
+	public int getIdArticle() {
+		return idArticle;
 	}
 
-	public String getNom_article() {
-		return nom_article;
+	public String getNomArticle() {
+		return nomArticle;
 	}
 
 	public int getNutripoint() {
@@ -40,8 +40,8 @@ public class Article {
 		return prix;
 	}
 
-	public int getCategorie() {
-		return categorie;
+	public int getIdCategorie() {
+		return idCategorie;
 	}
 
 }

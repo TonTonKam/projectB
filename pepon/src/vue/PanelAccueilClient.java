@@ -14,6 +14,8 @@ public class PanelAccueilClient extends JPanel{
 		int haut = hauteurM - 200;
 		System.out.println("panel general "+longueurMenu + " "+ longueur +" "+haut);
 		setBounds(longueurMenu, 200, longueur, haut);
+		
+		//voir la liste des articles
 	}
 	
 }

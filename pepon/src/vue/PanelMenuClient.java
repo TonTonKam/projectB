@@ -10,7 +10,7 @@ import java.awt.event.MouseEvent;
 public class PanelMenuClient extends JPanel {
 
 	//label temporaire a definir
-	private JButton btnBoisson, btnLegume, btnFruit, btnConverve, btnCharcuterie;
+	private JButton btnAll, btnBoisson, btnLegume, btnFruit, btnConverve, btnCharcuterie;
 	
 	/**
 	 * Create the panel.
@@ -20,11 +20,20 @@ public class PanelMenuClient extends JPanel {
 		setBackground(color.vertFoncer());
 		setBounds(0, 120, longueurM, 80);
 		
+		btnAll = new JButton("tous afficher");
+		btnAll.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				//met dans le panel general tous les articles
+			}
+		});
+		add(btnAll);
+		
 		btnBoisson = new JButton("Boissons");
 		btnBoisson.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				
+				//met dans le panel general les articles de categrorie : "boisson"
 			}
 		});
 		add(btnBoisson);
@@ -33,7 +42,7 @@ public class PanelMenuClient extends JPanel {
 		btnLegume.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				
+				//met dans le panel general les articles de categrorie : "legume"
 			}
 		});
 		add(btnLegume);
@@ -42,7 +51,7 @@ public class PanelMenuClient extends JPanel {
 		btnFruit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				
+				//met dans le panel general les articles de categrorie : "fruits"
 			}
 		});
 		add(btnFruit);
@@ -51,7 +60,7 @@ public class PanelMenuClient extends JPanel {
 		btnConverve.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				
+				//met dans le panel general les articles de categrorie : "converve"
 			}
 		});
 		add(btnConverve);
@@ -60,7 +69,7 @@ public class PanelMenuClient extends JPanel {
 		btnCharcuterie.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				
+				//met dans le panel general les articles de categrorie : "charcuterie"
 			}
 		});
 		add(btnCharcuterie);

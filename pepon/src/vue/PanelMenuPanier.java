@@ -26,10 +26,14 @@ public class PanelMenuPanier extends JPanel {
 		labelPanier = new JLabel("Panier");
 		add(labelPanier);
 		
-		//envoyer
+		//permet de visualiser le prix total du panier
 		labelPrixTotal = new JLabel("PrixTotal €");
 		add(labelPrixTotal);
 		
+		/*
+		 * permet de visualiser tous les articles commander de facon
+		 * simplifier avec juste NomArticle + Quantite
+		 */
 		areaPanier = new JTextArea("Panier");
 		add(areaPanier);
 		
@@ -37,7 +41,7 @@ public class PanelMenuPanier extends JPanel {
 		btnCommande.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				
+				//envoie vers la pageGeneralPanier
 			}
 		});
 		add(btnCommande);
@@ -50,6 +54,14 @@ public class PanelMenuPanier extends JPanel {
 
 	public void setLabelPrixTotal(JLabel labelPrixTotal) {
 		this.labelPrixTotal = labelPrixTotal;
+	}
+
+	public JTextArea getAreaPanier() {
+		return areaPanier;
+	}
+
+	public void setAreaPanier(JTextArea areaPanier) {
+		this.areaPanier = areaPanier;
 	}
 
 }

@@ -20,10 +20,10 @@ public class ArticleDao {
 			PreparedStatement req = connect.prepareStatement("INSERT INTO article"
 					+ "(nom_article,nutripoint,prix,categorie) VALUES (?,?,?,?,?) ");
 			
-			req.setString(1, object.getNom_article());
+			req.setString(1, object.getNomArticle());
 			req.setInt(2, object.getNutripoint());
 			req.setDouble(3, object.getPrix());
-			req.setInt(4, object.getCategorie());
+			req.setInt(4, object.getIdCategorie());
 			
 			req.executeUpdate();
 			message = true;

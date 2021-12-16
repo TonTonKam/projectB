@@ -1,11 +1,11 @@
-package controler;
+package Controller;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.User;
+import Model.User;
 
 public class UserDao {
 	//Appel de la connection

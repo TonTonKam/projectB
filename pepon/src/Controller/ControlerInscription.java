@@ -1,4 +1,4 @@
-package controler;
+package Controller;
 
 public class ControlerInscription {
 

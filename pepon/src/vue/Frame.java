@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import model.PanelModelGeneral;
+
 public class Frame extends JFrame {
 
 	private JPanel contentPane;
@@ -15,7 +17,7 @@ public class Frame extends JFrame {
 	PanelMenuClient pmc;
 	PanelMenuGeneral pmg;
 	PanelMenuPanier pmp;
-	PanelListArticles pla;
+	PanelModelGeneral pla;
 
 
 	/**
@@ -26,7 +28,7 @@ public class Frame extends JFrame {
 		pmc = new PanelMenuClient(LONGUEURMAX);
 		pmg = new PanelMenuGeneral(LONGUEURMAX);
 		pmp = new PanelMenuPanier(LONGUEURMAX, HAUTEURMAX);
-		pla = new PanelListArticles(LONGUEURMAX, HAUTEURMAX);
+		pla = new PanelModelGeneral(LONGUEURMAX, HAUTEURMAX);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, LONGUEURMAX, HAUTEURMAX);

@@ -17,8 +17,7 @@ public class Frame extends JFrame {
 	PanelMenuClient pmc;
 	PanelMenuGeneral pmg;
 	PanelMenuPanier pmp;
-	PanelModelGeneral pla;
-
+	PanelGeneralClient pgc;
 
 	/**
 	 * Create the frame.
@@ -28,7 +27,7 @@ public class Frame extends JFrame {
 		pmc = new PanelMenuClient(LONGUEURMAX);
 		pmg = new PanelMenuGeneral(LONGUEURMAX);
 		pmp = new PanelMenuPanier(LONGUEURMAX, HAUTEURMAX);
-		pla = new PanelModelGeneral(LONGUEURMAX, HAUTEURMAX);
+		pgc = new PanelGeneralClient(LONGUEURMAX, HAUTEURMAX);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, LONGUEURMAX, HAUTEURMAX);

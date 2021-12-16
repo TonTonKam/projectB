@@ -6,11 +6,19 @@ import java.sql.SQLException;
 
 public class GetConnection {
 
+<<<<<<< HEAD
 	//mac
 	public static Connection getConnectionMac() {
 		 
 		String url = "jdbc:mysql://localhost:8889/";
 		String dbName = "pepon";
+=======
+	public static Connection getConnection() {
+		 
+		String url = "jdbc:mysql://localhost:8889/";
+		String dbName = "pepon";
+		//Windows
+>>>>>>> 6d7319baf082b906d212f196d4edad7b79fbdf01
 		String user="root";
 		String pwd="root";
 		
@@ -31,6 +39,7 @@ public class GetConnection {
 			e.printStackTrace();
 		}
 		return connect;
+<<<<<<< HEAD
 	}
 	
 	//windows
@@ -59,4 +68,7 @@ public class GetConnection {
 		}
 		return connect;
 	}
+=======
+		}
+>>>>>>> 6d7319baf082b906d212f196d4edad7b79fbdf01
 }

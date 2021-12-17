@@ -156,7 +156,6 @@ public class ArticleDao {
 				//String nom_article, int nutripoint, double prix, int categorie
 				Article article = new Article(rs.getString("nom_article"),rs.getInt("nutripoint"),rs.getDouble("prix"),rs.getInt("id_categorie"),rs.getInt("id_article"));
 				
-				
 				listeArticle.add(article);
 			}
 		}catch(Exception e) {

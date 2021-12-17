@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import controler.ArticleDao;
+import vue.PanelArticleSelectClient;
 
 public class PanelModelArticle extends JPanel {
 
@@ -41,11 +42,15 @@ public class PanelModelArticle extends JPanel {
 		labelCategorie.setText(artDao.idCategorieToString(article.getIdCategorie()));
 		add(labelCategorie);
 		
+		//renvoie sur la page ArticleClient avec ses propres informations
+		//le jpanel sur la quel est situer le modelArticle devient invisible
+		//on repaint et valide le futur panel
 		btnConsulter = new JButton("Detail");
 		btnConsulter.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				
+				//pageArticle.setVisible(true);
+				System.out.println("salut ");
 			}
 		});
 		add(btnConsulter);

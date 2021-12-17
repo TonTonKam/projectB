@@ -14,6 +14,8 @@ public class Frame extends JFrame {
 	PanelMenuGeneral pmg;
 	PanelMenuPanier pmp;
 	PanelAccueilClient pac;
+	PanelArticleSelectClient pasc;
+	PanelCommandeClient pcc;
 
 	/**
 	 * Create the frame.
@@ -24,6 +26,8 @@ public class Frame extends JFrame {
 		pmc = new PanelMenuClient(pac, LONGUEURMAX);
 		pmg = new PanelMenuGeneral(LONGUEURMAX);
 		pmp = new PanelMenuPanier(LONGUEURMAX, HAUTEURMAX);
+		pasc = new PanelArticleSelectClient(pac, null, LONGUEURMAX, HAUTEURMAX);
+		pcc = new PanelCommandeClient(LONGUEURMAX, HAUTEURMAX);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, LONGUEURMAX, HAUTEURMAX);
@@ -35,10 +39,14 @@ public class Frame extends JFrame {
 		contentPane.add(pmc);
 		contentPane.add(pmg);
 		contentPane.add(pmp);
+		contentPane.add(pasc);
+		contentPane.add(pcc);
 		pmc.setVisible(true);
 		pmg.setVisible(true);
 		pmp.setVisible(true);
 		pac.setVisible(true);
+		pasc.setVisible(false);
+		pcc.setVisible(false);
 	}
 
 }

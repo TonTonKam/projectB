@@ -7,6 +7,7 @@ public class Article {
 	private int nutripoint, idCategorie, idArticle;
 	private double prix;
 	
+	//constructor
 	public Article(String nomArticle, int nutripoint, double prix, int idCategorie) {
 		this.nomArticle = nomArticle;
 		this.nutripoint = nutripoint;

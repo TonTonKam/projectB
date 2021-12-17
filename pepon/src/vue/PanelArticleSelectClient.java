@@ -9,8 +9,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controler.ArticleDao;
+import controler.ControlerArticleClient;
 import model.Article;
 import model.ColorPanel;
+import model.PanelModelArticle;
 
 public class PanelArticleSelectClient extends JPanel {
 
@@ -20,6 +22,7 @@ public class PanelArticleSelectClient extends JPanel {
 	private JTextField textFieldQuantite;
 	private JButton btnAjouterCommande, btnPrecedent;
 	private ArticleDao artDao;
+	private ControlerArticleClient controlArt;
 
 	//constructor
 	public PanelArticleSelectClient(int longueurM, int hauteurM) {
@@ -32,22 +35,27 @@ public class PanelArticleSelectClient extends JPanel {
 		haut = hauteurM - 200;
 		
 		setBounds(longueurMenu, 200, longueur, haut);
+		
+		controlArt = new ControlerArticleClient();
 
 		labelImg = new JLabel("IMG");
 		add(labelImg);
 		
+		//erreur objet null
 		labelNom = new JLabel();
-		//labelNom.setText(article.getNomArticle());
+		labelNom.setText(controlArt.readIdArticle(PanelModelArticle.modelIdArticle).getNomArticle());
 		add(labelNom);
 		
 		labelNomCategorie = new JLabel();
-		//labelNom.setText(artDao.idCategorieToString(article.getIdArticle()));
+		labelNom.setText(artDao.idCategorieToString(controlArt.readIdArticle(PanelModelArticle.modelIdArticle).getIdArticle()));
 		add(labelNomCategorie);
 		
 		labelNutripoint = new JLabel();
+		labelNutripoint.setText(String.valueOf(controlArt.readIdArticle(PanelModelArticle.modelIdArticle).getNutripoint()));
 		add(labelNutripoint);
 		
 		labelPrix = new JLabel();
+		labelPrix.setText(Double.toString(controlArt.readIdArticle(PanelModelArticle.modelIdArticle).getPrix()));
 		add(labelPrix);
 		
 		labelNomQuantite = new JLabel("Quantite :");
@@ -74,7 +82,7 @@ public class PanelArticleSelectClient extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				setVisible(false);
-				//accueilClient.setVisible(true);
+				
 			}
 		});
 		add(btnPrecedent);

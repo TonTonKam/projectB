@@ -16,7 +16,7 @@ public class PanelModelArticle extends JPanel {
 		labelCategorie;
 	private JButton btnConsulter;
 	private ArticleDao artDao = new ArticleDao();
-	
+	public static int modelIdArticle;
 	
 	/**
 	 * Create the panel.
@@ -52,6 +52,8 @@ public class PanelModelArticle extends JPanel {
 			public void mouseClicked(MouseEvent arg0) {
 				panelRecep.setVisible(false);
 				panelExpedition.setVisible(true);
+				modelIdArticle = article.getIdArticle();
+				System.out.println("model "+modelIdArticle);
 			}
 		});
 		add(btnConsulter);

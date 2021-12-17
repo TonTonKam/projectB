@@ -14,7 +14,7 @@ public class ControllerMenuClient {
 	private ArticleDao artDao = new ArticleDao();
 
 	//methodes
-	public void afficherAllArticles(JPanel panelReception, int longueurMax) {
+	public void afficherAllArticles(JPanel panelReception, JPanel panelExpedition,  int longueurMax) {
 		
 		//j'efface toutes les informations du panel
 		panelReception.removeAll();
@@ -28,7 +28,7 @@ public class ControllerMenuClient {
 		 * - le modelArticle s'attache au panel
 		 */
 		for(int i = 0; i < listArt.size(); i++) {
-			 panelReception.add(new PanelModelArticle(listArt.get(i), longueurMax));
+			 panelReception.add(new PanelModelArticle(listArt.get(i), panelReception, panelExpedition, longueurMax));
 			 
 		}
 		
@@ -37,7 +37,7 @@ public class ControllerMenuClient {
 		panelReception.revalidate();
 	}
 	
-	public void afficherAllBoissons(JPanel panelReception, int longueurMax) {
+	public void afficherAllBoissons(JPanel panelReception, JPanel panelExpedition, int longueurMax) {
 		
 		panelReception.removeAll();
 		
@@ -45,14 +45,14 @@ public class ControllerMenuClient {
 		listArt = (ArrayList<Article>) artDao.readCategorieBoisson();
 		
 		for(int i = 0; i < listArt.size(); i++) {
-			 panelReception.add(new PanelModelArticle(listArt.get(i), longueurMax));
+			 panelReception.add(new PanelModelArticle(listArt.get(i), panelReception, panelExpedition, longueurMax));
 			 
 		}
 		panelReception.repaint();
 		panelReception.revalidate();
 	}
 	
-	public void afficherAllFruits(JPanel panelReception, int longueurMax) {
+	public void afficherAllFruits(JPanel panelReception, JPanel panelExpedition, int longueurMax) {
 		
 		panelReception.removeAll();
 		
@@ -60,14 +60,14 @@ public class ControllerMenuClient {
 		listArt = (ArrayList<Article>) artDao.readCategorieFruits();
 		
 		for(int i = 0; i < listArt.size(); i++) {
-			 panelReception.add(new PanelModelArticle(listArt.get(i), longueurMax));
+			 panelReception.add(new PanelModelArticle(listArt.get(i), panelReception, panelExpedition, longueurMax));
 			 
 		}
 		panelReception.repaint();
 		panelReception.revalidate();
 	}
 	
-	public void afficherAllLegumes(JPanel panelReception, int longueurMax) {
+	public void afficherAllLegumes(JPanel panelReception, JPanel panelExpedition, int longueurMax) {
 		
 		panelReception.removeAll();
 		
@@ -75,14 +75,14 @@ public class ControllerMenuClient {
 		listArt = (ArrayList<Article>) artDao.readCategorieLegumes();
 		
 		for(int i = 0; i < listArt.size(); i++) {
-			 panelReception.add(new PanelModelArticle(listArt.get(i), longueurMax));
+			 panelReception.add(new PanelModelArticle(listArt.get(i), panelReception, panelExpedition, longueurMax));
 			 
 		}
 		panelReception.repaint();
 		panelReception.revalidate();
 	}
 	
-	public void afficherAllConcerves(JPanel panelReception, int longueurMax) {
+	public void afficherAllConcerves(JPanel panelReception, JPanel panelExpedition, int longueurMax) {
 		
 		panelReception.removeAll();
 		
@@ -90,14 +90,14 @@ public class ControllerMenuClient {
 		listArt = (ArrayList<Article>) artDao.readCategorieConcerves();
 		
 		for(int i = 0; i < listArt.size(); i++) {
-			panelReception.add(new PanelModelArticle(listArt.get(i), longueurMax));
+			panelReception.add(new PanelModelArticle(listArt.get(i), panelReception, panelExpedition, longueurMax));
 			
 		}
 		panelReception.repaint();
 		panelReception.revalidate();
 	}
 	
-	public void afficherAllCharcuteries(JPanel panelReception, int longueurMax) {
+	public void afficherAllCharcuteries(JPanel panelReception, JPanel panelExpedition, int longueurMax) {
 		
 		panelReception.removeAll();
 		
@@ -105,7 +105,7 @@ public class ControllerMenuClient {
 		listArt = (ArrayList<Article>) artDao.readCategorieCharcuteries();
 		
 		for(int i = 0; i < listArt.size(); i++) {
-			panelReception.add(new PanelModelArticle(listArt.get(i), longueurMax));
+			panelReception.add(new PanelModelArticle(listArt.get(i), panelReception, panelExpedition, longueurMax));
 			
 		}
 		panelReception.repaint();

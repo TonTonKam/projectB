@@ -17,10 +17,11 @@ public class PanelModelArticle extends JPanel {
 	private JButton btnConsulter;
 	private ArticleDao artDao = new ArticleDao();
 	
+	
 	/**
 	 * Create the panel.
 	 */
-	public PanelModelArticle(Article article, int longueurM) {
+	public PanelModelArticle(Article article, JPanel panelRecep, JPanel panelExpedition, int longueurM) {
 		setBounds(longueurM / 4 + 10, 210, longueurM * 3 / 4 - 40, 100);
 		
 		labelImg = new JLabel("IMG");
@@ -49,8 +50,8 @@ public class PanelModelArticle extends JPanel {
 		btnConsulter.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				//pageArticle.setVisible(true);
-				System.out.println("salut ");
+				panelRecep.setVisible(false);
+				panelExpedition.setVisible(true);
 			}
 		});
 		add(btnConsulter);

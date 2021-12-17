@@ -17,7 +17,7 @@ public class PanelMenuClient extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PanelMenuClient(JPanel panelGeneral, int longueurM) {
+	public PanelMenuClient(JPanel panelGeneral, JPanel panelExpedition, int longueurM) {
 		controlMC = new ControllerMenuClient();
 		ColorPanel color = new ColorPanel();
 		setBackground(color.vertFoncer());
@@ -28,7 +28,9 @@ public class PanelMenuClient extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				//met dans le panel general tous les articles
-				controlMC.afficherAllArticles(panelGeneral, longueurM);
+				controlMC.afficherAllArticles(panelGeneral, panelExpedition, longueurM);
+				panelExpedition.setVisible(false);
+				panelGeneral.setVisible(true);
 			}
 		});
 		add(btnAll);
@@ -38,7 +40,9 @@ public class PanelMenuClient extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				//met dans le panel general les articles de categrorie : "boisson"
-				controlMC.afficherAllBoissons(panelGeneral, longueurM);
+				controlMC.afficherAllBoissons(panelGeneral, panelExpedition, longueurM);
+				panelExpedition.setVisible(false);
+				panelGeneral.setVisible(true);
 			}
 		});
 		add(btnBoisson);
@@ -48,7 +52,9 @@ public class PanelMenuClient extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				//met dans le panel general les articles de categrorie : "legume"
-				controlMC.afficherAllLegumes(panelGeneral, longueurM);
+				controlMC.afficherAllLegumes(panelGeneral, panelExpedition, longueurM);
+				panelExpedition.setVisible(false);
+				panelGeneral.setVisible(true);
 			}
 		});
 		add(btnLegume);
@@ -58,7 +64,9 @@ public class PanelMenuClient extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				//met dans le panel general les articles de categrorie : "fruits"
-				controlMC.afficherAllFruits(panelGeneral, longueurM);
+				controlMC.afficherAllFruits(panelGeneral, panelExpedition, longueurM);
+				panelExpedition.setVisible(false);
+				panelGeneral.setVisible(true);
 			}
 		});
 		add(btnFruit);
@@ -68,7 +76,9 @@ public class PanelMenuClient extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				//met dans le panel general les articles de categrorie : "converve"
-				controlMC.afficherAllConcerves(panelGeneral, longueurM);
+				controlMC.afficherAllConcerves(panelGeneral, panelExpedition, longueurM);
+				panelExpedition.setVisible(false);
+				panelGeneral.setVisible(true);
 			}
 		});
 		add(btnConverve);
@@ -78,7 +88,9 @@ public class PanelMenuClient extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				//met dans le panel general les articles de categrorie : "charcuterie"
-				controlMC.afficherAllCharcuteries(panelGeneral, longueurM);
+				controlMC.afficherAllCharcuteries(panelGeneral, panelExpedition, longueurM);
+				panelExpedition.setVisible(false);
+				panelGeneral.setVisible(true);
 			}
 		});
 		add(btnCharcuterie);

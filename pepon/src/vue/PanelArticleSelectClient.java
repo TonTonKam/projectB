@@ -22,7 +22,7 @@ public class PanelArticleSelectClient extends JPanel {
 	private ArticleDao artDao;
 
 	//constructor
-	public PanelArticleSelectClient(JPanel accueilClient, Article article, int longueurM, int hauteurM) {
+	public PanelArticleSelectClient(int longueurM, int hauteurM) {
 		artDao = new ArticleDao();
 		ColorPanel color = new ColorPanel();
 		setBackground(color.vertClair());
@@ -37,11 +37,11 @@ public class PanelArticleSelectClient extends JPanel {
 		add(labelImg);
 		
 		labelNom = new JLabel();
-		labelNom.setText(article.getNomArticle());
+		//labelNom.setText(article.getNomArticle());
 		add(labelNom);
 		
 		labelNomCategorie = new JLabel();
-		labelNom.setText(artDao.idCategorieToString(article.getIdArticle()));
+		//labelNom.setText(artDao.idCategorieToString(article.getIdArticle()));
 		add(labelNomCategorie);
 		
 		labelNutripoint = new JLabel();
@@ -74,7 +74,7 @@ public class PanelArticleSelectClient extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				setVisible(false);
-				accueilClient.setVisible(true);
+				//accueilClient.setVisible(true);
 			}
 		});
 		add(btnPrecedent);

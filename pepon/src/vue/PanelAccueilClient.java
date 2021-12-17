@@ -2,14 +2,16 @@ package vue;
 
 import javax.swing.JPanel;
 
+import controler.ControlerAccueilClient;
 import model.ColorPanel;
 
 public class PanelAccueilClient extends JPanel{
 	
 	private int longueurMenu, longueur, haut;
+	private ControlerAccueilClient controlAccueil;
 	
-	public PanelAccueilClient(int longueurM, int hauteurM) {
-		
+	public PanelAccueilClient(JPanel panelExpedition, int longueurM, int hauteurM) {
+		controlAccueil = new ControlerAccueilClient();
 		ColorPanel color = new ColorPanel();
 		setBackground(color.vertClair());
 		
@@ -20,6 +22,7 @@ public class PanelAccueilClient extends JPanel{
 		setBounds(longueurMenu, 200, longueur, haut);
 		
 		//voir la liste des articles
+		controlAccueil.afficheListArticleDefault(this, panelExpedition, longueurM);
 	}
 	
 }

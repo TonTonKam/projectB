@@ -7,11 +7,14 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import controler.ArticleDao;
+
 public class PanelModelArticle extends JPanel {
 
 	private JLabel labelImg, labelNomArticle, labelNutripoint, labelPrix,
 		labelCategorie;
 	private JButton btnConsulter;
+	private ArticleDao artDao = new ArticleDao();
 	
 	/**
 	 * Create the panel.
@@ -31,11 +34,11 @@ public class PanelModelArticle extends JPanel {
 		add(labelNutripoint);
 		
 		labelPrix = new JLabel();
-		labelPrix.setText(String.valueOf(article.getPrix()));
+		labelPrix.setText(String.valueOf(article.getPrix() + " €"));
 		add(labelPrix);
 		
 		labelCategorie = new JLabel();
-		labelCategorie.setText(String.valueOf(article.getIdCategorie()));
+		labelCategorie.setText(artDao.idCategorieToString(article.getIdCategorie()));
 		add(labelCategorie);
 		
 		btnConsulter = new JButton("Detail");

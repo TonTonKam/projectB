@@ -3,7 +3,7 @@ package model;
 public class Article {
 	
 	//attributs
-	private String nomArticle;
+	private String nomArticle, nomCategorie;
 	private int nutripoint, idCategorie, idArticle;
 	private double prix;
 	
@@ -42,6 +42,10 @@ public class Article {
 
 	public int getIdCategorie() {
 		return idCategorie;
+	}
+
+	public String getNomCategorie() {
+		return nomCategorie;
 	}
 
 }

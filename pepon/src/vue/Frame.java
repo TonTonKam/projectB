@@ -20,10 +20,10 @@ public class Frame extends JFrame {
 	 */
 	public Frame() {
 		//instanciantion des panels
-		pmc = new PanelMenuClient(LONGUEURMAX);
+		pac = new PanelAccueilClient(LONGUEURMAX, HAUTEURMAX);
+		pmc = new PanelMenuClient(pac, LONGUEURMAX);
 		pmg = new PanelMenuGeneral(LONGUEURMAX);
 		pmp = new PanelMenuPanier(LONGUEURMAX, HAUTEURMAX);
-		pac = new PanelAccueilClient(LONGUEURMAX, HAUTEURMAX);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, LONGUEURMAX, HAUTEURMAX);

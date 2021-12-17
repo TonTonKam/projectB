@@ -16,6 +16,8 @@ import java.util.regex.Pattern;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 import java.awt.Font;
+import javax.swing.event.CaretListener;
+import javax.swing.event.CaretEvent;
 
 public class PanelInscription extends JPanel {
 	private JTextField nom;
@@ -40,6 +42,7 @@ public class PanelInscription extends JPanel {
 		this.setLayout(null);
 		
 		nom = new JTextField();
+		
 		nom.setText("");
 		nom.setBounds(4*longueurMax/8, 2*hauteurMax/8, 130, 26);
 		this.add(nom);
@@ -73,7 +76,26 @@ public class PanelInscription extends JPanel {
 		lblPasseword.setBounds(2*longueurMax/8, 5*hauteurMax/8, 98, 16);
 		this.add(lblPasseword);
 		
+		
 		JButton btnNewButton = new JButton("S'inscrire");
+		btnNewButton.setEnabled(false);
+		
+		nom.addCaretListener(new CaretListener() {
+			public void caretUpdate(CaretEvent e) {
+				controllerInscription.activer(nom,prenom,email,password,btnNewButton);
+			}
+		});
+		prenom.addCaretListener(new CaretListener() {
+			public void caretUpdate(CaretEvent e) {
+				controllerInscription.activer(nom,prenom,email,password,btnNewButton);
+			}
+		});
+		email.addCaretListener(new CaretListener() {
+			public void caretUpdate(CaretEvent e) {
+				controllerInscription.activer(nom,prenom,email,password,btnNewButton);
+			}
+		});
+		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controllerInscription.inscrire(nom,prenom,email,password,contentPane, longueurMax, hauteurMax);
@@ -83,7 +105,14 @@ public class PanelInscription extends JPanel {
 		btnNewButton.setBounds(3*longueurMax/8, 6*hauteurMax/8, 117, 29);
 		this.add(btnNewButton);
 		
+		
+		
 		password = new JPasswordField();
+		password.addCaretListener(new CaretListener() {
+			public void caretUpdate(CaretEvent e) {
+				controllerInscription.activer(nom, prenom, email, password, btnNewButton);
+			}
+		});
 		password.setBounds(4*longueurMax/8, 5*hauteurMax/8, 127, 26);
 		add(password);
 		

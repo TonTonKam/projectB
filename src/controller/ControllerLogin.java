@@ -11,6 +11,9 @@ import java.awt.event.ActionListener;
 import java.util.regex.Pattern;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+
+import model.User;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.util.regex.Pattern;
@@ -31,6 +34,7 @@ public class ControllerLogin {
 	String pwd_saisie = password.getText();
 	//String pwd_saisie = String.valueOf(password.getPassword());
 	
+	
 	UserDao usDao = new UserDao();
 	
 	usDao.login(identifiant_saisi,pwd_saisie);
@@ -39,7 +43,7 @@ public class ControllerLogin {
 	if(!(Pattern.matches("^[a-zA-Z0-9_.-]+[@][a-zA-Z0-9-]+[.]+[a-zA-Z0-9]+$", identifiant_saisi) )) {
 		JOptionPane.showMessageDialog(null, "Veuillez vérifier le format de votre identifiant","Error",JOptionPane.ERROR_MESSAGE);}
 	else if(usDao.mailExist(identifiant_saisi)) {
-		JOptionPane.showMessageDialog(null, "Identifiant inconnu");
+		JOptionPane.showMessageDialog(null, "Vos identifiants semblent incorrects, si vous êtes un nouveau client, veuillez vous inscrire");
 	}
 	else if(usDao.login(identifiant_saisi, pwd_saisie)) {
 		JOptionPane.showMessageDialog(null, "F�licitation");
@@ -50,7 +54,7 @@ public class ControllerLogin {
 		contentPane.revalidate();
 		}
 	else {
-		JOptionPane.showMessageDialog(null, "Mot de Passe incorrect");
+		JOptionPane.showMessageDialog(null, "Identifiant ou Mot de Passe incorrect");
 		
 	}
 	}

@@ -6,16 +6,16 @@ public class User {
 	private String prenom;
 	private String email;
 	private String motPasse;
-	private int idStatut;
+	private String statut;
 	private int idUser;
 	
-	public User(String nom, String prenom, String email, String motPasse, int idStatut) {
+	public User(String nom, String prenom, String email, String motPasse, String statut) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
 		this.motPasse = motPasse;
-		this.idStatut = idStatut;
+		this.statut = statut;
 	}
 
 	
@@ -28,18 +28,15 @@ public class User {
 	}
 
 
-	public User(String nom, String prenom, String email, String mot_passe, int id_statut, int id_user) {
+	public User(String nom, String prenom, String email, String mot_passe, String statut, int id_user) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
 		this.motPasse = mot_passe;
-		this.idStatut = id_statut;
+		this.statut = statut;
 		this.idUser = id_user;
 	}
-
-
-
 
 
 	public String getNom() {
@@ -62,15 +59,18 @@ public class User {
 	}
 
 
-	public int getId_statut() {
-		return idStatut;
+	public String getStatut() {
+		return statut;
 	}
 
 
-	public int getId_user() {
+	public int getIdUser() {
 		return idUser;
 	}
-	
+
+
+
+
 	
 	
 }

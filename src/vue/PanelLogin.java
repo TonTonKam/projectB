@@ -29,7 +29,8 @@ public class PanelLogin extends JPanel {
 		System.out.println("login");
 		System.out.println(this.getSize());
 		
-		
+		//ColorPanel color = new ColorPanel();
+		//setBackground(color.vertClair());
 		//JPanel panel = new JPanel();
 		this.setBackground(new Color(0, 128, 0));
 		

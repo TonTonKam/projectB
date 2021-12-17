@@ -9,6 +9,7 @@ import java.awt.Canvas;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import controller.UserDao;
 import model.Article;
 
 import javax.swing.JButton;
@@ -23,6 +24,7 @@ import java.util.Vector;
 import java.awt.event.ActionEvent;
 
 public class PanelAcceuilAdministrateur extends JPanel {
+	private UserDao usDao = new UserDao();
 
 	/**
 	 * Create the panel.
@@ -67,7 +69,7 @@ public class PanelAcceuilAdministrateur extends JPanel {
 		});
 		btnNewButton_1.setBounds(229, 24, 117, 29);
 		panel.add(btnNewButton_1);
-		JButton btnNewButton_2 = new JButton("Rouge");
+		JButton btnNewButton_2 = new JButton("Bienvenue "+usDao.currentUser.getNom());
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

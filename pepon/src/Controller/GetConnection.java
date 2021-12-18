@@ -8,12 +8,11 @@ public class GetConnection {
 
 	public static Connection getConnection() {
 		 
-		String url = "jdbc:mysql://localhost:8889/";
+		String url = "jdbc:mysql://localhost/";
 		String dbName = "pepon";
 		//Windows
 		String user="root";
-		String pwd="root";
-		
+		String pwd="";
 		
 		Connection connect = null;
 		try {
@@ -21,7 +20,7 @@ public class GetConnection {
 
 		     try {
 		    	 connect = DriverManager.getConnection(url+dbName,user,pwd);
-				System.out.println("OK for connect");
+				System.out.println("Vous etes bien connécté");
 				
 				} catch (SQLException e) {
 				// TODO Auto-generated catch block

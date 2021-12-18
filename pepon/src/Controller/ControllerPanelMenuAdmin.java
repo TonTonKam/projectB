@@ -1,11 +1,15 @@
 package Controller;
 
-import View.PanelUserAdmin;
+import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
+
+
 
 public class ControllerPanelMenuAdmin {
-//	public void afficherUser(int longueur, int hauteur ) {
-//		
-//		PanelUserAdmin panelUser = new PanelUserAdmin(longueur, hauteur);
-//		panelUser.setVisible(true);
-//	}
+	public void switchPanels(JPanel panel,JLayeredPane layeredPane) {
+		layeredPane.removeAll();
+		layeredPane.add(panel);
+		layeredPane.repaint();
+		layeredPane.revalidate();
+	}
 }

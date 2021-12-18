@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import controler.ArticleDao;
+import controler.ControlerArticleClient;
 import vue.PanelArticleSelectClient;
 
 public class PanelModelArticle extends JPanel {
@@ -21,7 +22,7 @@ public class PanelModelArticle extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PanelModelArticle(Article article, JPanel panelRecep, JPanel panelExpedition, int longueurM) {
+	public PanelModelArticle(Article article, JPanel panelRecep, PanelArticleSelectClient panelExpedition, int longueurM) {
 		setBounds(longueurM / 4 + 10, 210, longueurM * 3 / 4 - 40, 100);
 		
 		labelImg = new JLabel("IMG");
@@ -53,7 +54,9 @@ public class PanelModelArticle extends JPanel {
 				panelRecep.setVisible(false);
 				panelExpedition.setVisible(true);
 				modelIdArticle = article.getIdArticle();
-				System.out.println("model "+modelIdArticle);
+				
+				ControlerArticleClient controlArt = new ControlerArticleClient();
+				controlArt.modifPanArticle(panelExpedition);
 			}
 		});
 		add(btnConsulter);

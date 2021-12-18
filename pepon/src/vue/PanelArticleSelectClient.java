@@ -43,26 +43,26 @@ public class PanelArticleSelectClient extends JPanel {
 		
 		//erreur objet null
 		labelNom = new JLabel();
-		labelNom.setText(controlArt.readIdArticle(PanelModelArticle.modelIdArticle).getNomArticle());
+		//labelNom.setText(controlArt.readIdArticle(PanelModelArticle.modelIdArticle).getNomArticle());
 		add(labelNom);
 		
 		labelNomCategorie = new JLabel();
-		labelNom.setText(artDao.idCategorieToString(controlArt.readIdArticle(PanelModelArticle.modelIdArticle).getIdArticle()));
+		//labelNom.setText(artDao.idCategorieToString(controlArt.readIdArticle(PanelModelArticle.modelIdArticle).getIdArticle()));
 		add(labelNomCategorie);
 		
 		labelNutripoint = new JLabel();
-		labelNutripoint.setText(String.valueOf(controlArt.readIdArticle(PanelModelArticle.modelIdArticle).getNutripoint()));
+		//labelNutripoint.setText(String.valueOf(controlArt.readIdArticle(PanelModelArticle.modelIdArticle).getNutripoint()));
 		add(labelNutripoint);
 		
 		labelPrix = new JLabel();
-		labelPrix.setText(Double.toString(controlArt.readIdArticle(PanelModelArticle.modelIdArticle).getPrix()));
+		//labelPrix.setText(Double.toString(controlArt.readIdArticle(PanelModelArticle.modelIdArticle).getPrix()));
 		add(labelPrix);
 		
 		labelNomQuantite = new JLabel("Quantite :");
 		add(labelNomQuantite);
 		
 		//quantite a envoyer a la commande
-		textFieldQuantite = new JTextField();
+		textFieldQuantite = new JTextField(4);
 		add(textFieldQuantite);
 		
 		//envoie l'article a la table detail_commande
@@ -86,6 +86,8 @@ public class PanelArticleSelectClient extends JPanel {
 			}
 		});
 		add(btnPrecedent);
+		
+
 	}
 
 	//getter & setter
@@ -93,8 +95,37 @@ public class PanelArticleSelectClient extends JPanel {
 		return textFieldQuantite;
 	}
 
-	public void setTextFieldQuantite(JTextField textFieldQuantite) {
-		this.textFieldQuantite = textFieldQuantite;
+	public JLabel getLabelNom() {
+		return labelNom;
 	}
 
+	public void setLabelNom(String labelNom) {
+		this.labelNom.setText(labelNom);
+	}
+
+	public JLabel getLabelNomCategorie() {
+		return labelNomCategorie;
+	}
+
+	public void setLabelNomCategorie(String labelNomCategorie) {
+		this.labelNomCategorie.setText(labelNomCategorie);
+	}
+
+	public JLabel getLabelNutripoint() {
+		return labelNutripoint;
+	}
+
+	public void setLabelNutripoint(int labelNutripoint) {
+		this.labelNutripoint.setText(Integer.toString(labelNutripoint));
+	}
+
+	public JLabel getLabelPrix() {
+		return labelPrix;
+	}
+
+	public void setLabelPrix(Double labelPrix) {
+		this.labelPrix.setText(Double.toString(labelPrix));
+	}
+
+	
 }

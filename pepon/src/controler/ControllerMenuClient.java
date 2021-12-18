@@ -1,12 +1,17 @@
 package controler;
 
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
 import model.Article;
 import model.PanelModelArticle;
+import vue.PanelArticleSelectClient;
 
 public class ControllerMenuClient {
 	
@@ -14,7 +19,7 @@ public class ControllerMenuClient {
 	private ArticleDao artDao = new ArticleDao();
 
 	//methodes
-	public void afficherAllArticles(JPanel panelReception, JPanel panelExpedition,  int longueurMax) {
+	public void afficherAllArticles(JPanel panelReception, PanelArticleSelectClient panelExpedition,  int longueurMax) {
 		
 		//j'efface toutes les informations du panel
 		panelReception.removeAll();
@@ -37,7 +42,7 @@ public class ControllerMenuClient {
 		panelReception.revalidate();
 	}
 	
-	public void afficherAllBoissons(JPanel panelReception, JPanel panelExpedition, int longueurMax) {
+	public void afficherAllBoissons(JPanel panelReception, PanelArticleSelectClient panelExpedition, int longueurMax) {
 		
 		panelReception.removeAll();
 		
@@ -52,7 +57,7 @@ public class ControllerMenuClient {
 		panelReception.revalidate();
 	}
 	
-	public void afficherAllFruits(JPanel panelReception, JPanel panelExpedition, int longueurMax) {
+	public void afficherAllFruits(JPanel panelReception, PanelArticleSelectClient panelExpedition, int longueurMax) {
 		
 		panelReception.removeAll();
 		
@@ -67,7 +72,7 @@ public class ControllerMenuClient {
 		panelReception.revalidate();
 	}
 	
-	public void afficherAllLegumes(JPanel panelReception, JPanel panelExpedition, int longueurMax) {
+	public void afficherAllLegumes(JPanel panelReception, PanelArticleSelectClient panelExpedition, int longueurMax) {
 		
 		panelReception.removeAll();
 		
@@ -82,7 +87,7 @@ public class ControllerMenuClient {
 		panelReception.revalidate();
 	}
 	
-	public void afficherAllConcerves(JPanel panelReception, JPanel panelExpedition, int longueurMax) {
+	public void afficherAllConcerves(JPanel panelReception, PanelArticleSelectClient panelExpedition, int longueurMax) {
 		
 		panelReception.removeAll();
 		
@@ -97,7 +102,7 @@ public class ControllerMenuClient {
 		panelReception.revalidate();
 	}
 	
-	public void afficherAllCharcuteries(JPanel panelReception, JPanel panelExpedition, int longueurMax) {
+	public void afficherAllCharcuteries(JPanel panelReception, PanelArticleSelectClient panelExpedition, int longueurMax) {
 		
 		panelReception.removeAll();
 		
@@ -111,7 +116,5 @@ public class ControllerMenuClient {
 		panelReception.repaint();
 		panelReception.revalidate();
 	}
-	
-	
 	
 }

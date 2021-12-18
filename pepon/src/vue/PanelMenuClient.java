@@ -17,7 +17,7 @@ public class PanelMenuClient extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PanelMenuClient(JPanel panelGeneral, JPanel panelExpedition, int longueurM) {
+	public PanelMenuClient(JPanel panelGeneral, PanelArticleSelectClient panelExpedition, int longueurM) {
 		controlMC = new ControllerMenuClient();
 		ColorPanel color = new ColorPanel();
 		setBackground(color.vertFoncer());

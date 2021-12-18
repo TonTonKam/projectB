@@ -10,7 +10,7 @@ public class PanelAccueilClient extends JPanel{
 	private int longueurMenu, longueur, haut;
 	private ControlerAccueilClient controlAccueil;
 	
-	public PanelAccueilClient(JPanel panelExpedition, int longueurM, int hauteurM) {
+	public PanelAccueilClient(PanelArticleSelectClient panelExpedition, int longueurM, int hauteurM) {
 		controlAccueil = new ControlerAccueilClient();
 		ColorPanel color = new ColorPanel();
 		setBackground(color.vertClair());

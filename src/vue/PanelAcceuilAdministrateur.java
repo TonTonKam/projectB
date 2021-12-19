@@ -25,6 +25,7 @@ import java.awt.event.ActionEvent;
 
 public class PanelAcceuilAdministrateur extends JPanel {
 	private UserDao usDao = new UserDao();
+	private JTable table;
 
 	/**
 	 * Create the panel.
@@ -81,6 +82,10 @@ public class PanelAcceuilAdministrateur extends JPanel {
 		});
 		btnNewButton_2.setBounds(229, 84, 217, 109);
 		panel.add(btnNewButton_2);
+		
+		table = new JTable();
+		table.setBounds(94, 219, 123, -121);
+		panel.add(table);
 	}
 	}
 

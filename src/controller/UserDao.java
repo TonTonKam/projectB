@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.JDBCType;
+import javax.swing.JTable;
 
 import model.User;
 
@@ -11,6 +13,7 @@ public class UserDao {
 	//Appel de la connection
 		Connection connect = GetConnection.getConnection();
 		public static User currentUser ;
+		private JTable table;
 		
 		public boolean mailExist(String email) {
 			Boolean msg = false;
@@ -51,31 +54,7 @@ public class UserDao {
 			}
 			
 		}
-	/*	public boolean login(String identifiant, String mot_passe) {
-			  
-			Boolean msg = false;
-			try {
-				PreparedStatement sql = connect.prepareStatement("SELECT * FROM user WHERE email=? "
-						+ "AND mot_passe=PASSWORD(?)");
-				sql.setString(1, identifiant);
-				sql.setString(2, mot_passe);
-				
-				///System.out.println(sql);
-				ResultSet rs = sql.executeQuery();
-				
-				if(rs.next()) {
-					currentUser = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"));
-					msg = true;
-				}
-				
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			return msg;
-			
-		}*/
+		
 		public boolean login(String identifiant, String motPasse) {
 			  
 			Boolean msg = false;
@@ -100,4 +79,15 @@ public class UserDao {
 			return msg;
 			
 		}
+
+
+public void afficher(User user) {
+	try {
+		PreparedStatement affich = connect.prepareStatement("SELECT*FROM user");
+		ResultSet rs = affich.executeQuery();
+		table.setModel(DbUtils.resultSetToTableModel(rs));
+	}catch(SQLException e) {
+		e.printStackTrace();
+	}
+}
 }

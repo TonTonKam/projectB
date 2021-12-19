@@ -81,13 +81,6 @@ public class UserDao {
 		}
 
 
-public void afficher(User user) {
-	try {
-		PreparedStatement affich = connect.prepareStatement("SELECT*FROM user");
-		ResultSet rs = affich.executeQuery();
-		table.setModel(DbUtils.resultSetToTableModel(rs));
-	}catch(SQLException e) {
-		e.printStackTrace();
-	}
-}
+
+
 }

@@ -30,12 +30,13 @@ public class PanelCommandeClient extends JPanel {
 		panScroll = new JPanel();
 		scrollPan = new JScrollPane(panScroll);
 		
-		scrollPan.setBounds(longueurMenu + 10, 210, longueur / 2, haut);
+		scrollPan.setBounds(10, 10, longueur / 2, haut);
 		
 		panScroll.setBackground(ColorPanel.vertFoncer());
 		add(scrollPan);
 		
 		labelPanierNutripoint = new JLabel("n points");
+		labelPanierNutripoint.setBounds(0, 0, 45, 45);
 		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
 		labelNomNbArticleTotal = new JLabel("nb article");
 		labelAfficheNbArticleTotal = new JLabel("t total");

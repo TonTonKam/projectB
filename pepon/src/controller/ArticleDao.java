@@ -19,7 +19,7 @@ public class ArticleDao {
 		try {
 
 			PreparedStatement req = connect.prepareStatement("INSERT INTO article"
-					+ "(nom_article,nutripoint,prix,categorie) VALUES (?,?,?,?,?) ");
+					+ "(nom_article, nutripoint, prix, id_categorie) VALUES (?,?,?,?,?) ");
 			
 			req.setString(1, object.getNomArticle());
 			req.setInt(2, object.getNutripoint());

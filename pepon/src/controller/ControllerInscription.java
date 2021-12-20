@@ -9,7 +9,6 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import model.User;
-import vue.PanelAcceuilAdministrateur;
 import vue.Frame;
 import vue.PanelInscription;
 import vue.PanelLogin;

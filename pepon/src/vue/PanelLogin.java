@@ -57,8 +57,6 @@ public class PanelLogin extends JPanel {
 			}
 		});
 		
-		
-		
 		JLabel lblNewLabel = new JLabel("Identifiant");
 		lblNewLabel.setBounds(2*longueurMax/8, 2*hauteurMax/8, 105, 16);
 		this.add(lblNewLabel);

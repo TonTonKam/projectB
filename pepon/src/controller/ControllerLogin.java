@@ -19,7 +19,6 @@ import javax.swing.JOptionPane;
 import java.util.regex.Pattern;
 
 import vue.Frame;
-import vue.PanelAcceuilAdministrateur;
 import vue.PanelInscription;
 
 public class ControllerLogin {
@@ -47,9 +46,9 @@ public class ControllerLogin {
 		}
 		else if(usDao.login(identifiant_saisi, pwd_saisie)) {
 			JOptionPane.showMessageDialog(null, "F�licitation");
-			PanelAcceuilAdministrateur acc = new PanelAcceuilAdministrateur(contentPane,longueurMax, hauteurMax);
+			//PanelAcceuilAdministrateur acc = new PanelAcceuilAdministrateur(contentPane,longueurMax, hauteurMax);
 			contentPane.removeAll();
-			contentPane.add(acc);
+			//contentPane.add(acc);
 			contentPane.repaint();
 			contentPane.revalidate();
 			}

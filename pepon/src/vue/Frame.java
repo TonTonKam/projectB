@@ -24,7 +24,6 @@ public class Frame extends JFrame {
 	 */
 	public Frame() {
 		//instanciantion des panels
-		login = new PanelLogin(contentPane,LONGUEURMAX,HAUTEURMAX);
 		
 		pcc = new PanelCommandeClient(LONGUEURMAX, HAUTEURMAX);
 		pasc = new PanelArticleSelectClient(LONGUEURMAX, HAUTEURMAX);
@@ -40,6 +39,7 @@ public class Frame extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		login = new PanelLogin(contentPane,LONGUEURMAX,HAUTEURMAX);
 		
 		contentPane.add(pac);
 		contentPane.add(pmc);
@@ -49,12 +49,13 @@ public class Frame extends JFrame {
 		contentPane.add(pcc);
 		
 		contentPane.add(login);
-		login.setVisible(true);
-		
-		pmc.setVisible(false);
-		pmg.setVisible(false);
-		pmp.setVisible(false);
-		pac.setVisible(false);
+		login.setVisible(false);
+	//debut accueil
+		pmc.setVisible(true);
+		pmg.setVisible(true);
+		pmp.setVisible(true);
+		pac.setVisible(true);
+	//fin accueil
 		pasc.setVisible(false);
 		pcc.setVisible(false);
 	}

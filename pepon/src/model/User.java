@@ -6,10 +6,10 @@ public class User {
 	private String prenom;
 	private String email;
 	private String motPasse;
-	private String idStatut;
+	private int idStatut;
 	private int idUser;
 	
-	public User(String nom, String prenom, String email, String motPasse, String idStatut) {
+	public User(String nom, String prenom, String email, String motPasse, int idStatut) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -28,7 +28,7 @@ public class User {
 	}
 
 
-	public User(String nom, String prenom, String email, String motPasse, String idStatut, int idUser) {
+	public User(String nom, String prenom, String email, String motPasse, int idStatut, int idUser) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -59,7 +59,7 @@ public class User {
 	}
 
 
-	public String getIdStatut() {
+	public int getIdStatut() {
 		return idStatut;
 	}
 

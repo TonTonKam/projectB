@@ -51,10 +51,10 @@ public class Frame extends JFrame {
 		contentPane.add(login);
 		login.setVisible(true);
 		
-		pmc.setVisible(true);
-		pmg.setVisible(true);
-		pmp.setVisible(true);
-		pac.setVisible(true);
+		pmc.setVisible(false);
+		pmg.setVisible(false);
+		pmp.setVisible(false);
+		pac.setVisible(false);
 		pasc.setVisible(false);
 		pcc.setVisible(false);
 	}

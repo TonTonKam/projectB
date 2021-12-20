@@ -60,24 +60,93 @@ public class Main extends JFrame {
 			}
 		});
 	}
-	private JPanel article;
-	private JPanel user;
-	private JPanel categorie;
-	private JPanel commande;
-	private JTextField nom;
-	private JTextField prenom;
-	private JTextField email;
-	private JTextField password;
-	private JTextField text_id_user;
-	private JTable table;
 	
+	//Connection connect = GetConnection.getConnectionMac();
+	Connection connect = GetConnection.getConnectionWindows();
 	
-	Connection connect = GetConnection.getConnection();
+	private JPanel PanelAdminArticle;
+	private JPanel PanelAdminUser;
+	private JPanel PanelAdminCategorie;
+	private JPanel PanelAdminCommande;
+	
+	//frame or panel
+	/*
+	PanelAdminArticle = new JPanel();
+	PanelAdminUser = new JPanel();
+	PanelAdminCategorie = new JPanel();
+	PanelAdminCommande = new JPanel();
+	
+	add(PanelAdminArticle);
+	add(PanelAdminUser);
+	add(PanelAdminCategorie);
+	add(PanelAdminCommande);
+	*/
+	
+	//integrer a un panel???
+	/*
+	
+	/*
+//PanelAdminMenu
+		JButton btnNewButton = new JButton("Utilistaeurs");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ControllerPanelMenuAdmin us = new ControllerPanelMenuAdmin();
+				us.switchPanels(user,layeredPane);
+			}
+		});
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNewButton.setBounds(23, 11, 147, 42);
+		contentPane.add(btnNewButton);
+		
+		JButton btnArticles = new JButton("Articles");
+		btnArticles.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ControllerPanelMenuAdmin us = new ControllerPanelMenuAdmin();
+				us.switchPanels(article,layeredPane);
+			}
+		});
+		btnArticles.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnArticles.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnArticles.setBounds(212, 11, 147, 42);
+		contentPane.add(btnArticles);
+		
+		JButton btnCommandes_1 = new JButton("Commandes");
+		btnCommandes_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ControllerPanelMenuAdmin us = new ControllerPanelMenuAdmin();
+				us.switchPanels(commande,layeredPane);
+			}
+		});
+		btnCommandes_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnCommandes_1.setBounds(408, 11, 147, 42);
+		contentPane.add(btnCommandes_1);
+		
+		
+		
+		JButton btnCommandes = new JButton("Cat\u00E9gories");
+		btnCommandes.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ControllerPanelMenuAdmin us = new ControllerPanelMenuAdmin();
+				us.switchPanels(categorie,layeredPane);
+			}
+		});
+		btnCommandes.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnCommandes.setBounds(611, 11, 157, 42);
+		contentPane.add(btnCommandes);
+		
+	 */
 	private JTextField productText;
 	private JTextField nutripointText;
 	private JTextField priceText;
 	private JTextField categoryText;
-	private JTextField id_articleText;
+	private JTextField idArticleText;
 	private JTable table_1;
 	
 	/**
@@ -93,7 +162,7 @@ public class Main extends JFrame {
 		ControllerArticleAdmin art = new ControllerArticleAdmin();
 		
 		
-		
+		//frame
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, longueur, hauteur);
 		contentPane = new JPanel();
@@ -101,11 +170,13 @@ public class Main extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		//positionnement du panel (mettre sur chaque panel?)
 		JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setBounds(10, 64, 964, 486);
 		contentPane.add(layeredPane);
 		layeredPane.setLayout(new CardLayout(0, 0));
 		
+		// panelAdminUser
 		user = new JPanel();
 		user.setForeground(Color.BLACK);
 		user.setBackground(Color.LIGHT_GRAY);
@@ -164,11 +235,17 @@ public class Main extends JFrame {
 		password.setBounds(154, 187, 212, 20);
 		user.add(password);
 		
+		JTextField status = new JTextField();
+		status.setColumns(10);
+		status.setBounds(154, 230, 212, 22);
+		user.add(status);
+		
+		/*
 		JComboBox status = new JComboBox();
 		status.setModel(new DefaultComboBoxModel(new String[] {"client", "admin"}));
 		status.setBounds(154, 230, 212, 22);
 		user.add(status);
-		
+		*/
 		//*****************************************Ajouter un utilisateur********************************************
 		JButton btnAjouter = new JButton("Ajouter");
 		btnAjouter.setEnabled(false);
@@ -205,23 +282,24 @@ public class Main extends JFrame {
 		btnAjouter.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				String nom_saisie = nom.getText();
-				String prenom_saisie = prenom.getText();
-				String email_saisie = email.getText();
-				String pwd_saisie = password.getText();
-				Object statut_saisie = status.getSelectedItem();
-				User nouvel = new User(nom_saisie, prenom_saisie, email_saisie, pwd_saisie,statut_saisie);
+				String nomSaisie = nom.getText();
+				String prenomSaisie = prenom.getText();
+				String emailSaisie = email.getText();
+				String pwdSaisie = password.getText();
+				int statutSaisie = Integer.parseInt(status.getText());
+				//Object statutSaisie = status.getSelectedItem();
+				User nouvel = new User(nomSaisie, prenomSaisie, emailSaisie, pwdSaisie,statutSaisie);
 				ControllerUserAdmin vider = new ControllerUserAdmin();
 				
-				if(nom_saisie.isEmpty() || prenom_saisie.isEmpty() || email_saisie.isEmpty() || pwd_saisie.isEmpty() ||((String) statut_saisie).isEmpty()) {
+				if(nomSaisie.isEmpty() || prenomSaisie.isEmpty() || emailSaisie.isEmpty() || pwdSaisie.isEmpty() ||(statutSaisie) == 0) {
 					JOptionPane.showMessageDialog(null, "Remplissez tous les champs svp!","Error",JOptionPane.ERROR_MESSAGE);
-				}else if(!email_saisie.isEmpty() && !(Pattern.matches("^[a-zA-Z0-9_.-]+[@][a-zA-Z0-9-]+[.]+[a-zA-Z0-9]+$", email_saisie) )) {
+				}else if(!emailSaisie.isEmpty() && !(Pattern.matches("^[a-zA-Z0-9_.-]+[@][a-zA-Z0-9-]+[.]+[a-zA-Z0-9]+$", emailSaisie) )) {
 					JOptionPane.showMessageDialog(null, "Mail pas valide","Error",JOptionPane.ERROR_MESSAGE);
 				}else {					
 					
-					if(us.mailExist(email_saisie)) {
+					if(us.mailExist(emailSaisie)) {
 						us.ajouter(nouvel);
-						JOptionPane.showMessageDialog(null, "vous etes bien inscrit(e) tant que "+ " "+ statut_saisie );
+						JOptionPane.showMessageDialog(null, "vous etes bien inscrit(e) tant que "+ " "+ statutSaisie );
 					}else {
 						JOptionPane.showMessageDialog(null, "Ce mail existe deja !","Error",JOptionPane.ERROR_MESSAGE);		
 					}	
@@ -244,14 +322,16 @@ public class Main extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				
 				String id, firstname, lastname, mail;
-				Object stat;
+				//Object stat;
+				int stat;
 				firstname =nom.getText();
 				lastname = prenom.getText();
 				mail  = email.getText();
-				stat = status.getSelectedItem();
-				id = text_id_user.getText();	
+				//stat = status.getSelectedItem();
+				stat = Integer.parseInt(status.getText());
+				id = textIdUser.getText();	
 				//Appel de la méthode
-				us.modifier(firstname, lastname, mail, (String) stat, id);
+				us.modifier(firstname, lastname, mail, stat, id);
 				//afficher la table modifiée
 				us.afficherTable(table);
 			}
@@ -265,7 +345,7 @@ public class Main extends JFrame {
 		JButton btnSupprimer = new JButton("Supprimer");
 		btnSupprimer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String id = text_id_user.getText();
+				String id = textIdUser.getText();
 				us.supprimer(id);
 				us.afficherTable(table);	
 			}
@@ -287,18 +367,18 @@ public class Main extends JFrame {
 		
 		//*********************Chercher un utilisateur par id*******************************************************
 		
-		text_id_user = new JTextField();
-		text_id_user.addKeyListener(new KeyAdapter() {
+		textIdUser = new JTextField();
+		textIdUser.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
 				
-				String id = text_id_user.getText();				
+				String id = textIdUser.getText();				
 				us.findById(id,nom,prenom,email,status);
 			}
 		});
-		text_id_user.setColumns(10);
-		text_id_user.setBounds(136, 30, 171, 20);
-		panel_1.add(text_id_user);
+		textIdUser.setColumns(10);
+		textIdUser.setBounds(136, 30, 171, 20);
+		panel_1.add(textIdUser);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(380, 47, 574, 319);
@@ -384,17 +464,17 @@ public class Main extends JFrame {
 		article.add(panel);
 		panel.setLayout(null);
 		//***********************Chercher un article par id*****************************
-		id_articleText = new JTextField();
-		id_articleText.addKeyListener(new KeyAdapter() {
+		idArticleText = new JTextField();
+		idArticleText.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				String id = id_articleText.getText();		
+				String id = idArticleText.getText();		
 				art.findById(id, productText, nutripointText, priceText, categoryText);
 			}
 		});
-		id_articleText.setBounds(123, 39, 203, 25);
-		panel.add(id_articleText);
-		id_articleText.setColumns(10);
+		idArticleText.setBounds(123, 39, 203, 25);
+		panel.add(idArticleText);
+		idArticleText.setColumns(10);
 		
 		JLabel lblNewLabel_4 = new JLabel("ID Article");
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -414,7 +494,7 @@ public class Main extends JFrame {
 		JButton btnClear = new JButton("Effacer");
 		btnClear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				id_articleText.setText("");
+				idArticleText.setText("");
 				art.viderChamps(productText, nutripointText, priceText, categoryText,productText);
 			}
 		});
@@ -432,6 +512,7 @@ public class Main extends JFrame {
 		btnExit.setBounds(725, 400, 178, 55);
 		article.add(btnExit);
 		
+	//******************* COMMANDE **********************//
 		commande = new JPanel();
 		commande.setBackground(Color.LIGHT_GRAY);
 		layeredPane.add(commande, "name_727945092020900");
@@ -440,6 +521,7 @@ public class Main extends JFrame {
 		lblGestionDeCommandes.setFont(new Font("Tahoma", Font.BOLD, 14));
 		commande.add(lblGestionDeCommandes);
 		
+	//******************* CATEGORIE **********************//
 		categorie = new JPanel();
 		categorie.setBackground(Color.LIGHT_GRAY);
 		layeredPane.add(categorie, "name_727948124011100");
@@ -448,6 +530,7 @@ public class Main extends JFrame {
 		lblGestionDeCatgories.setFont(new Font("Tahoma", Font.BOLD, 14));
 		categorie.add(lblGestionDeCatgories);
 		
+	//PanelFrame
 		JButton btnNewButton = new JButton("Utilistaeurs");
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -488,6 +571,8 @@ public class Main extends JFrame {
 		btnCommandes_1.setBounds(408, 11, 147, 42);
 		contentPane.add(btnCommandes_1);
 		
+		
+		
 		JButton btnCommandes = new JButton("Cat\u00E9gories");
 		btnCommandes.addMouseListener(new MouseAdapter() {
 			@Override
@@ -500,7 +585,7 @@ public class Main extends JFrame {
 		btnCommandes.setBounds(611, 11, 157, 42);
 		contentPane.add(btnCommandes);
 		
-		
+	//********??? ********//
 		
 		JButton btnEffacer = new JButton("Effacer");
 		btnEffacer.addActionListener(new ActionListener() {

@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Controller.ControllerArticleAdmin;
 import Controller.ControllerPanelMenuAdmin;
 import Controller.ControllerUserAdmin;
 import Controller.GetConnection;
@@ -13,32 +15,30 @@ import javax.swing.JOptionPane;
 import java.awt.CardLayout;
 import javax.swing.JButton;
 import java.awt.Font;
-import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.regex.Pattern;
 import javax.swing.JTextField;
 import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.CaretEvent;
+import javax.swing.event.CaretListener;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.border.EtchedBorder;
 
-@SuppressWarnings("serial")
+
 public class Main extends JFrame {
 	//Atributs
-	
 	private JPanel contentPane;
 	private final int hauteur = 600;
 	private final int longueur = 1000;
@@ -57,7 +57,6 @@ public class Main extends JFrame {
 			}
 		});
 	}
-	
 	private JPanel article;
 	private JPanel user;
 	private JPanel categorie;
@@ -71,12 +70,27 @@ public class Main extends JFrame {
 	
 	
 	Connection connect = GetConnection.getConnection();
+	private JTextField productText;
+	private JTextField nutripointText;
+	private JTextField priceText;
+	private JTextField categoryText;
+	private JTextField id_articleText;
+	private JTable table_1;
 	
 	/**
 	 * Create the frame.
 	 */
 	//Constructeur de la casse Main
 	public Main() {
+		
+		//Instanciation d'un objet user 
+		ControllerUserAdmin us = new ControllerUserAdmin();
+		
+		//Instanciation d'un objet user 
+		ControllerArticleAdmin art = new ControllerArticleAdmin();
+		
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, longueur, hauteur);
 		contentPane = new JPanel();
@@ -153,10 +167,37 @@ public class Main extends JFrame {
 		user.add(status);
 		
 		//*****************************************Ajouter un utilisateur********************************************
-		
 		JButton btnAjouter = new JButton("Ajouter");
-		//Instanciation d'un objet user 
-		ControllerUserAdmin us = new ControllerUserAdmin();
+		btnAjouter.setEnabled(false);
+		
+		nom.addCaretListener(new CaretListener(){
+			@Override
+			public void caretUpdate(CaretEvent e) {
+				us.activerBtnAjouter(nom, prenom, email, password, btnAjouter);
+				
+			}
+		});	
+		prenom.addCaretListener(new CaretListener(){
+			@Override
+			public void caretUpdate(CaretEvent e) {
+				us.activerBtnAjouter(nom, prenom, email,password, btnAjouter);
+				
+			}
+		});
+		email.addCaretListener(new CaretListener(){
+			@Override
+			public void caretUpdate(CaretEvent e) {
+				us.activerBtnAjouter(nom, prenom, email,password, btnAjouter);
+				
+			}
+		});
+		password.addCaretListener(new CaretListener(){
+			@Override
+			public void caretUpdate(CaretEvent e) {
+				us.activerBtnAjouter(nom, prenom, email,password, btnAjouter);
+				
+			}
+		});
 		
 		btnAjouter.addMouseListener(new MouseAdapter() {
 			@Override
@@ -167,7 +208,11 @@ public class Main extends JFrame {
 				String pwd_saisie = password.getText();
 				Object statut_saisie = status.getSelectedItem();
 				User nouvel = new User(nom_saisie, prenom_saisie, email_saisie, pwd_saisie,statut_saisie);
-				if(!(Pattern.matches("^[a-zA-Z0-9_.-]+[@][a-zA-Z0-9-]+[.]+[a-zA-Z0-9]+$", email_saisie) )) {
+				ControllerUserAdmin vider = new ControllerUserAdmin();
+				
+				if(nom_saisie.isEmpty() || prenom_saisie.isEmpty() || email_saisie.isEmpty() || pwd_saisie.isEmpty() ||((String) statut_saisie).isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Remplissez tous les champs svp!","Error",JOptionPane.ERROR_MESSAGE);
+				}else if(!email_saisie.isEmpty() && !(Pattern.matches("^[a-zA-Z0-9_.-]+[@][a-zA-Z0-9-]+[.]+[a-zA-Z0-9]+$", email_saisie) )) {
 					JOptionPane.showMessageDialog(null, "Mail pas valide","Error",JOptionPane.ERROR_MESSAGE);
 				}else {					
 					
@@ -178,8 +223,9 @@ public class Main extends JFrame {
 						JOptionPane.showMessageDialog(null, "Ce mail existe deja !","Error",JOptionPane.ERROR_MESSAGE);		
 					}	
 				}
+				
 				us.afficherTable(table);
-				ControllerUserAdmin vider = new ControllerUserAdmin();
+				
 				vider.viderChamps(nom, prenom, email, password, status, nom);
 			}
 		});
@@ -244,7 +290,6 @@ public class Main extends JFrame {
 			public void keyReleased(KeyEvent e) {
 				
 				String id = text_id_user.getText();				
-				//ControllerUserAdmin findId = new ControllerUserAdmin();
 				us.findById(id,nom,prenom,email,status);
 			}
 		});
@@ -259,13 +304,130 @@ public class Main extends JFrame {
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		
+		//Afficher la table des utilisateurs
+				us.afficherTable(table);
+				
+		
+		//****************************************************Panel Article**********************************************************
+		
 		article = new JPanel();
 		article.setBackground(Color.LIGHT_GRAY);
 		layeredPane.add(article, "name_727942207939200");
+		article.setLayout(null);
+		
+		JLabel lblNewLabel_3 = new JLabel("Nom de produit");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_3.setBounds(31, 57, 117, 34);
+		article.add(lblNewLabel_3);
 		
 		JLabel lblGestionDarticles = new JLabel("Gestion d'articles");
+		lblGestionDarticles.setBounds(421, 5, 171, 34);
 		lblGestionDarticles.setFont(new Font("Tahoma", Font.BOLD, 14));
 		article.add(lblGestionDarticles);
+		
+		JLabel lblNewLabel_3_1 = new JLabel("Nutripoint");
+		lblNewLabel_3_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_3_1.setBounds(31, 114, 117, 34);
+		article.add(lblNewLabel_3_1);
+		
+		JLabel lblNewLabel_3_2 = new JLabel("Prix");
+		lblNewLabel_3_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_3_2.setBounds(31, 172, 117, 34);
+		article.add(lblNewLabel_3_2);
+		
+		JLabel lblNewLabel_3_3 = new JLabel("Cat\u00E9gorie");
+		lblNewLabel_3_3.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_3_3.setBounds(31, 228, 117, 34);
+		article.add(lblNewLabel_3_3);
+		
+		productText = new JTextField();
+		productText.setBounds(170, 57, 206, 28);
+		article.add(productText);
+		productText.setColumns(10);
+		
+		nutripointText = new JTextField();
+		nutripointText.setColumns(10);
+		nutripointText.setBounds(170, 114, 206, 28);
+		article.add(nutripointText);
+		
+		priceText = new JTextField();
+		priceText.setColumns(10);
+		priceText.setBounds(170, 172, 206, 28);
+		article.add(priceText);
+		
+		categoryText = new JTextField();
+		categoryText.setColumns(10);
+		categoryText.setBounds(170, 228, 206, 28);
+		article.add(categoryText);
+		
+		JButton btnAjout = new JButton("Ajouter");
+		btnAjout.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnAjout.setBounds(29, 318, 100, 34);
+		article.add(btnAjout);
+		
+		JButton btnModif = new JButton("Modifier");
+		btnModif.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnModif.setBounds(153, 318, 100, 34);
+		article.add(btnModif);
+		
+		JButton btnSupp = new JButton("Supprimer");
+		btnSupp.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnSupp.setBounds(276, 318, 100, 34);
+		article.add(btnSupp);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Chercher", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel.setBounds(25, 375, 357, 100);
+		article.add(panel);
+		panel.setLayout(null);
+		//***********************Chercher un article par id*****************************
+		id_articleText = new JTextField();
+		id_articleText.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				String id = id_articleText.getText();		
+				art.findById(id, productText, nutripointText, priceText, categoryText);
+			}
+		});
+		id_articleText.setBounds(123, 39, 203, 25);
+		panel.add(id_articleText);
+		id_articleText.setColumns(10);
+		
+		JLabel lblNewLabel_4 = new JLabel("ID Article");
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_4.setBounds(10, 44, 92, 20);
+		panel.add(lblNewLabel_4);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(396, 57, 558, 315);
+		article.add(scrollPane_1);
+		
+		table_1 = new JTable();
+		scrollPane_1.setViewportView(table_1);
+		
+		//*****************Afficher la table des utilisateurs**********************
+				art.afficherTableArticle(table_1);
+		// Bouton Effacer 
+		JButton btnClear = new JButton("Effacer");
+		btnClear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				id_articleText.setText("");
+				art.viderChamps(productText, nutripointText, priceText, categoryText,productText);
+			}
+		});
+		btnClear.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnClear.setBounds(464, 400, 178, 55);
+		article.add(btnClear);
+		
+		JButton btnExit = new JButton("Quitter");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}	
+		});
+		btnExit.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnExit.setBounds(725, 400, 178, 55);
+		article.add(btnExit);
 		
 		commande = new JPanel();
 		commande.setBackground(Color.LIGHT_GRAY);
@@ -335,13 +497,13 @@ public class Main extends JFrame {
 		btnCommandes.setBounds(611, 11, 157, 42);
 		contentPane.add(btnCommandes);
 		
-		us.afficherTable(table);
+		
 		
 		JButton btnEffacer = new JButton("Effacer");
 		btnEffacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				us.viderChamps(nom, prenom, email, password, status, nom);
+				text_id_user.setText("");
 			}
 		});
 		btnEffacer.setFont(new Font("Tahoma", Font.BOLD, 12));

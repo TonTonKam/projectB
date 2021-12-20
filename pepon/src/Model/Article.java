@@ -6,14 +6,14 @@ public class Article {
 	private String nom_article;
 	private int nutripoint; 
 	private double prix;
-	private int categorie;
+	private int id_categorie;
 	private int id_article;
-	public Article(String nom_article, int nutripoint, double prix, int categorie) {
+	public Article(String nom_article, int nutripoint, double prix, int id_categorie) {
 		super();
 		this.nom_article = nom_article;
 		this.nutripoint = nutripoint;
 		this.prix = prix;
-		this.categorie = categorie;
+		this.id_categorie = id_categorie;
 	}
 	
 	
@@ -22,12 +22,12 @@ public class Article {
 	}
 
 
-	public Article(String nom_article, int nutripoint, double prix, int categorie, int id_article) {
+	public Article(String nom_article, int nutripoint, double prix, int id_categorie, int id_article) {
 		super();
 		this.nom_article = nom_article;
 		this.nutripoint = nutripoint;
 		this.prix = prix;
-		this.categorie = categorie;
+		this.id_categorie = id_categorie;
 		this.id_article = id_article;
 	}
 
@@ -50,7 +50,7 @@ public class Article {
 
 
 	public int getCategorie() {
-		return categorie;
+		return id_categorie;
 	}
 
 

@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -58,6 +59,22 @@ public class ControllerUserAdmin {
 					e.printStackTrace();
 				}
 			}
+			
+			//Activer le bouton Ajouter quant'il tous les champs sont saisis pour plus de sécurité
+			
+			public void activerBtnAjouter( JTextField nom, JTextField prenom, JTextField email, JTextField password, JButton btn) {
+				String nom_saisie = nom.getText();
+				String prenom_saisie = prenom.getText();
+				String email_saisie = email.getText();
+				String pass_saisie = password.getText();
+				
+				if((!nom_saisie.isEmpty()) && (!prenom_saisie.isEmpty()) && (!email_saisie.isEmpty())&& (!pass_saisie.isEmpty())) {
+					btn.setEnabled(true);
+				}else {
+					btn.setEnabled(false);
+				}
+			}
+			
 			//Méthode  pour vider les champs
 			public void viderChamps(JTextField a,JTextField b,JTextField c,JTextField d,JComboBox status,JTextField f) {
 				a.setText("");

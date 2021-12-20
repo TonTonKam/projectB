@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,7 +13,8 @@ import net.proteanit.sql.DbUtils;
 
 public class ControllerArticleAdmin {
 	//Appel de la connection
-	Connection connect = GetConnection.getConnection();
+	//Connection connect = GetConnection.getConnectionMac();
+	Connection connect = GetConnection.getConnectionWindows();
 	
 	public void afficherTableArticle(JTable table) {
 		

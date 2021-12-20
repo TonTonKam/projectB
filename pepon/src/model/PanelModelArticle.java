@@ -7,8 +7,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import controler.ArticleDao;
-import controler.ControlerArticleClient;
+import controller.ArticleDao;
+import controller.ControlerArticleClient;
 import vue.PanelArticleSelectClient;
 
 public class PanelModelArticle extends JPanel {
@@ -26,7 +26,7 @@ public class PanelModelArticle extends JPanel {
 		setBounds(longueurM / 4 + 10, 210, longueurM * 3 / 4 - 40, 100);
 		
 		labelImg = new JLabel("IMG");
-		add(labelImg);
+		this.add(labelImg);
 		
 		labelNomArticle = new JLabel();
 		labelNomArticle.setText(article.getNomArticle());

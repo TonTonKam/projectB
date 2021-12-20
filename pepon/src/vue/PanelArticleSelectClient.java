@@ -8,8 +8,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import controler.ArticleDao;
-import controler.ControlerArticleClient;
+import controller.ArticleDao;
+import controller.ControlerArticleClient;
 import model.Article;
 import model.ColorPanel;
 import model.PanelModelArticle;

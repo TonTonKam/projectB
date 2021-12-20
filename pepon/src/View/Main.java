@@ -5,11 +5,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Controller.ControllerArticleAdmin;
-import Controller.ControllerPanelMenuAdmin;
-import Controller.ControllerUserAdmin;
-import Controller.GetConnection;
-import Model.User;
+import model.User;
+
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import java.awt.CardLayout;
@@ -28,6 +25,12 @@ import javax.swing.SwingConstants;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
+
+import controller.ControllerArticleAdmin;
+import controller.ControllerPanelMenuAdmin;
+import controller.ControllerUserAdmin;
+import controller.GetConnection;
+
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTable;

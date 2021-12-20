@@ -1,4 +1,4 @@
-package controler;
+package controller;
 
 import model.PanelModelArticle;
 import vue.PanelArticleSelectClient;

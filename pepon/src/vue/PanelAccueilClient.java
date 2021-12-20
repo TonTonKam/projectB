@@ -2,7 +2,7 @@ package vue;
 
 import javax.swing.JPanel;
 
-import controler.ControlerAccueilClient;
+import controller.ControlerAccueilClient;
 import model.ColorPanel;
 
 public class PanelAccueilClient extends JPanel{

@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;

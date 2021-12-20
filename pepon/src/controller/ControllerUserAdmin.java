@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,13 +11,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-import Model.User;
+import model.User;
 import net.proteanit.sql.DbUtils;
 
 public class ControllerUserAdmin {
 	
 			//Appel de la connection
-			Connection connect = GetConnection.getConnection();
+			//Connection connect = GetConnection.getConnectionMac();
+			Connection connect = GetConnection.getConnectionWindows();
 			public static User currentUser ;
 			
 			public boolean mailExist(String mail) {
@@ -44,13 +45,13 @@ public class ControllerUserAdmin {
 			public void ajouter(User user) {
 				
 				try {
-					PreparedStatement sql = connect.prepareStatement("INSERT INTO user (nom, prenom,email,mot_passe, statut)"
+					PreparedStatement sql = connect.prepareStatement("INSERT INTO user (nom, prenom, email, mot_passe, statut)"
 							+ " VALUES (?,?,?,PASSWORD(?),?)	");
 					sql.setString(1, user.getNom());
 					sql.setString(2, user.getPrenom());
 					sql.setString(3, user.getEmail());
-					sql.setString(4, user.getMot_passe());
-					sql.setString(5, user.getStatut().toString());
+					sql.setString(4, user.getMotPasse());
+					sql.setString(5, user.getIdStatut().toString());
 					
 					sql.executeUpdate();
 					

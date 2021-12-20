@@ -2,7 +2,7 @@ package vue;
 
 import javax.swing.*;
 
-import controler.ControllerMenuClient;
+import controller.ControllerMenuClient;
 import model.ColorPanel;
 
 import java.awt.event.MouseAdapter;

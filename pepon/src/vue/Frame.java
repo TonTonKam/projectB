@@ -10,6 +10,7 @@ public class Frame extends JFrame {
 	private final int LONGUEURMAX = 1000;
 	private final int HAUTEURMAX = 800;
 
+	private PanelLogin login;
 	private PanelMenuClient pmc;
 	private PanelMenuGeneral pmg;
 	private PanelMenuPanier pmp;
@@ -23,6 +24,8 @@ public class Frame extends JFrame {
 	 */
 	public Frame() {
 		//instanciantion des panels
+		login = new PanelLogin(contentPane,LONGUEURMAX,HAUTEURMAX);
+		
 		pcc = new PanelCommandeClient(LONGUEURMAX, HAUTEURMAX);
 		pasc = new PanelArticleSelectClient(LONGUEURMAX, HAUTEURMAX);
 		pac = new PanelAccueilClient(pasc, LONGUEURMAX, HAUTEURMAX);
@@ -30,6 +33,7 @@ public class Frame extends JFrame {
 		pmg = new PanelMenuGeneral(LONGUEURMAX);
 		pmp = new PanelMenuPanier(pcc, pasc, pac, LONGUEURMAX, HAUTEURMAX);
 
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, LONGUEURMAX, HAUTEURMAX);
 		contentPane = new JPanel();
@@ -43,6 +47,9 @@ public class Frame extends JFrame {
 		contentPane.add(pmp);
 		contentPane.add(pasc);
 		contentPane.add(pcc);
+		
+		contentPane.add(login);
+		login.setVisible(true);
 		
 		pmc.setVisible(true);
 		pmg.setVisible(true);

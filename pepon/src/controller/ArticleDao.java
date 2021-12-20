@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,13 +7,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Model.Article;
+import model.Article;
 
 public class ArticleDao {
 
-	Connection connect = GetConnection.getConnectionWindows();
+	Connection connect = GetConnection.getConnectionMac();
+	//Connection connect = GetConnection.getConnectionWindows();
 	
-	//ajout d'article
 	public boolean ajout(Article object) {
 		boolean message = false;
 		try {
@@ -231,5 +231,4 @@ public class ArticleDao {
 		}
 		return article;
 	}
-
 }

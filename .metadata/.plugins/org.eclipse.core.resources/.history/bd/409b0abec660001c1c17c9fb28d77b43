@@ -1,0 +1,18 @@
+package vue;
+
+import javax.swing.*;
+import javax.swing.JPanel;
+
+public class PanelCommandClient extends JPanel {
+
+	
+	private JLabel labelTest;
+	/**
+	 * Create the panel.
+	 */
+	public PanelCommandClient() {
+
+		
+	}
+
+}

@@ -1,0 +1,43 @@
+package vue;
+
+import javax.swing.*;
+
+import model.ColorPanel;
+
+public class PanelCommandeClient extends JPanel {
+
+	//attributs
+	private int longueurMenu, longueur, haut;
+	private JScrollPane scrollPan;
+	private JLabel labelPanierNutripoint, labelAfficheMoyenNutripoint, labelNomNbArticleTotal, labelAfficheNbArticleTotal;
+
+	//constructor
+	public PanelCommandeClient(int longueurM, int hauteurM) {
+
+		ColorPanel color = new ColorPanel();
+		setBackground(color.vertClair());
+		
+		longueurMenu = longueurM / 4;
+		longueur = longueurM * 3 / 4 ;
+		haut = hauteurM - 200;
+		
+		setLayout(null);
+		setBounds(longueurMenu, 200, longueur, haut);
+		
+		scrollPan = new JScrollPane();
+		scrollPan.setBounds(getBounds());
+		scrollPan.setBackground(ColorPanel.vertFoncer());
+		add(scrollPan);
+		
+		labelPanierNutripoint = new JLabel();
+		labelAfficheMoyenNutripoint = new JLabel();
+		labelNomNbArticleTotal = new JLabel();
+		labelAfficheNbArticleTotal = new JLabel();
+		
+		scrollPan.add(labelPanierNutripoint);
+		scrollPan.add(labelAfficheMoyenNutripoint);
+		scrollPan.add(labelNomNbArticleTotal);
+		scrollPan.add(labelAfficheNbArticleTotal);
+	}
+
+}

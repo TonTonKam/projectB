@@ -27,8 +27,7 @@ public class PanelArticleSelectClient extends JPanel {
 	//constructor
 	public PanelArticleSelectClient(int longueurM, int hauteurM) {
 		artDao = new ArticleDao();
-		ColorPanel color = new ColorPanel();
-		setBackground(color.vertClair());
+		setBackground(ColorPanel.vertClair());
 		
 		longueurMenu = longueurM / 4;
 		longueur = longueurM * 3 / 4 ;
@@ -43,19 +42,15 @@ public class PanelArticleSelectClient extends JPanel {
 		
 		//erreur objet null
 		labelNom = new JLabel();
-		//labelNom.setText(controlArt.readIdArticle(PanelModelArticle.modelIdArticle).getNomArticle());
 		add(labelNom);
 		
 		labelNomCategorie = new JLabel();
-		//labelNom.setText(artDao.idCategorieToString(controlArt.readIdArticle(PanelModelArticle.modelIdArticle).getIdArticle()));
 		add(labelNomCategorie);
 		
 		labelNutripoint = new JLabel();
-		//labelNutripoint.setText(String.valueOf(controlArt.readIdArticle(PanelModelArticle.modelIdArticle).getNutripoint()));
 		add(labelNutripoint);
 		
 		labelPrix = new JLabel();
-		//labelPrix.setText(Double.toString(controlArt.readIdArticle(PanelModelArticle.modelIdArticle).getPrix()));
 		add(labelPrix);
 		
 		labelNomQuantite = new JLabel("Quantite :");
@@ -71,7 +66,14 @@ public class PanelArticleSelectClient extends JPanel {
 		btnAjouterCommande.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				
+				/*
+				 * creer dans la table commande LA commande
+				 * "INSERT INTO commande (id_commande, date) VALUES (null, now())";
+				 */
+				/*
+				 * ajouter(INSERT INTO) dans la table detail l'article + la quantite =>
+				 * detail_commande.prix = article.prix * detail_commande.quantite
+				 */
 			}
 		});
 		add(btnAjouterCommande);
@@ -91,36 +93,22 @@ public class PanelArticleSelectClient extends JPanel {
 	}
 
 	//getter & setter
+	//remaniment des setter pour modifier le contenu et pas le JLabel 
+	
 	public JTextField getTextFieldQuantite() {
 		return textFieldQuantite;
-	}
-
-	public JLabel getLabelNom() {
-		return labelNom;
 	}
 
 	public void setLabelNom(String labelNom) {
 		this.labelNom.setText(labelNom);
 	}
 
-	public JLabel getLabelNomCategorie() {
-		return labelNomCategorie;
-	}
-
 	public void setLabelNomCategorie(String labelNomCategorie) {
 		this.labelNomCategorie.setText(labelNomCategorie);
 	}
 
-	public JLabel getLabelNutripoint() {
-		return labelNutripoint;
-	}
-
 	public void setLabelNutripoint(int labelNutripoint) {
 		this.labelNutripoint.setText(Integer.toString(labelNutripoint));
-	}
-
-	public JLabel getLabelPrix() {
-		return labelPrix;
 	}
 
 	public void setLabelPrix(Double labelPrix) {

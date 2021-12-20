@@ -15,7 +15,7 @@ public class PanelMenuPanier extends JPanel {
 	private JButton btnCommande;
 	
 	//constructor
-	public PanelMenuPanier(int longueurM, int hauteurM) {
+	public PanelMenuPanier(JPanel expedition, JPanel reception1, JPanel reception2, int longueurM, int hauteurM) {
 		setBackground(new Color(128, 128, 255));
 		int longueur = longueurM / 4;
 		int haut = hauteurM - 200;
@@ -43,6 +43,9 @@ public class PanelMenuPanier extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				//envoie vers la page CommandeClient
+				expedition.setVisible(true);
+				reception1.setVisible(false);
+				reception2.setVisible(false);
 			}
 		});
 		add(btnCommande);

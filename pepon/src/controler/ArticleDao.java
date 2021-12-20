@@ -13,8 +13,8 @@ public class ArticleDao {
 
 	Connection connect = GetConnection.getConnectionWindows();
 	
+	//ajout d'article
 	public boolean ajout(Article object) {
-		
 		boolean message = false;
 		try {
 
@@ -61,6 +61,7 @@ public class ArticleDao {
 		return listeArticle;
 	}
 	
+	//afficher une categorie uniquement
 	public List<Article>  readCategorieLegumes(){
 		List<Article> listeArticle = new ArrayList<>();
 		
@@ -82,6 +83,7 @@ public class ArticleDao {
 		return listeArticle;
 	}
 	
+	//afficher une categorie uniquement
 	public List<Article>  readCategorieFruits(){
 		List<Article> listeArticle = new ArrayList<>();
 		
@@ -103,6 +105,7 @@ public class ArticleDao {
 		return listeArticle;
 	}
 	
+	//afficher une categorie uniquement
 	public List<Article>  readCategorieCharcuteries(){
 		List<Article> listeArticle = new ArrayList<>();
 		
@@ -124,6 +127,7 @@ public class ArticleDao {
 		return listeArticle;
 	}
 	
+	//afficher une categorie uniquement
 	public List<Article>  readCategorieBoisson(){
 		List<Article> listeArticle = new ArrayList<>();
 		
@@ -145,6 +149,7 @@ public class ArticleDao {
 		return listeArticle;
 	}
 	
+	//afficher une categorie uniquement
 	public List<Article>  readCategorieConcerves(){
 		List<Article> listeArticle = new ArrayList<>();
 		
@@ -165,6 +170,7 @@ public class ArticleDao {
 		return listeArticle;
 	}
 
+	//cherche id d'un article est en ressortir une list??
 	public List<Article> findById(int id) {
 		List<Article> listearticle = new ArrayList<>();
 		try {
@@ -186,6 +192,7 @@ public class ArticleDao {
 		return listearticle;
 	}
 	
+	//transforme idCategorie en string
 	public String idCategorieToString(int idCategorie) {
 		String nomCate = null; 
 		try {

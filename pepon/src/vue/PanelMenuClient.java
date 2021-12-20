@@ -19,8 +19,7 @@ public class PanelMenuClient extends JPanel {
 	 */
 	public PanelMenuClient(JPanel panelGeneral, PanelArticleSelectClient panelExpedition, int longueurM) {
 		controlMC = new ControllerMenuClient();
-		ColorPanel color = new ColorPanel();
-		setBackground(color.vertFoncer());
+		setBackground(ColorPanel.vertFoncer());
 		setBounds(0, 120, longueurM, 80);
 		
 		btnAll = new JButton("tous afficher");

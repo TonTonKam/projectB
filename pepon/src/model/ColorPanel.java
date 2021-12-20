@@ -4,11 +4,11 @@ import java.awt.Color;
 
 public class ColorPanel {
 
-	public Color vertClair() {
+	public static Color vertClair() {
 		return new Color(0, 234, 117);
 	}
 	
-	public Color vertFoncer() {
+	public static Color vertFoncer() {
 		return new Color(34, 177, 76);
 	}
 }

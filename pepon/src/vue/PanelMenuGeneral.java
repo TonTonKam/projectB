@@ -18,8 +18,7 @@ public class PanelMenuGeneral extends JPanel {
 	 * Create the panel.
 	 */
 	public PanelMenuGeneral(int longueurM) {
-		ColorPanel color = new ColorPanel();
-		setBackground(color.vertClair());
+		setBackground(ColorPanel.vertClair());
 		setBackground(new Color(0, 234, 117));
 		setBounds(0, 0, longueurM, 120);
 		//setLayout(new SpringLayout());

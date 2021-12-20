@@ -17,7 +17,7 @@ import javax.swing.*;
 public class PanelAdminMenu extends JPanel {
 
 	//attributs
-	ControllerPanelMenuAdmin us = new ControllerPanelMenuAdmin();
+	ControllerPanelMenuAdmin us;
 
 	//constructor
 	public PanelAdminMenu() {
@@ -30,7 +30,8 @@ public class PanelAdminMenu extends JPanel {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				us.switchPanels(panelUser,layeredPane);
+				//us = new ControllerPanelMenuAdmin()
+				//us.switchPanels(panelUser,layeredPane);
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -41,7 +42,8 @@ public class PanelAdminMenu extends JPanel {
 		btnArticles.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				us.switchPanels(panelArticle,layeredPane);
+				//us = new ControllerPanelMenuAdmin()
+				//us.switchPanels(panelArticle,layeredPane);
 			}
 		});
 		btnArticles.addActionListener(new ActionListener() {
@@ -56,7 +58,8 @@ public class PanelAdminMenu extends JPanel {
 		btnCommandes_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				us.switchPanels(panelCommande,layeredPane);
+				//us = new ControllerPanelMenuAdmin()
+				//us.switchPanels(panelCommande,layeredPane);
 			}
 		});
 		btnCommandes_1.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -69,7 +72,8 @@ public class PanelAdminMenu extends JPanel {
 		btnCommandes.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				us.switchPanels(panelCategorie,layeredPane);
+				//us = new ControllerPanelMenuAdmin()
+				//us.switchPanels(panelCategorie,layeredPane);
 			}
 		});
 		btnCommandes.setFont(new Font("Tahoma", Font.BOLD, 15));

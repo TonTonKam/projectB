@@ -11,8 +11,8 @@ import model.Article;
 
 public class ArticleDao {
 
-	Connection connect = GetConnection.getConnectionMac();
-	//Connection connect = GetConnection.getConnectionWindows();
+	//Connection connect = GetConnection.getConnectionMac();
+	Connection connect = GetConnection.getConnectionWindows();
 	
 	public boolean ajout(Article object) {
 		boolean message = false;

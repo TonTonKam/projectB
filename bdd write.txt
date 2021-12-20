@@ -1,0 +1,13 @@
+CREATE TABLE pepon.user ( id_user INT NOT NULL AUTO_INCREMENT , nom VARCHAR(255) NOT NULL , prenom VARCHAR(255) NOT NULL , email VARCHAR(255) NOT NULL , mot_passe VARCHAR(255) NOT NULL , id_statut INT NOT NULL , PRIMARY KEY (id_user)) ENGINE = InnoDB;
+CREATE TABLE pepon.article ( id_article INT NOT NULL AUTO_INCREMENT , nom_article VARCHAR(255) NOT NULL , nutripoint INT NOT NULL , prix DOUBLE NOT NULL , id_categorie INT NOT NULL , PRIMARY KEY (id_article)) ENGINE = InnoDB;
+CREATE TABLE pepon.categorie ( id_categorie INT NOT NULL AUTO_INCREMENT , libelle VARCHAR(255) NOT NULL , PRIMARY KEY (id_categorie)) ENGINE = InnoDB;
+CREATE TABLE pepon.statut ( id_statut INT NOT NULL , libelle VARCHAR(255) NOT NULL , PRIMARY KEY (id_statut)) ENGINE = InnoDB;
+CREATE TABLE pepon.commande ( id_commande INT NOT NULL AUTO_INCREMENT , date_commande DATE NOT NULL , PRIMARY KEY (id_commande)) ENGINE = InnoDB;
+CREATE TABLE pepon.detail_commande ( id_commande INT NOT NULL , id_article INT NOT NULL , id_user INT NOT NULL , prix DOUBLE NOT NULL , quantite INT NOT NULL , PRIMARY KEY (id_commande)) ENGINE = InnoDB;
+
+ALTER TABLE user ADD CONSTRAINT fk_id_statut FOREIGN KEY (id_statut) REFERENCES statut(id_statut) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE article ADD CONSTRAINT fk_id_categorie FOREIGN KEY (id_categorie) REFERENCES categorie(id_categorie) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE detail_commande ADD CONSTRAINT fk_id_commande FOREIGN KEY (id_commande) REFERENCES commande(id_commande) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE detail_commande ADD CONSTRAINT fk_id_user FOREIGN KEY (id_user) REFERENCES user(id_user) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE detail_commande ADD CONSTRAINT fk_id_article FOREIGN KEY (id_article) REFERENCES article(id_article) ON DELETE RESTRICT ON UPDATE RESTRICT;
+

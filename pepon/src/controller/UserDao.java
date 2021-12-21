@@ -13,7 +13,7 @@ public class UserDao {
 	//Appel de la connection
 		//Connection connect = GetConnection.getConnectionMac();
 		Connection connect = GetConnection.getConnectionWindows();
-		public static User currentUser ;
+
 		private JTable table;
 		
 		public boolean mailExist(String email) {
@@ -68,7 +68,7 @@ public class UserDao {
 				ResultSet rs = sql.executeQuery();
 				
 				if(rs.next()) {
-					currentUser = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"));
+					//currentUser = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"));
 					msg = true;
 				}
 				

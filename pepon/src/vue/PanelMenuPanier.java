@@ -34,6 +34,8 @@ public class PanelMenuPanier extends JPanel {
 		 * -receptionne la commande
 		 * -permet de visualiser tous les articles commander de facon
 		 * simplifier avec juste NomArticle + Quantite
+		 * prixTotal affiche le calcule
+		 * le panier affiche la contenance de la panier de l'utilisateur connecte
 		 */
 		areaPanier = new JTextArea("Salut la team comment vous allez?");
 		add(areaPanier);
@@ -65,8 +67,9 @@ public class PanelMenuPanier extends JPanel {
 		return areaPanier;
 	}
 
-	public void setAreaPanier(JTextArea areaPanier) {
-		this.areaPanier = areaPanier;
+	//manipulation du contenu du areaText
+	public void setAreaPanier(String areaPanier) {
+		this.areaPanier.setText(areaPanier);
 	}
 
 }

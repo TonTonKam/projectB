@@ -17,7 +17,6 @@ public class PanelModelArticle extends JPanel {
 		labelCategorie;
 	private JButton btnConsulter;
 	private ArticleDao artDao = new ArticleDao();
-	public static int modelIdArticle;
 	
 	/**
 	 * Create the panel.
@@ -33,7 +32,7 @@ public class PanelModelArticle extends JPanel {
 		add(labelNomArticle);
 		
 		labelNutripoint = new JLabel();
-		labelNutripoint.setText(String.valueOf(article.getNutripoint()));
+		labelNutripoint.setText(String.valueOf(article.getNutripoint() + " /100"));
 		add(labelNutripoint);
 		
 		labelPrix = new JLabel();
@@ -53,7 +52,7 @@ public class PanelModelArticle extends JPanel {
 			public void mouseClicked(MouseEvent arg0) {
 				panelRecep.setVisible(false);
 				panelExpedition.setVisible(true);
-				modelIdArticle = article.getIdArticle();
+				VarStatic.IdArticleModelStatic = article.getIdArticle();
 				
 				ControlerArticleClient controlArt = new ControlerArticleClient();
 				controlArt.modifPanArticle(panelExpedition);

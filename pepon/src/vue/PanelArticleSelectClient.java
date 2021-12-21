@@ -10,9 +10,11 @@ import javax.swing.JTextField;
 
 import controller.ArticleDao;
 import controller.ControlerArticleClient;
+import controller.UserDao;
 import model.Article;
 import model.ColorPanel;
 import model.PanelModelArticle;
+import model.VarStatic;
 
 public class PanelArticleSelectClient extends JPanel {
 
@@ -68,12 +70,19 @@ public class PanelArticleSelectClient extends JPanel {
 			public void mouseClicked(MouseEvent arg0) {
 				/*
 				 * creer dans la table commande LA commande
-				 * "INSERT INTO commande (id_commande, date) VALUES (null, now())";
+				 * "INSERT INTO commande (id_commande, date, id_user) VALUES (null, now(), currentUser)";
 				 */
+				controlArt.creerCommande();
 				/*
-				 * ajouter(INSERT INTO) dans la table detail l'article + la quantite =>
-				 * detail_commande.prix = article.prix * detail_commande.quantite
+				 * ajouterPanier(INSERT INTO) dans la table panier + la quantite =>
+				 * INSERT INTO panier (id_commande, id_article, quantite) VALUES (commande.last_id_bdd(), this.article.idArticle, 2)
 				 */
+				
+				/*
+				 * dans commande le calcule de l'article + quantite est mis dans prixTotal
+				 */
+				controlArt.ajouterDetail(VarStatic.idCommandeStatic, VarStatic.IdArticleModelStatic , Integer.parseInt(textFieldQuantite.getText()));
+				
 			}
 		});
 		add(btnAjouterCommande);
@@ -107,12 +116,12 @@ public class PanelArticleSelectClient extends JPanel {
 		this.labelNomCategorie.setText(labelNomCategorie);
 	}
 
-	public void setLabelNutripoint(int labelNutripoint) {
-		this.labelNutripoint.setText(Integer.toString(labelNutripoint));
+	public void setLabelNutripoint(String labelNutripoint) {
+		this.labelNutripoint.setText(labelNutripoint);
 	}
 
-	public void setLabelPrix(Double labelPrix) {
-		this.labelPrix.setText(Double.toString(labelPrix));
+	public void setLabelPrix(String labelPrix) {
+		this.labelPrix.setText(labelPrix);
 	}
 
 	

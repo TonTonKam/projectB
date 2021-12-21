@@ -11,6 +11,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 import controller.ControllerPanelMenuAdmin;
+import model.ColorPanel;
 
 import javax.swing.*;
 
@@ -21,11 +22,15 @@ public class PanelAdminMenu extends JPanel {
 
 	//constructor
 	public PanelAdminMenu() {
+		
 		JLayeredPane layeredPane = new JLayeredPane();
-		layeredPane.setBounds(10, 64, 964, 486);
+		layeredPane.setBounds(0, 0, 964, 486);
 		add(layeredPane);
 		layeredPane.setLayout(new CardLayout(0, 0));
-
+		
+		setBounds(10, 64, 964, 486);
+		setBackground(ColorPanel.vertFoncer());
+		
 		JButton btnNewButton = new JButton("Utilistaeurs");
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -44,10 +49,6 @@ public class PanelAdminMenu extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 				//us = new ControllerPanelMenuAdmin()
 				//us.switchPanels(panelArticle,layeredPane);
-			}
-		});
-		btnArticles.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		btnArticles.setFont(new Font("Tahoma", Font.BOLD, 15));

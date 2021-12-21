@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 
 import controller.ArticleDao;
 import controller.ControlerArticleClient;
+import controller.ControllerMenuPanier;
 import controller.UserDao;
 import model.Article;
 import model.ColorPanel;
@@ -25,9 +26,10 @@ public class PanelArticleSelectClient extends JPanel {
 	private JButton btnAjouterCommande, btnPrecedent;
 	private ArticleDao artDao;
 	private ControlerArticleClient controlArt;
+	private ControllerMenuPanier controlPanier;
 
 	//constructor
-	public PanelArticleSelectClient(int longueurM, int hauteurM) {
+	public PanelArticleSelectClient(PanelMenuPanier panelMenu, int longueurM, int hauteurM) {
 		artDao = new ArticleDao();
 		setBackground(ColorPanel.vertClair());
 		
@@ -81,11 +83,20 @@ public class PanelArticleSelectClient extends JPanel {
 				/*
 				 * dans commande le calcule de l'article + quantite est mis dans prixTotal
 				 */
-				controlArt.ajouterDetail(VarStatic.idCommandeStatic, VarStatic.IdArticleModelStatic , Integer.parseInt(textFieldQuantite.getText()));
+				controlArt.ajouterDetail(VarStatic.idCommandeStatic, VarStatic.IdArticleStatic,
+						Integer.parseInt(textFieldQuantite.getText()));
 				
+				//refresh PanelMenuPanier
+				controlPanier = new ControllerMenuPanier();
+				controlPanier.affichePanierClient(panelMenu);
+				
+				//retourner a la fonction menuClient
+				setVisible(false);
+				//panelAccueilClient.setVisible(true);
 			}
 		});
 		add(btnAjouterCommande);
+		
 		
 		//renvoie sur la page AccueilClient
 		btnPrecedent = new JButton("Précédent");
@@ -97,7 +108,6 @@ public class PanelArticleSelectClient extends JPanel {
 			}
 		});
 		add(btnPrecedent);
-		
 
 	}
 

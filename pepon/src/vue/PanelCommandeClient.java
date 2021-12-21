@@ -14,7 +14,9 @@ public class PanelCommandeClient extends JPanel {
 	private int longueurMenu, longueur, haut;
 	private JScrollPane scrollPan;
 	private JPanel panScroll;
-	private JLabel labelPanierNutripoint, labelAfficheMoyenNutripoint, labelNomNbArticleTotal, labelAfficheNbArticleTotal;
+	private JLabel labelPanierNutripoint, labelAfficheMoyenNutripoint,
+		labelNomNbArticleTotal, labelAfficheNbArticleTotal, labelAffichePrixTotal, labelPrixTotal;
+	//label test
 	private JLabel labelPanierNutripoint1, labelAfficheMoyenNutripoint1, labelNomNbArticleTotal1, labelAfficheNbArticleTotal1;
 	private JButton btnValidation, btnPrecedent;
 
@@ -58,8 +60,15 @@ public class PanelCommandeClient extends JPanel {
 		labelAfficheNbArticleTotal = new JLabel("5");
 		labelAfficheNbArticleTotal.setBounds(longueur / 2 + 30, 270, 45, 20);
 		
+		labelAffichePrixTotal = new JLabel("Total achat");
+		labelAffichePrixTotal.setBounds(longueur / 2 + 80, 450, 200, 20);
+		
+		labelPrixTotal = new JLabel("prix €");
+		labelPrixTotal.setBounds(longueur / 2 + 150, 450, 200, 20);
+		
 		btnValidation = new JButton("Validation d'achat");
 		btnValidation.setBounds(longueur / 2 + 30, 500, 200, 20);
+		
 		btnValidation.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -68,6 +77,7 @@ public class PanelCommandeClient extends JPanel {
 			}
 		});
 		
+		/*
 		btnPrecedent = new JButton("Precedent");
 		btnPrecedent.setBounds(longueur / 2 + 30, 520, 200, 20);
 		btnPrecedent.addMouseListener(new MouseAdapter() {
@@ -78,15 +88,18 @@ public class PanelCommandeClient extends JPanel {
 				//PanelAccueilClient.setVisible(true);
 			}
 		});
-		
+		*/
 		
 		add(labelPanierNutripoint);
 		add(labelAfficheMoyenNutripoint);
 		add(labelNomNbArticleTotal);
 		add(labelAfficheNbArticleTotal);
 		add(btnValidation);
-		add(btnPrecedent);
+		add(labelAffichePrixTotal);
+		add(labelPrixTotal);
+		//add(btnPrecedent);
 		
+		//scrollPanel
 		panScroll.add(labelPanierNutripoint1);
 		panScroll.add(labelAfficheMoyenNutripoint1);
 		panScroll.add(labelNomNbArticleTotal1);

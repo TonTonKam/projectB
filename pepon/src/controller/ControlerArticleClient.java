@@ -15,13 +15,13 @@ public class ControlerArticleClient {
 	public void modifPanArticle(PanelArticleSelectClient panelArticle) {
 		ArticleDao artDao = new ArticleDao();
 		
-		if(VarStatic.IdArticleModelStatic != 0) {
-			artDao.readIdArticle(VarStatic.IdArticleModelStatic);
+		if(VarStatic.IdArticleStatic != 0) {
+			artDao.readIdArticle(VarStatic.IdArticleStatic);
 			
-			panelArticle.setLabelNom(artDao.readIdArticle(VarStatic.IdArticleModelStatic).getNomArticle());
-			panelArticle.setLabelNomCategorie(artDao.idCategorieToString(artDao.readIdArticle(VarStatic.IdArticleModelStatic).getIdCategorie()));
-			panelArticle.setLabelNutripoint(String.valueOf(artDao.readIdArticle(VarStatic.IdArticleModelStatic).getNutripoint()) + " /100");
-			panelArticle.setLabelPrix(Double.toString(artDao.readIdArticle(VarStatic.IdArticleModelStatic).getPrix()) +" €");
+			panelArticle.setLabelNom(artDao.readIdArticle(VarStatic.IdArticleStatic).getNomArticle());
+			panelArticle.setLabelNomCategorie(artDao.idCategorieToString(artDao.readIdArticle(VarStatic.IdArticleStatic).getIdCategorie()));
+			panelArticle.setLabelNutripoint(String.valueOf(artDao.readIdArticle(VarStatic.IdArticleStatic).getNutripoint()) + " /100");
+			panelArticle.setLabelPrix(Double.toString(artDao.readIdArticle(VarStatic.IdArticleStatic).getPrix()) +" €");
 			
 		}
 		
@@ -73,6 +73,5 @@ public class ControlerArticleClient {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 }

@@ -36,7 +36,6 @@ public class PanelInscription extends JPanel {
 		controllerInscription = new ControllerInscription();
 		setLayout(null);
 		
-		
 		this.setBackground(new Color(152, 251, 152));
 		this.setBounds(6, 6, longueurMax-6, hauteurMax-6);
 		this.setLayout(null);

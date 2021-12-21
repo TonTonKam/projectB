@@ -52,7 +52,7 @@ public class PanelModelArticle extends JPanel {
 			public void mouseClicked(MouseEvent arg0) {
 				panelRecep.setVisible(false);
 				panelExpedition.setVisible(true);
-				VarStatic.IdArticleModelStatic = article.getIdArticle();
+				VarStatic.IdArticleStatic = article.getIdArticle();
 				
 				ControlerArticleClient controlArt = new ControlerArticleClient();
 				controlArt.modifPanArticle(panelExpedition);

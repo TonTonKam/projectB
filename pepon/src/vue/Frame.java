@@ -26,11 +26,11 @@ public class Frame extends JFrame {
 	public Frame() {
 		
 		//instanciantion des panels
+		pmg = new PanelMenuGeneral(LONGUEURMAX);
 		pcc = new PanelCommandeClient(LONGUEURMAX, HAUTEURMAX);
-		pasc = new PanelArticleSelectClient(LONGUEURMAX, HAUTEURMAX);
+		pasc = new PanelArticleSelectClient(pmp, LONGUEURMAX, HAUTEURMAX);
 		pac = new PanelAccueilClient(pasc, LONGUEURMAX, HAUTEURMAX);
 		pmc = new PanelMenuClient(pac, pasc, LONGUEURMAX);
-		pmg = new PanelMenuGeneral(LONGUEURMAX);
 		pmp = new PanelMenuPanier(pcc, pasc, pac, LONGUEURMAX, HAUTEURMAX);
 		
 		pam = new PanelAdminMenu();

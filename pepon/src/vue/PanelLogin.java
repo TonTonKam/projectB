@@ -26,17 +26,9 @@ public class PanelLogin extends JPanel {
 	public PanelLogin(JPanel contentPane,int longueurMax,int hauteurMax) {
 		controllerLogin = new ControllerLogin();
 		setLayout(null);
-		System.out.println("login");
-		System.out.println(this.getSize());
-		
-		//ColorPanel color = new ColorPanel();
-		//setBackground(color.vertClair());
-		//JPanel panel = new JPanel();
 		this.setBackground(new Color(0, 128, 0));
 		
-		this.setBounds(0,0,1000,800);
-		System.out.println(this.getWidth());
-		//add(panel);
+		this.setBounds(0,0,longueurMax,hauteurMax);
 		this.setLayout(null);
 		
 		JButton connexion = new JButton("Connexion");
@@ -68,15 +60,14 @@ public class PanelLogin extends JPanel {
 		JButton inscription = new JButton("Inscription");
 		inscription.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-		PanelInscription philippe = new PanelInscription(contentPane, longueurMax, hauteurMax);
-		contentPane.removeAll();
-		contentPane.add(philippe);
-		contentPane.repaint();
-		contentPane.revalidate();
+				PanelInscription philippe = new PanelInscription(contentPane, longueurMax, hauteurMax);
+				contentPane.removeAll();
+				contentPane.add(philippe);
+				contentPane.repaint();
+				contentPane.revalidate();
 			}
 		});
 		
-			
 		inscription.setBounds(3*longueurMax/8, 5*hauteurMax/8, 175, 29);
 		this.add(inscription);
 		
@@ -84,9 +75,6 @@ public class PanelLogin extends JPanel {
 		password.setBounds(4*longueurMax/8, 3*hauteurMax/8, 130, 26);
 		add(password);
 
-	// BorderLayout 
-		// setPreferredSize(new Dimension(200,0));
-		//contentPane.add(objet, BorderLayout.LEFT);
 	}
 }
 	

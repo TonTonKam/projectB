@@ -7,12 +7,15 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.SpringLayout;
 
+import controller.ControllerMenuPanier;
+
 public class PanelMenuPanier extends JPanel {
 
 	//attributs
 	private JLabel labelPanier, labelPrixTotal;
 	private JTextArea areaPanier;
 	private JButton btnCommande;
+	private ControllerMenuPanier controlPanier;
 	
 	//constructor
 	public PanelMenuPanier(JPanel expedition, JPanel reception1, JPanel reception2, int longueurM, int hauteurM) {
@@ -37,7 +40,8 @@ public class PanelMenuPanier extends JPanel {
 		 * prixTotal affiche le calcule
 		 * le panier affiche la contenance de la panier de l'utilisateur connecte
 		 */
-		areaPanier = new JTextArea("Salut la team comment vous allez?");
+		areaPanier = new JTextArea();
+		areaPanier.setColumns(25);
 		add(areaPanier);
 		
 		btnCommande = new JButton("Voir commande");
@@ -51,7 +55,11 @@ public class PanelMenuPanier extends JPanel {
 			}
 		});
 		add(btnCommande);
-	}
+		
+		//refresh
+		controlPanier = new ControllerMenuPanier();
+		controlPanier.affichePanierClient(this);
+	} //fin constructor
 
 	//getter & setter
 	public JLabel getLabelPrixTotal() {

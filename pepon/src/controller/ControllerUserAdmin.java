@@ -1,18 +1,14 @@
 package controller;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-
 import model.User;
 import net.proteanit.sql.DbUtils;
 
@@ -172,7 +168,7 @@ public class ControllerUserAdmin {
 						sql.setString(5,id);
 						
 						sql.executeUpdate();
-						JOptionPane.showMessageDialog(null, nom + " "+prenom +" a �t� bien modifi�(e)." );
+						JOptionPane.showMessageDialog(null, nom + " "+prenom +" a ete bien modifie(e)." );
 					} catch (SQLException event) {
 						// TODO Auto-generated catch block
 						event.printStackTrace();
@@ -184,12 +180,12 @@ public class ControllerUserAdmin {
 
 				public void supprimer(String id) {
 					try {
-						PreparedStatement sql = connect.prepareStatement("delete from user where id_statut =?");
+						PreparedStatement sql = connect.prepareStatement("delete from user where id_user =?");
 						
 						sql.setString(1,id);
 						
 						sql.executeUpdate();
-						JOptionPane.showMessageDialog(null,"l'utilisateur qui a l'id n�: "+ id +" a �t� bien supprim�." );
+						JOptionPane.showMessageDialog(null,"l'utilisateur qui a l'id n: "+ id +" a ete bien supprime." );
 					} catch (SQLException event) {
 						// TODO Auto-generated catch block
 						event.printStackTrace();
@@ -204,4 +200,6 @@ public class ControllerUserAdmin {
 						System.out.println("Admin");
 					}
 				}
+				
+				
 }

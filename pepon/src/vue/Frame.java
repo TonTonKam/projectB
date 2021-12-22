@@ -32,7 +32,7 @@ public class Frame extends JFrame {
 		pasc = new PanelArticleSelectClient(pmp, LONGUEURMAX, HAUTEURMAX);
 		pac = new PanelAccueilClient(pasc, LONGUEURMAX, HAUTEURMAX);
 		pmc = new PanelMenuClient(pac, pasc, LONGUEURMAX);
-		pmp = new PanelMenuPanier(pcc, pasc, pac, LONGUEURMAX, HAUTEURMAX);
+		//pmp = new PanelMenuPanier(pcc, pasc, pac, LONGUEURMAX, HAUTEURMAX);
 
 		//Admin
 		pau = new PanelAdminUser();
@@ -48,8 +48,8 @@ public class Frame extends JFrame {
 		contentPane.add(pac);
 		contentPane.add(pmc);
 		contentPane.add(pmg);
-		contentPane.add(pmp);
-		pmp.setLayout(null);
+		//contentPane.add(pmp);
+		//pmp.setLayout(null);
 		contentPane.add(pasc);
 		contentPane.add(pcc);
 	
@@ -57,18 +57,18 @@ public class Frame extends JFrame {
 		contentPane.add(pau);
 		
 		contentPane.add(login);
-		login.setVisible(true);
+		login.setVisible(false);
 	//debut accueil
 		pmc.setVisible(false);
 		pmg.setVisible(false);
-		pmp.setVisible(false);
+		//pmp.setVisible(false);
 		pac.setVisible(false);
 	//fin accueil
 		pasc.setVisible(false);
 		pcc.setVisible(false);
 
 	// Debut admin	
-		pau.setVisible(false);
+		pau.setVisible(true);
 		
 	}
 

@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
@@ -35,27 +36,29 @@ public class PanelAdminCategorie extends JPanel {
 	//Instanciation d'un objet user 
 		ControllerAdminCategorie cat = new ControllerAdminCategorie();
 	public PanelAdminCategorie() {
-		setBackground(Color.LIGHT_GRAY);
+		setBackground(Color.GRAY);
 		setBounds(43, 90, 900, 450);
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Gestion de Cat\u00E9gorie");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNewLabel.setBounds(339, 21, 225, 56);
+		lblNewLabel.setForeground(Color.BLACK);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Rockwell Extra Bold", Font.BOLD, 17));
+		lblNewLabel.setBounds(366, 11, 251, 48);
 		add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Libell\u00E9 de la categorie");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1.setBounds(71, 125, 159, 35);
+		lblNewLabel_1.setBounds(71, 92, 159, 35);
 		add(lblNewLabel_1);
 		
 		textCategorie = new JTextField();
-		textCategorie.setBounds(243, 127, 251, 35);
+		textCategorie.setBounds(240, 94, 251, 35);
 		add(textCategorie);
 		textCategorie.setColumns(10);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(544, 125, 311, 284);
+		scrollPane.setBounds(538, 92, 311, 297);
 		add(scrollPane);
 		
 		table = new JTable();
@@ -98,7 +101,7 @@ public class PanelAdminCategorie extends JPanel {
 		
 		btnAjouter.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnAjouter.setForeground(Color.BLACK);
-		btnAjouter.setBounds(71, 195, 102, 50);
+		btnAjouter.setBounds(71, 159, 102, 50);
 		add(btnAjouter);
 		
 		// ***************************Modifier une catégorie********************************************
@@ -121,7 +124,7 @@ public class PanelAdminCategorie extends JPanel {
 			}
 		});
 		btnModofier.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnModofier.setBounds(236, 195, 102, 50);
+		btnModofier.setBounds(228, 159, 102, 50);
 		add(btnModofier);
 		
 		// ***************************Supprimer une catégorie********************************************
@@ -140,13 +143,13 @@ public class PanelAdminCategorie extends JPanel {
 			}
 		});
 		btnSupprimer.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnSupprimer.setBounds(392, 195, 102, 50);
+		btnSupprimer.setBounds(389, 159, 102, 50);
 		add(btnSupprimer);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.ORANGE);
 		panel.setBorder(new TitledBorder(null, "Chercher", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel.setBounds(70, 262, 425, 70);
+		panel.setBounds(71, 240, 425, 70);
 		add(panel);
 		panel.setLayout(null);
 		
@@ -175,7 +178,7 @@ public class PanelAdminCategorie extends JPanel {
 			}
 		});
 		btnEffacer.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnEffacer.setBounds(71, 359, 180, 50);
+		btnEffacer.setBounds(71, 339, 180, 50);
 		add(btnEffacer);
 		
 		//Quitter l'appli
@@ -186,7 +189,7 @@ public class PanelAdminCategorie extends JPanel {
 			}
 		});
 		btnQuitter.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnQuitter.setBounds(314, 359, 180, 50);
+		btnQuitter.setBounds(316, 339, 180, 50);
 		add(btnQuitter);
 		//Afficher la table categorie
 		cat.afficherTable(table);

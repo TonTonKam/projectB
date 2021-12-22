@@ -4,20 +4,11 @@ import java.awt.CardLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.regex.Pattern;
-
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
-
-
 import controller.ControllerAdminUser;
-import model.ColorPanel;
-import model.User;
-
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
-import javax.swing.event.CaretEvent;
-import javax.swing.event.CaretListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.Color;
@@ -44,17 +35,19 @@ public class PanelAdminUser extends JPanel {
 		
 		JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setBounds(30, 90, 900, 450);
+		layeredPane.setBackground(Color.GRAY);
 		add(layeredPane);
 		layeredPane.setLayout(new CardLayout(0, 0));
 		
 		JPanel Utilistaeur = new JPanel();
+		Utilistaeur.setBackground(Color.GRAY);
 		layeredPane.add(Utilistaeur, "name_165769075441000");
 		Utilistaeur.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Gestion des utilisateurs");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(281, 5, 211, 59);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel.setBounds(281, 5, 251, 53);
+		lblNewLabel.setFont(new Font("Rockwell Extra Bold", Font.BOLD, 17));
 		Utilistaeur.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nom");
@@ -112,80 +105,81 @@ public class PanelAdminUser extends JPanel {
 		JButton btnAjouter = new JButton("Ajouter");
 		btnAjouter.setEnabled(false);
 		
-		textNom.addCaretListener(new CaretListener(){
-			@Override
-			public void caretUpdate(CaretEvent e) {
-				us.activerBtnAjouter(textNom, textPrenom, textEmail, textPassword, textStatut, btnAjouter);
-
-			}
-		});	
-		textPrenom.addCaretListener(new CaretListener(){
-			@Override
-			public void caretUpdate(CaretEvent e) {
-				us.activerBtnAjouter(textNom, textPrenom, textEmail, textPassword, textStatut, btnAjouter);
-
-			}
-		});
-		textEmail.addCaretListener(new CaretListener(){
-			@Override
-			public void caretUpdate(CaretEvent e) {
-				us.activerBtnAjouter(textNom, textPrenom, textEmail, textPassword, textStatut, btnAjouter);
-
-			}
-		});
-		textPassword.addCaretListener(new CaretListener(){
-			@Override
-			public void caretUpdate(CaretEvent e) {
-				us.activerBtnAjouter(textNom, textPrenom, textEmail, textPassword, textStatut, btnAjouter);
-
-			}
-		});
-		textStatut.addCaretListener(new CaretListener(){
-			@Override
-			public void caretUpdate(CaretEvent e) {
-				us.activerBtnAjouter(textNom, textPrenom, textEmail, textPassword, textStatut, btnAjouter);
-
-			}
-		});
+//		textNom.addCaretListener(new CaretListener(){
+//			@Override
+//			public void caretUpdate(CaretEvent e) {
+//				us.activerBtnAjouter(textNom, textPrenom, textEmail, textPassword, textStatut, btnAjouter);
+//
+//			}
+//		});	
+//		textPrenom.addCaretListener(new CaretListener(){
+//			@Override
+//			public void caretUpdate(CaretEvent e) {
+//				us.activerBtnAjouter(textNom, textPrenom, textEmail, textPassword, textStatut, btnAjouter);
+//
+//			}
+//		});
+//		textEmail.addCaretListener(new CaretListener(){
+//			@Override
+//			public void caretUpdate(CaretEvent e) {
+//				us.activerBtnAjouter(textNom, textPrenom, textEmail, textPassword, textStatut, btnAjouter);
+//
+//			}
+//		});
+//		textPassword.addCaretListener(new CaretListener(){
+//			@Override
+//			public void caretUpdate(CaretEvent e) {
+//				us.activerBtnAjouter(textNom, textPrenom, textEmail, textPassword, textStatut, btnAjouter);
+//
+//			}
+//		});
+//		textStatut.addCaretListener(new CaretListener(){
+//			@Override
+//			public void caretUpdate(CaretEvent e) {
+//				us.activerBtnAjouter(textNom, textPrenom, textEmail, textPassword, textStatut, btnAjouter);
+//
+//			}
+//		});
 		
-		
+		 us.ActivBtn(textNom, textPrenom, textEmail, textStatut, textPassword, btnAjouter);
+		 
 		btnAjouter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-				String nom_saisie = textNom.getText();
-				String prenom_saisie = textPrenom.getText();
-				String email_saisie = textEmail.getText();
-				String pass_saisie = textPassword.getText();
-				int statut_saisie = Integer.parseInt(textStatut.getText());
-				String msg;
-				if (statut_saisie == 1) {
-					msg = "client";
-				}else {
-					msg = "Admin";
-				}
-				
-				User nouvelUser = new User(nom_saisie, prenom_saisie, email_saisie, pass_saisie,statut_saisie);
-				
-					ControllerAdminUser vider = new ControllerAdminUser();
-					
-					if(nom_saisie.isEmpty() || prenom_saisie.isEmpty() || email_saisie.isEmpty() || pass_saisie.isEmpty() || statut_saisie == 0) {
-						JOptionPane.showMessageDialog(null, "Remplissez tous les champs svp!","Error",JOptionPane.ERROR_MESSAGE);
-					}else if(!email_saisie.isEmpty() && !(Pattern.matches("^[a-zA-Z0-9_.-]+[@][a-zA-Z0-9-]+[.]+[a-zA-Z0-9]+$", email_saisie))){
-						JOptionPane.showMessageDialog(null, "Mail pas valide","Error",JOptionPane.ERROR_MESSAGE);
-					}else {					
-						
-						if(us.mailExist(email_saisie)) {
-							us.ajouter(nouvelUser);
-							
-							JOptionPane.showMessageDialog(null, "vous etes bien inscrit(e) tant que "+ " "+ msg);
-							
-						}else {
-							JOptionPane.showMessageDialog(null, "Ce mail existe deja !","Error",JOptionPane.ERROR_MESSAGE);		
-						}	
-					}
-				
-					us.afficherTable(table);
-					vider.viderChamps(textNom, textPrenom, textEmail, textPassword,textStatut,textNom);
+				us.ajoutBtn(textNom, textPrenom, textEmail, textPassword, textStatut, table);
+//				String nom_saisie = textNom.getText();
+//				String prenom_saisie = textPrenom.getText();
+//				String email_saisie = textEmail.getText();
+//				String pass_saisie = textPassword.getText();
+//				int statut_saisie = Integer.parseInt(textStatut.getText());
+//				String msg;
+//				if (statut_saisie == 1) {
+//					msg = "client";
+//				}else {
+//					msg = "Admin";
+//				}
+//				
+//				User nouvelUser = new User(nom_saisie, prenom_saisie, email_saisie, pass_saisie,statut_saisie);
+//				
+//					ControllerAdminUser vider = new ControllerAdminUser();
+//					
+//					if(nom_saisie.isEmpty() || prenom_saisie.isEmpty() || email_saisie.isEmpty() || pass_saisie.isEmpty() || statut_saisie == 0) {
+//						JOptionPane.showMessageDialog(null, "Remplissez tous les champs svp!","Error",JOptionPane.ERROR_MESSAGE);
+//					}else if(!email_saisie.isEmpty() && !(Pattern.matches("^[a-zA-Z0-9_.-]+[@][a-zA-Z0-9-]+[.]+[a-zA-Z0-9]+$", email_saisie))){
+//						JOptionPane.showMessageDialog(null, "Mail pas valide","Error",JOptionPane.ERROR_MESSAGE);
+//					}else {					
+//						
+//						if(us.mailExist(email_saisie)) {
+//							us.ajouter(nouvelUser);
+//							
+//							JOptionPane.showMessageDialog(null, "vous etes bien inscrit(e) tant que "+ " "+ msg);
+//							
+//						}else {
+//							JOptionPane.showMessageDialog(null, "Ce mail existe deja !","Error",JOptionPane.ERROR_MESSAGE);		
+//						}	
+//					}
+//				
+//					us.afficherTable(table);
+//					vider.viderChamps(textNom, textPrenom, textEmail, textPassword,textStatut,textNom);		
 			}
 		});
 		
@@ -199,20 +193,22 @@ public class PanelAdminUser extends JPanel {
 		btnModifier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				String id, firstname, lastname, mail;
-				int stat;
-				firstname =textNom.getText();
-				lastname = textPrenom.getText();
-				mail  = textEmail.getText();
-				stat = Integer.parseInt(textStatut.getText());
-				id = textIdUser.getText();	
-
-				//Appel de la méthode modifier
-				if(!firstname.isEmpty()|| !(lastname.isEmpty()) || !(mail.isEmpty()) || !(stat == 0)) {
-					us.modifier(firstname, lastname, mail, stat, id);
-					//afficher la table modifiée
-					us.afficherTable(table);
-				}
+//				String id, firstname, lastname, mail;
+//				int stat;
+//				firstname =textNom.getText();
+//				lastname = textPrenom.getText();
+//				mail  = textEmail.getText();
+//				stat = Integer.parseInt(textStatut.getText());
+//				id = textIdUser.getText();	
+//
+//				//Appel de la méthode modifier
+//				if(!firstname.isEmpty()|| !(lastname.isEmpty()) || !(mail.isEmpty()) || !(stat == 0)) {
+//					us.modifier(firstname, lastname, mail, stat, id);
+//					//afficher la table modifiée
+//					us.afficherTable(table);
+//				}
+				
+				us.verifModifier(textNom, textPrenom, textEmail, textStatut, textIdUser, table);
 			}
 		});
 		
@@ -225,18 +221,20 @@ public class PanelAdminUser extends JPanel {
 		JButton btnSupprimer = new JButton("Supprimer");
 		btnSupprimer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String idAsupp, firstname, lastname, mail;
-				int state;
-				firstname =textNom.getText();
-				lastname = textPrenom.getText();
-				mail  = textEmail.getText();
-				state = Integer.parseInt(textStatut.getText());
-				idAsupp = textIdUser.getText();
-				
-				if(!firstname.isEmpty()|| !(lastname.isEmpty()) || !(mail.isEmpty()) || !(state == 0)) {
-					us.supprimer(idAsupp);
-					us.afficherTable(table);
-				}		
+//				String idAsupp, firstname, lastname, mail;
+//				int state;
+//				firstname =textNom.getText();
+//				lastname = textPrenom.getText();
+//				mail  = textEmail.getText();
+//				state = Integer.parseInt(textStatut.getText());
+//				idAsupp = textIdUser.getText();
+//				
+//				if(!firstname.isEmpty()|| !(lastname.isEmpty()) || !(mail.isEmpty()) || !(state == 0)) {
+//					us.supprimer(idAsupp);
+//					us.afficherTable(table);
+//				}
+				//Appel de la méthode verifSupp
+				us.verifSupp(textNom, textPrenom, textEmail, textStatut, textIdUser, table);
 			}
 			
 		});
@@ -306,7 +304,7 @@ public class PanelAdminUser extends JPanel {
 		layeredPane.add(categorie, "name_165783077019800");
 		categorie.setLayout(null);
 		
-		PanelAdminCommande commande = new PanelAdminCommande();
+		PanelAdminPanier commande = new PanelAdminPanier();
 		layeredPane.add(commande, "name_165783077019800");
 		commande.setLayout(null);
 		

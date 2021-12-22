@@ -3,12 +3,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.regex.Pattern;
+
 import javax.swing.JButton;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.event.CaretEvent;
+import javax.swing.event.CaretListener;
+
 import model.User;
 import net.proteanit.sql.DbUtils;
 
@@ -47,7 +52,7 @@ public class ControllerAdminUser {
 				return msg;
 			}
 			
-			//Mï¿½thode pour ajouter un utilisateur 
+			//Methode pour ajouter un utilisateur 
 			public void ajouter(User user) {
 				
 				try {
@@ -67,7 +72,7 @@ public class ControllerAdminUser {
 				}
 			}
 			
-			//Activer le bouton Ajouter quant'il tous les champs sont saisis pour plus de sï¿½curitï¿½
+			//Activer le bouton Ajouter quant'il tous les champs sont saisis pour plus de securite
 			
 			public void activerBtnAjouter( JTextField nom, JTextField prenom, JTextField email, JTextField password,JTextField statut ,JButton btn) {
 				String nom_saisie = nom.getText();
@@ -83,7 +88,7 @@ public class ControllerAdminUser {
 				}
 			}
 			
-			//Mï¿½thode  pour vider les champs
+			//Methode  pour vider les champs
 			public void viderChamps(JTextField a,JTextField b,JTextField c,JTextField d,JTextField status,JTextField f) {
 				a.setText("");
 				b.setText("");
@@ -97,18 +102,18 @@ public class ControllerAdminUser {
 			public void afficherTable(JTable table) {
 				
 				try {
-					//rï¿½cupï¿½ration des info de  table user
+					//recuperation des info de  table user
 					PreparedStatement sql = connect.prepareStatement("SELECT * FROM user");
 					// Conversion de la requete en tableau d'objets
 					ResultSet rs =sql.executeQuery();
 					/*
-					 * J'appelle la mï¿½thode setModel pour inserer les objets dans notre table
+					 * J'appelle la methode setModel pour inserer les objets dans notre table
 					 * table = objet Jtable 
 					 * j'appelle setModel de l'objet Jtable.
 					 * setModel a comme parametre :
 					 * DbUtils = la libraire ?
-					 * la mï¿½thode resultSetToTableModel modifie la table Model.
-					 * cette mï¿½thode prend comme param notre tableau d'objet rs.
+					 * la methode resultSetToTableModel modifie la table Model.
+					 * cette methode prend comme param notre tableau d'objet rs.
 					 * 
 					 * ca Modifie la variable table de type Jtable avec les instructions resultSetToTableModel
 					 *  qui contient le rs
@@ -121,7 +126,7 @@ public class ControllerAdminUser {
 			}
 			
 			
-			//Mï¿½thode pour chercher un utilisateur par id
+			//Methode pour chercher un utilisateur par id
 			public void findById(String id, JTextField nom, JTextField prenom, JTextField email, JTextField status) {
 				try { 
 					PreparedStatement sql = connect.prepareStatement("SELECT  nom, prenom, email, id_statut  FROM user WHERE id_user = ?");
@@ -155,7 +160,7 @@ public class ControllerAdminUser {
 				}
 			}
 			
-			//Mï¿½thode pour modifier un utilisateur 
+			//Methode pour modifier un utilisateur 
 			
 				public void modifier( String nom, String prenom, String email, int statu, String id) {
 					try {
@@ -175,8 +180,25 @@ public class ControllerAdminUser {
 					}
 					
 				}
+				//Ferifier pendant la modif de l'utilisateur
+				public void verifModifier(JTextField a, JTextField b, JTextField c,JTextField d,JTextField e, JTable table ) {
+					String id, firstname, lastname, mail;
+					int stat;
+					firstname =a.getText();
+					lastname = b.getText();
+					mail  = c.getText();
+					stat = Integer.parseInt(d.getText());
+					id = e.getText();	
+
+					//Appel de la méthode modifier
+					if(!firstname.isEmpty()|| !(lastname.isEmpty()) || !(mail.isEmpty()) || !(stat == 0)) {
+						modifier(firstname, lastname, mail, stat, id);
+						//afficher la table modifiée
+						afficherTable(table);
+					}
+				}
 				
-				//Mï¿½thode pour supprimer un utilisateur 
+				//Methode pour supprimer un utilisateur 
 
 				public void supprimer(String id) {
 					try {
@@ -193,12 +215,105 @@ public class ControllerAdminUser {
 					
 				}
 				
+				//Ferifier pendant la suppression de l'utilisateur
+				
+				public void verifSupp(JTextField a, JTextField b, JTextField c,JTextField d,JTextField e, JTable table) {
+					String idAsupp, firstname, lastname, mail;
+					int state;
+					firstname =a.getText();
+					lastname = b.getText();
+					mail  = c.getText();
+					state = Integer.parseInt(d.getText());
+					idAsupp = e.getText();
+					
+					if(!firstname.isEmpty()|| !(lastname.isEmpty()) || !(mail.isEmpty()) || !(state == 0)) {
+						supprimer(idAsupp);
+						afficherTable(table);
+						viderChamps(a, b, c, d, e, a);
+					}	 
+				}
+				
 				public void state(int a) {
 					if(a == 1) {
 						System.out.println("Client");
 					}else {
 						System.out.println("Admin");
 					}
+				}
+				
+				//Activer le bouton ajouter
+				
+				public void ActivBtn(JTextField a, JTextField b, JTextField c,JTextField d,JTextField f, JButton btn) {
+					
+					a.addCaretListener(new CaretListener(){
+						@Override
+						public void caretUpdate(CaretEvent e) {
+							activerBtnAjouter(a, b, c, d, f, btn);	
+						}
+					});
+					b.addCaretListener(new CaretListener(){
+						@Override
+						public void caretUpdate(CaretEvent event) {
+							activerBtnAjouter(a, b, c, d, f, btn);	
+						}
+					});
+					c.addCaretListener(new CaretListener(){
+						@Override
+						public void caretUpdate(CaretEvent e) {
+							activerBtnAjouter(a, b, c, d, f, btn);	
+						}
+					});	
+					d.addCaretListener(new CaretListener(){
+						@Override
+						public void caretUpdate(CaretEvent e) {
+							activerBtnAjouter(a, b, c, d, f, btn);	
+						}
+					});	
+					f.addCaretListener(new CaretListener(){
+						@Override
+						public void caretUpdate(CaretEvent e) {
+							activerBtnAjouter(a, b, c, d, f, btn);	
+						}
+					});	
+				}
+				
+				// METHODE AJOUTER
+				
+				public void ajoutBtn(JTextField a, JTextField b, JTextField c,JTextField d,JTextField e, JTable table) {
+					String nom_saisie = a.getText();
+					String prenom_saisie = b.getText();
+					String email_saisie = c.getText();
+					String pass_saisie = d.getText();
+					int statut_saisie = Integer.parseInt(e.getText());
+					String msg;
+					if (statut_saisie == 1) {
+						msg = "client";
+					}else {
+						msg = "Admin";
+					}
+					
+					User nouvelUser = new User(nom_saisie, prenom_saisie, email_saisie, pass_saisie,statut_saisie);
+					
+						ControllerAdminUser vider = new ControllerAdminUser();
+						
+						if(nom_saisie.isEmpty() || prenom_saisie.isEmpty() || email_saisie.isEmpty() || pass_saisie.isEmpty() || statut_saisie == 0) {
+							JOptionPane.showMessageDialog(null, "Remplissez tous les champs svp!","Error",JOptionPane.ERROR_MESSAGE);
+						}else if(!email_saisie.isEmpty() && !(Pattern.matches("^[a-zA-Z0-9_.-]+[@][a-zA-Z0-9-]+[.]+[a-zA-Z0-9]+$", email_saisie))){
+							JOptionPane.showMessageDialog(null, "Mail pas valide","Error",JOptionPane.ERROR_MESSAGE);
+						}else {					
+							
+							if(mailExist(email_saisie)) {
+								ajouter(nouvelUser);
+								
+								JOptionPane.showMessageDialog(null, "vous etes bien inscrit(e) tant que "+ " "+ msg);
+								
+							}else {
+								JOptionPane.showMessageDialog(null, "Ce mail existe deja !","Error",JOptionPane.ERROR_MESSAGE);		
+							}	
+						}
+					
+						afficherTable(table);
+						vider.viderChamps(a, b, c, d,e,a);
 				}
 				
 				

@@ -5,7 +5,7 @@ import javax.swing.JPanel;
 import model.Article;
 import vue.PanelArticleSelectClient;
 
-public class ControlerClientAccueil {
+public class ControlerAccueilClient {
 
 	private ControllerClientMenu controlMC = new ControllerClientMenu();
 	

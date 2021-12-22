@@ -6,6 +6,7 @@ import javax.swing.JTextField;
 
 import controller.ControllerInscription;
 import controller.UserDao;
+import model.ColorPanel;
 import model.User;
 
 import javax.swing.JLabel;
@@ -36,7 +37,7 @@ public class PanelInscription extends JPanel {
 		controllerInscription = new ControllerInscription();
 		setLayout(null);
 		
-		this.setBackground(new Color(152, 251, 152));
+		this.setBackground(ColorPanel.vertClair());
 		this.setBounds(6, 6, longueurMax-6, hauteurMax-6);
 		this.setLayout(null);
 		
@@ -98,7 +99,7 @@ public class PanelInscription extends JPanel {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controllerInscription.inscrire(nom,prenom,email,password,contentPane, longueurMax, hauteurMax);
-				}
+			}
 		});
 		
 		btnNewButton.setBounds(3*longueurMax/8, 6*hauteurMax/8, 117, 29);

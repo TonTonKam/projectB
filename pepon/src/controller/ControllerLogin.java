@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
 import model.User;
+import model.VarStatic;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -70,14 +71,14 @@ public class ControllerLogin {
 		
 		
 		if(!(Pattern.matches("^[a-zA-Z0-9_.-]+[@][a-zA-Z0-9-]+[.]+[a-zA-Z0-9]+$", identifiant_saisi) )) {
-			JOptionPane.showMessageDialog(null, "Veuillez vérifier le format de votre identifiant","Error",JOptionPane.ERROR_MESSAGE);}
+			JOptionPane.showMessageDialog(null, "Veuillez verifier le format de votre identifiant","Error",JOptionPane.ERROR_MESSAGE);}
 		else if(usDao.mailExist(identifiant_saisi)) {
 			JOptionPane.showMessageDialog(null, "Vos identifiants semblent incorrects, si vous êtes un nouveau client, veuillez vous inscrire");
 		}
 		else if(usDao.login(identifiant_saisi, pwd_saisie)) {
-			JOptionPane.showMessageDialog(null, "F�licitation");
+			JOptionPane.showMessageDialog(null, "Felicitation");
 			login.setVisible(false);
-			if(usDao.isAdmin(identifiant_saisi, pwd_saisie)) {
+			if(!usDao.isAdmin(identifiant_saisi, pwd_saisie)) {
 				
 			//debut accueil
 				contentPane.removeAll();
@@ -92,13 +93,14 @@ public class ControllerLogin {
 			
 			}
 			else {
+				
 				contentPane.removeAll();
 				contentPane.add(pau);
 				contentPane.repaint();
 				contentPane.revalidate();
-				
 			
-		}}
+		}
+			}
 		else {
 			JOptionPane.showMessageDialog(null, "Identifiant ou Mot de Passe incorrect");
 			

@@ -8,14 +8,13 @@ import java.sql.JDBCType;
 import javax.swing.JTable;
 
 import model.User;
+import model.VarStatic;
 
 public class UserDao {
 	//Appel de la connection
 
-		Connection connect = GetConnection.getConnectionMac();
-		//Connection connect = GetConnection.getConnectionWindows();
-
-		public static User currentUser ;
+		//Connection connect = GetConnection.getConnectionMac();
+		Connection connect = GetConnection.getConnectionWindows();
 
 		private JTable table;
 		
@@ -59,6 +58,7 @@ public class UserDao {
 			
 		}
 		
+
 		public boolean login(String identifiant, String motPasse) {
 			  
 			Boolean msg = false;
@@ -71,8 +71,8 @@ public class UserDao {
 				ResultSet rs = sql.executeQuery();
 				
 				if(rs.next()) {
-					//currentUser = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"));
-					msg = true;
+					VarStatic.currentUserStatic = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"),rs.getInt("id_statut"), rs.getInt("id_user"));
+					
 				}
 				
 			} catch (SQLException e) {
@@ -83,9 +83,9 @@ public class UserDao {
 			return msg;
 			
 		}
-
+		
 		public boolean isAdmin(String identifiant, String motPasse) {
-			  
+			
 			Boolean msg = false;
 			try {
 				PreparedStatement sql = connect.prepareStatement("SELECT * FROM user WHERE email=? AND mot_passe=PASSWORD(?)");
@@ -96,9 +96,11 @@ public class UserDao {
 				ResultSet rs = sql.executeQuery();
 				
 				if(rs.next()) {
-					currentUser = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"),rs.getInt("id_statut"));
+					VarStatic.currentUserStatic = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"),rs.getInt("id_statut"), rs.getInt("id_user"));
+					
 					if(rs.getInt("id_statut")==2) {
-					msg = true;}
+						msg = true;
+					}
 				}
 				
 			} catch (SQLException e) {

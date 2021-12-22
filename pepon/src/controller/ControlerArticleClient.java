@@ -10,8 +10,9 @@ import model.PanelModelArticle;
 import model.VarStatic;
 import vue.PanelArticleSelectClient;
 
-public class ControlerClientArticle {
+public class ControlerArticleClient {
 	Connection connect = GetConnection.getConnectionWindows();
+	//Connection connect = GetConnection.getConnectionMac();
 
 	public void modifPanArticle(PanelArticleSelectClient panelArticle) {
 		ArticleDao artDao = new ArticleDao();
@@ -22,22 +23,16 @@ public class ControlerClientArticle {
 			panelArticle.setLabelNom(artDao.readIdArticle(VarStatic.IdArticleStatic).getNomArticle());
 			panelArticle.setLabelNomCategorie(artDao.idCategorieToString(artDao.readIdArticle(VarStatic.IdArticleStatic).getIdCategorie()));
 			panelArticle.setLabelNutripoint(String.valueOf(artDao.readIdArticle(VarStatic.IdArticleStatic).getNutripoint()) + " /100");
-			panelArticle.setLabelPrix(Double.toString(artDao.readIdArticle(VarStatic.IdArticleStatic).getPrix()) +" ï¿½");
+			panelArticle.setLabelPrix(Double.toString(artDao.readIdArticle(VarStatic.IdArticleStatic).getPrix()) +" €");
 			
 		}
 	}
 	
 	public int creerCommande() {
-<<<<<<< HEAD:pepon/src/controller/ControlerClientArticle.java
-		
-=======
-		//Connection connect = GetConnection.getConnectionWindows();
-		Connection connect = GetConnection.getConnectionMac();
-		//int user = UserDao.currentUser.getIdUser();
->>>>>>> origin/main:pepon/src/controller/ControlerArticleClient.java
+
 		if(VarStatic.idCommandeStatic == 0) {
 
-			int user = VarStatic.idCommandeStatic = 0;
+			int user = VarStatic.currentUserStatic.getIdUser();
 			try {
 				PreparedStatement req = connect.prepareStatement("INSERT INTO commande (id_commande, prix_total, date_achat, id_user) VALUES (null, null, now(), ?)");
 				req.setInt(1, user);

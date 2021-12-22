@@ -3,6 +3,7 @@ package vue;
 import javax.swing.*;
 
 import model.ColorPanel;
+import model.VarStatic;
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
@@ -38,14 +39,18 @@ public class PanelMenuGeneral extends JPanel {
 		labelBienvenue = new JLabel("Bienvenue");
 		add(labelBienvenue);
 		
-		labelNomClient = new JLabel("NomClient");
+		labelNomClient = new JLabel("Utilisateur");
+		if(VarStatic.currentUserStatic != null) {
+			labelNomClient.setText(VarStatic.currentUserStatic.getNom());
+		}
 		add(labelNomClient);
 		
-		btnDeconnexion = new JButton("Deconnexion");
+		btnDeconnexion = new JButton("Quitter");
 		btnDeconnexion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				//on se redirige vers la page login avec les variables du client a null
+				//ferme L'application
+				System.exit(0);
 			}
 		});
 		add(btnDeconnexion);

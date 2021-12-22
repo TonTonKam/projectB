@@ -31,7 +31,7 @@ public class PanelCommandeClient extends JPanel {
 		
 		setLayout(null);
 		setBounds(longueurMenu, 200, longueur, haut);
-		
+		System.out.println(longueurMenu +" "+ 200 +" "+ longueur +" "+ haut);
 		panScroll = new JPanel();
 		scrollPan = new JScrollPane(panScroll);
 		

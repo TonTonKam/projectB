@@ -12,21 +12,17 @@ import model.VarStatic;
 import vue.PanelMenuPanier;
 
 public class ControllerClientMenuPanier {
+	
 	Connection connect = GetConnection.getConnectionWindows();
 	//Connection connect = GetConnection.getConnectionMac();
 	
 	public void affichePanierClient(PanelMenuPanier panelExpedition) {
 		//int idUser = UserDao.currentUser.getIdClient;
-		int idUser = VarStatic.currentUserStatic;
+		//int idUser = VarStatic.currentUserStatic.getIdUser();
 		int idArticle = VarStatic.IdArticleStatic;
 		int idCommand = VarStatic.idCommandeStatic;
 		
 		String text = "Vos articles : ";
-<<<<<<< HEAD:pepon/src/controller/ControllerClientMenuPanier.java
-=======
-		//Connection connect = GetConnection.getConnectionWindows();
-		Connection connect = GetConnection.getConnectionMac();
->>>>>>> origin/main:pepon/src/controller/ControllerMenuPanier.java
 		
 		try {
 			PreparedStatement sql = connect.prepareStatement("SELECT id_article, quantite FROM panier WHERE id_commande = ?");

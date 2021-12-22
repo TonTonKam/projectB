@@ -10,10 +10,10 @@ import java.util.List;
 import model.Article;
 import model.VarStatic;
 
-public class ControllerClientCommande {
+public class ControllerCommandeClient {
 	
-	//Connection connect = GetConnection.getConnectionWindows();
-	Connection connect = GetConnection.getConnectionMac();
+	Connection connect = GetConnection.getConnectionWindows();
+	//Connection connect = GetConnection.getConnectionMac();
 
 	/*
 	 * montant total

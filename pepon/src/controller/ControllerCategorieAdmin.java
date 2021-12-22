@@ -17,14 +17,13 @@ import net.proteanit.sql.DbUtils;
 public class ControllerCategorieAdmin {
 	
 	//Appel de la connection
-	Connection connect = GetConnection.getConnectionMac();
-	//Connection connect = GetConnection.getConnectionWindows();
-	//public static User currentUser ;
+	//Connection connect = GetConnection.getConnectionMac();
+	Connection connect = GetConnection.getConnectionWindows();
 	
 	public void afficherTable(JTable table) {
 		
 		try {
-			//r�cup�ration des info de  table categorie
+			//recuperation des info de  table categorie
 			PreparedStatement sql = connect.prepareStatement("SELECT * FROM categorie");
 			// Conversion de la requete en tableau d'objets
 			ResultSet rs =sql.executeQuery();
@@ -35,7 +34,7 @@ public class ControllerCategorieAdmin {
 			e.printStackTrace();
 		}
 	}
-	// V�riifer si la cat�gorie est deja dans la table
+	// Veriifer si la categorie est deja dans la table
 	public boolean catExist(String cat) {
 		Boolean msg = false;
 		try {
@@ -56,7 +55,7 @@ public class ControllerCategorieAdmin {
 		return msg;
 	}
 	
-	//M�thode pour ajouter une cat�gorie 
+	//Methode pour ajouter une categorie 
 	public void ajouter(Categorie cat) {
 		
 		try {
@@ -70,7 +69,7 @@ public class ControllerCategorieAdmin {
 			e.printStackTrace();
 		}
 	}
-	//Activer le bouton Ajouter quant'il tous les champs sont saisis pour plus de s�curit�
+	//Activer le bouton Ajouter quant'il tous les champs sont saisis pour plus de securite
 	
 	public void activerBtnAjouter( JTextField libel,JButton btn) {
 		String nom_saisie = libel.getText();
@@ -82,7 +81,7 @@ public class ControllerCategorieAdmin {
 		}
 	}
 	
-	//M�thode pour modifier une cat�gorie 
+	//Methode pour modifier une categorie 
 	
 	public void modifier( String libel,String id) {
 		try {
@@ -100,7 +99,7 @@ public class ControllerCategorieAdmin {
 		
 	}
 	
-	//M�thode pour supprimer une cat�gorie 
+	//Methode pour supprimer une categorie 
 	
 	public void supprimer(String id) {
 		try {
@@ -117,7 +116,7 @@ public class ControllerCategorieAdmin {
 		
 	}
 	
-	//M�thode pour chercher une cat�gorie par id
+	//Methode pour chercher une categorie par id
 	public void findById(String id, JTextField libel) {
 		try { 
 			PreparedStatement sql = connect.prepareStatement("SELECT  libelle  FROM categorie WHERE id_categorie = ?");

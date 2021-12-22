@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.ControllerLogin;
+import model.ColorPanel;
+
 import javax.swing.JPasswordField;
 import javax.swing.JTextPane;
 
@@ -26,7 +28,7 @@ public class PanelLogin extends JPanel {
 	public PanelLogin(JPanel contentPane,int longueurMax,int hauteurMax) {
 		controllerLogin = new ControllerLogin();
 		setLayout(null);
-		this.setBackground(new Color(0, 128, 0));
+		this.setBackground(ColorPanel.vertFoncer());
 		
 		this.setBounds(0,0,longueurMax,hauteurMax);
 		this.setLayout(null);
@@ -43,7 +45,6 @@ public class PanelLogin extends JPanel {
 		
 		connexion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				controllerLogin.connecter(identifiant,password,contentPane,longueurMax,hauteurMax);
 				
 			}

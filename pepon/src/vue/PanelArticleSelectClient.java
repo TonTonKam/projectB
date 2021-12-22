@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.ArticleDao;
-import controller.ControlerClientArticle;
+import controller.ControlerArticleClient;
 import controller.ControllerClientMenuPanier;
 import controller.UserDao;
 import model.Article;
@@ -24,13 +24,18 @@ public class PanelArticleSelectClient extends JPanel {
 	private JLabel labelImg, labelNom, labelNomCategorie, labelNutripoint, labelPrix, labelNomQuantite;
 	private JTextField textFieldQuantite;
 	private JButton btnAjouterCommande, btnPrecedent;
-	private ArticleDao artDao;
-	private ControlerClientArticle controlArt;
+	private ControlerArticleClient controlArt;
 	private ControllerClientMenuPanier controlPanier;
 
 	//constructor
 	public PanelArticleSelectClient(PanelMenuPanier panelMenu, int longueurM, int hauteurM) {
-		artDao = new ArticleDao();
+		
+		if(VarStatic.currentUserStatic != null) {
+			System.out.println(VarStatic.currentUserStatic.getIdUser() + " pasc");
+		}else {
+			System.out.println("Valeur null user Pasc");
+		}
+		
 		setVisible(false);
 		setBackground(ColorPanel.vertClair());
 		
@@ -40,7 +45,7 @@ public class PanelArticleSelectClient extends JPanel {
 		
 		setBounds(longueurMenu, 200, longueur, haut);
 		
-		controlArt = new ControlerClientArticle();
+		controlArt = new ControlerArticleClient();
 
 		labelImg = new JLabel("IMG");
 		add(labelImg);
@@ -88,20 +93,23 @@ public class PanelArticleSelectClient extends JPanel {
 				controlArt.ajouterDetail(VarStatic.idCommandeStatic, VarStatic.IdArticleStatic,
 						Integer.parseInt(textFieldQuantite.getText()));
 				
+				/* probleme en attente
 				//refresh PanelMenuPanier
-				controlPanier = new ControllerClientMenuPanier();
-				controlPanier.affichePanierClient(panelMenu);
+				//controlPanier = new ControllerClientMenuPanier();
+				//controlPanier.affichePanierClient(panelMenu);
 				
 				//retourner a la fonction menuClient
 				setVisible(false);
 				//panelAccueilClient.setVisible(true);
+				 */
+				
 			}
 		});
 		add(btnAjouterCommande);
 		
-		
+		/*
 		//renvoie sur la page AccueilClient
-		btnPrecedent = new JButton("Pr�c�dent");
+		btnPrecedent = new JButton("Precedent");
 		btnPrecedent.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -110,7 +118,7 @@ public class PanelArticleSelectClient extends JPanel {
 			}
 		});
 		add(btnPrecedent);
-
+		 */
 	}
 
 	//getter & setter

@@ -38,7 +38,7 @@ public class Frame extends JFrame {
 		pau = new PanelAdminUser();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1000, 600);
+		setBounds(100, 100, LONGUEURMAX, HAUTEURMAX);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -57,7 +57,7 @@ public class Frame extends JFrame {
 		contentPane.add(pau);
 		
 		contentPane.add(login);
-		login.setVisible(false);
+		login.setVisible(true);
 	//debut accueil
 		pmc.setVisible(false);
 		pmg.setVisible(false);
@@ -68,7 +68,7 @@ public class Frame extends JFrame {
 		pcc.setVisible(false);
 
 	// Debut admin	
-		pau.setVisible(true);
+		pau.setVisible(false);
 		
 	}
 

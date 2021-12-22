@@ -2,16 +2,16 @@ package vue;
 
 import javax.swing.JPanel;
 
-import controller.ControlerClientAccueil;
+import controller.ControlerAccueilClient;
 import model.ColorPanel;
 
 public class PanelAccueilClient extends JPanel{
 	
 	private int longueurMenu, longueur, haut;
-	private ControlerClientAccueil controlAccueil;
+	private ControlerAccueilClient controlAccueil;
 	
 	public PanelAccueilClient(PanelArticleSelectClient panelExpedition, int longueurM, int hauteurM) {
-		controlAccueil = new ControlerClientAccueil();
+		controlAccueil = new ControlerAccueilClient();
 		setBackground(ColorPanel.vertClair());
 		
 		longueurMenu = longueurM / 4;

@@ -16,8 +16,8 @@ import net.proteanit.sql.DbUtils;
 
 public class ControllerArticleAdmin {
 	//Appel de la connection
-	Connection connect = GetConnection.getConnectionMac();
-	//Connection connect = GetConnection.getConnectionWindows();
+	//Connection connect = GetConnection.getConnectionMac();
+	Connection connect = GetConnection.getConnectionWindows();
 	
 	public void afficherTableArticle(JTable table) {
 		

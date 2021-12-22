@@ -6,11 +6,11 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/kamsutakoudjou/Downloads/mysql-connector-java-8.0.27/mysql-connector-java-8.0.27.jar">
+	<classpathentry kind="lib" path="E:/dossier en vrac/java/mysql-connector-java-8.0.27.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/kamsutakoudjou/Downloads/rs2xml.jar"/>
+	<classpathentry kind="lib" path="E:/dossier en vrac/java/rs2xml.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

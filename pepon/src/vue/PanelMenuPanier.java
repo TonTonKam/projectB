@@ -57,8 +57,9 @@ public class PanelMenuPanier extends JPanel {
 		add(btnCommande);
 		
 		//refresh
-		controlPanier = new ControllerClientMenuPanier();
-		controlPanier.affichePanierClient(this);
+		//controlPanier = new ControllerClientMenuPanier();
+		//controlPanier.affichePanierClient(this);
+		
 	} //fin constructor
 
 	//getter & setter

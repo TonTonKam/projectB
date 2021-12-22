@@ -8,14 +8,14 @@ import java.sql.SQLException;
 import model.Article;
 import model.PanelModelArticle;
 import model.VarStatic;
-import vue.PanelArticleSelectClient;
+import vue.PanelClientArticleSelect;
 
 public class ControllerClientArticle {
 
 	Connection connect = GetConnection.getConnectionWindows();
 	//Connection connect = GetConnection.getConnectionMac();
 
-	public void modifPanArticle(PanelArticleSelectClient panelArticle) {
+	public void modifPanArticle(PanelClientArticleSelect panelArticle) {
 		ArticleDao artDao = new ArticleDao();
 		
 		if(VarStatic.IdArticleStatic != 0) {
@@ -41,13 +41,14 @@ public class ControllerClientArticle {
 				req.executeUpdate();
 				
 				//cree un count
-				PreparedStatement sql = connect.prepareStatement("SELECT LAST_INSERT_ID() FROM commande WHERE id_user = ?");
+				PreparedStatement sql = connect.prepareStatement("SELECT MAX(id_commande) FROM commande");
 				sql.setInt(1, user);
 				
 				ResultSet rs = sql.executeQuery();
 				
+				System.out.println(rs + " rs controlArt");
 				while(rs.next()) {
-					VarStatic.idCommandeStatic++;
+					//VarStatic.idCommandeStatic = rs.getInt("id_commande");
 				}
 				
 			} catch (SQLException e) {

@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 
 import controller.ArticleDao;
 import controller.ControllerClientArticle;
-import vue.PanelArticleSelectClient;
+import vue.PanelClientArticleSelect;
 
 public class PanelModelArticle extends JPanel {
 
@@ -21,7 +21,7 @@ public class PanelModelArticle extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PanelModelArticle(Article article, JPanel panelRecep, PanelArticleSelectClient panelExpedition, int longueurM) {
+	public PanelModelArticle(Article article, JPanel panelRecep, PanelClientArticleSelect panelExpedition, int longueurM) {
 		setBounds(longueurM / 4 + 10, 210, longueurM * 3 / 4 - 40, 100);
 		
 		labelImg = new JLabel("IMG");

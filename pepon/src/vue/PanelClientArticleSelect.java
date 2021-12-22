@@ -17,7 +17,7 @@ import model.ColorPanel;
 import model.PanelModelArticle;
 import model.VarStatic;
 
-public class PanelArticleSelectClient extends JPanel {
+public class PanelClientArticleSelect extends JPanel {
 
 	//attributs
 	private int longueurMenu, longueur, haut;
@@ -28,13 +28,7 @@ public class PanelArticleSelectClient extends JPanel {
 	private ControllerClientMenuPanier controlPanier;
 
 	//constructor
-	public PanelArticleSelectClient(PanelClientPanierMenu panelMenu, int longueurM, int hauteurM) {
-		
-		if(VarStatic.currentUserStatic != null) {
-			System.out.println(VarStatic.currentUserStatic.getIdUser() + " pasc");
-		}else {
-			System.out.println("Valeur null user Pasc");
-		}
+	public PanelClientArticleSelect(PanelClientPanierMenu panelMenu, int longueurM, int hauteurM) {
 		
 		setVisible(false);
 		setBackground(ColorPanel.vertClair());
@@ -90,6 +84,7 @@ public class PanelArticleSelectClient extends JPanel {
 				/*
 				 * dans commande le calcule de l'article + quantite est mis dans prixTotal
 				 */
+				System.out.println(VarStatic.idCommandeStatic + " valeur de idCommande PanelArtSel ligne 88");
 				controlArt.ajouterDetail(VarStatic.idCommandeStatic, VarStatic.IdArticleStatic,
 						Integer.parseInt(textFieldQuantite.getText()));
 				

@@ -5,8 +5,6 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.SpringLayout;
-
 import controller.ControllerClientMenuPanier;
 
 public class PanelClientPanierMenu extends JPanel {
@@ -30,7 +28,7 @@ public class PanelClientPanierMenu extends JPanel {
 		add(labelPanier);
 		
 		//permet de visualiser le prix total du panier
-		labelPrixTotal = new JLabel("PrixTotal ï¿½");
+		labelPrixTotal = new JLabel("PrixTotal €");
 		add(labelPrixTotal);
 		
 		/*

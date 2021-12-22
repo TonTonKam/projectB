@@ -4,7 +4,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import controller.ControllerClientCommande;
-import vue.PanelArticleSelectClient;
+import vue.PanelClientArticleSelect;
 
 public class PanelModelArtCommande extends JPanel {
 

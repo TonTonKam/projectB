@@ -13,7 +13,7 @@ public class PanelClientAccueil extends JPanel{
 	private ControllerClientAccueil controlAccueil;
 	public static User currentUserStatic ;
 	
-	public PanelClientAccueil(PanelArticleSelectClient panelExpedition, int longueurM, int hauteurM) {
+	public PanelClientAccueil(PanelClientArticleSelect panelExpedition, int longueurM, int hauteurM) {
 		controlAccueil = new ControllerClientAccueil();
 		setBackground(ColorPanel.vertClair());
 		

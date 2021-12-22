@@ -66,6 +66,7 @@ public class PanelArticleSelectClient extends JPanel {
 		btnAjouterCommande.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				
 				/*
 				 * creer dans la table commande LA commande
 				 * "INSERT INTO commande (id_commande, date) VALUES (null, now())";
@@ -79,7 +80,7 @@ public class PanelArticleSelectClient extends JPanel {
 		add(btnAjouterCommande);
 		
 		//renvoie sur la page AccueilClient
-		btnPrecedent = new JButton("Précédent");
+		btnPrecedent = new JButton("Prï¿½cï¿½dent");
 		btnPrecedent.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {

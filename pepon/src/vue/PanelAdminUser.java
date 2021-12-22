@@ -199,9 +199,9 @@ public class PanelAdminUser extends JPanel {
 				//stat = status.getSelectedItem();
 				stat = Integer.parseInt(status.getText());
 				id = textIdUser.getText();	
-				//Appel de la méthode
+				//Appel de la mï¿½thode
 				us.modifier(firstname, lastname, mail, stat, id);
-				//afficher la table modifiée
+				//afficher la table modifiï¿½e
 				us.afficherTable(table);
 			}
 		});

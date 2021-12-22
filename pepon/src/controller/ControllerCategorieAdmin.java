@@ -19,7 +19,7 @@ public class ControllerCategorieAdmin {
 	//Appel de la connection
 	//Connection connect = GetConnection.getConnectionMac();
 	Connection connect = GetConnection.getConnectionWindows();
-	public static User currentUser ;
+	//public static User currentUser ;
 	
 	public void afficherTable(JTable table) {
 		

@@ -57,7 +57,7 @@ public class PanelLogin extends JPanel {
 		lblMotDePasse.setBounds(2*longueurMax/8, 3*hauteurMax/8, 130, 16);
 		this.add(lblMotDePasse);
 		
-		/*JButton inscription = new JButton("Inscription");
+		JButton inscription = new JButton("Inscription");
 		inscription.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PanelInscription philippe = new PanelInscription(contentPane, longueurMax, hauteurMax);
@@ -70,7 +70,7 @@ public class PanelLogin extends JPanel {
 		
 		inscription.setBounds(3*longueurMax/8, 5*hauteurMax/8, 175, 29);
 		this.add(inscription);
-		*/
+		
 		password = new JPasswordField();
 		password.setBounds(4*longueurMax/8, 3*hauteurMax/8, 130, 26);
 		add(password);

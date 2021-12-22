@@ -20,8 +20,9 @@ public class ControllerUserAdmin {
 	
 			//Appel de la connection
 			//Connection connect = GetConnection.getConnectionMac();
-			Connection connect = GetConnection.getConnectionMac();
-			public static User currentUser ;
+			Connection connect = GetConnection.getConnectionWindows();
+			
+			//public static User currentUser ;
 			
 			public void switchPanels(JPanel panel,JLayeredPane layeredPane) {
 				layeredPane.removeAll();
@@ -179,12 +180,8 @@ public class ControllerUserAdmin {
 					
 				}
 				
-<<<<<<< HEAD
 				//Méthode pour supprimer un utilisateur 
-=======
-				//Mï¿½thode pour modifier un utilisateur 
->>>>>>> origin/mainBertrand
-				
+
 				public void supprimer(String id) {
 					try {
 						PreparedStatement sql = connect.prepareStatement("delete from user where id_statut =?");

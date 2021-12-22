@@ -18,15 +18,9 @@ public class Frame extends JFrame {
 	private PanelAccueilClient pac;
 	private PanelArticleSelectClient pasc;
 	private PanelCommandeClient pcc;
-	private PanelAdminUser pau;
-	private PanelAdminMenu pam;
-	
-	private PanelAdminMenu pam;
 
 	private PanelAdminUser pau;
 	
-
-
 	/**
 	 * Create the frame.
 	 */
@@ -39,16 +33,9 @@ public class Frame extends JFrame {
 		pac = new PanelAccueilClient(pasc, LONGUEURMAX, HAUTEURMAX);
 		pmc = new PanelMenuClient(pac, pasc, LONGUEURMAX);
 		pmp = new PanelMenuPanier(pcc, pasc, pac, LONGUEURMAX, HAUTEURMAX);
-<<<<<<< HEAD
-		
-=======
-		pau = new PanelAdminUser();
->>>>>>> origin/mainBertrand
-		pam = new PanelAdminMenu();
 
 		//Admin
 		pau = new PanelAdminUser();
-		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1000, 600);
@@ -65,17 +52,9 @@ public class Frame extends JFrame {
 		pmp.setLayout(null);
 		contentPane.add(pasc);
 		contentPane.add(pcc);
-<<<<<<< HEAD
 	
-		
 		//Admin
 		contentPane.add(pau);
-		
-		
-=======
-		contentPane.add(pau);
->>>>>>> origin/mainBertrand
-		contentPane.add(pam);
 		
 		contentPane.add(login);
 		login.setVisible(true);
@@ -87,20 +66,10 @@ public class Frame extends JFrame {
 	//fin accueil
 		pasc.setVisible(false);
 		pcc.setVisible(false);
-<<<<<<< HEAD
-
-		pam.setVisible(false);
 
 	// Debut admin	
-		pau.setVisible(true);
-		
-=======
-		
-		
-		// panel admin
 		pau.setVisible(false);
-		pam.setVisible(false);
->>>>>>> origin/mainBertrand
+		
 	}
 
 }

@@ -11,15 +11,12 @@ import model.User;
 
 public class UserDao {
 	//Appel de la connection
-<<<<<<< HEAD
+
 		//Connection connect = GetConnection.getConnectionMac();
 		Connection connect = GetConnection.getConnectionWindows();
 
-=======
-		Connection connect = GetConnection.getConnectionMac();
-		//Connection connect = GetConnection.getConnectionWindows();
 		public static User currentUser ;
->>>>>>> origin/mainBertrand
+
 		private JTable table;
 		
 		public boolean mailExist(String email) {

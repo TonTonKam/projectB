@@ -21,7 +21,6 @@ import java.util.regex.Pattern;
 import vue.Frame;
 import vue.PanelAccueilClient;
 import vue.PanelAdminArticle;
-import vue.PanelAdminMenu;
 import vue.PanelArticleSelectClient;
 import vue.PanelCommandeClient;
 import vue.PanelInscription;
@@ -29,7 +28,6 @@ import vue.PanelLogin;
 import vue.PanelMenuClient;
 import vue.PanelMenuGeneral;
 import vue.PanelMenuPanier;
-import vue.test;
 import vue.PanelAdminUser;
 
 public class ControllerLogin {
@@ -48,20 +46,18 @@ public class ControllerLogin {
 	private PanelArticleSelectClient pasc;
 	private PanelCommandeClient pcc;
 	private PanelAdminUser pau;
-	private PanelAdminMenu pam;
-	private test teste;
 	
 	public void connecter(JTextField identifiant,JTextField password,JPanel contentPane,int longueurMax, int hauteurMax) {
 	
 		pcc = new PanelCommandeClient(longueurMax, hauteurMax);
-		pasc = new PanelArticleSelectClient(longueurMax, hauteurMax);
+		pasc = new PanelArticleSelectClient(pmp, longueurMax, hauteurMax);
 		pac = new PanelAccueilClient(pasc, longueurMax, hauteurMax);
 		pmc = new PanelMenuClient(pac, pasc, longueurMax);
 		pmg = new PanelMenuGeneral(longueurMax);
 		pmp = new PanelMenuPanier(pcc, pasc, pac, longueurMax, hauteurMax);
 		pau = new PanelAdminUser();
-		pam = new PanelAdminMenu();
-		teste = new test(longueurMax, hauteurMax);
+		
+		
 		login = new PanelLogin(contentPane,longueurMax, hauteurMax);
 		String identifiant_saisi = identifiant.getText();
 		String pwd_saisie = password.getText();
@@ -97,7 +93,7 @@ public class ControllerLogin {
 			}
 			else {
 				contentPane.removeAll();
-				contentPane.add(teste);
+				
 				contentPane.repaint();
 				contentPane.revalidate();
 				

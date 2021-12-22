@@ -115,6 +115,7 @@ public class ControllerArticleAdmin {
 			sql.setInt(2, nutripoint);
 			sql.setDouble(3,(double) prix_saisie);
 			sql.setInt(4, idCategorie);
+			
 			sql.setString(5, idTextArticle);
 			
 			sql.executeUpdate();
@@ -126,14 +127,14 @@ public class ControllerArticleAdmin {
 		
 	}
 	
-	public void supprimer(String id) {
+	public void supprimer(String textIdArticle) {
 		try {
 			PreparedStatement sql = connect.prepareStatement("delete from article where id_article =?");
 			
-			sql.setString(1,id);
+			sql.setString(1,textIdArticle);
 			
 			sql.executeUpdate();
-			JOptionPane.showMessageDialog(null,"l'article qui a l'id n°: "+ id +" a été bien supprimé." );
+			JOptionPane.showMessageDialog(null,"l'article qui a l'id n°: "+ textIdArticle +" a été bien supprimé." );
 		} catch (SQLException event) {
 			// TODO Auto-generated catch block
 			event.printStackTrace();

@@ -76,14 +76,14 @@ public class PanelAdminArticle extends JPanel {
 		textCategorie.setBounds(125, 236, 202, 26);
 		add(textCategorie);
 		
-		//****************************************Ajouter un article*********************************************
+		//**********************************************Ajouter un article***************************************************
 		
 		JButton btnAjouter = new JButton("Ajouter");
 		btnAjouter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String article_saisie = textArticle.getText();
 				int nutripoint_saisie = Integer.parseInt(textNutripoint.getText());
-				double prix_saisie = Integer.parseInt(textPrix.getText());
+				double prix_saisie = Double.parseDouble(textPrix.getText());
 				int idCat_saisie = Integer.parseInt(textCategorie.getText());
 				
 				Article article = new Article(article_saisie,nutripoint_saisie,prix_saisie,idCat_saisie);
@@ -117,18 +117,17 @@ public class PanelAdminArticle extends JPanel {
 				
 				String article_saisie = textArticle.getText();
 				int nutripoint_saisie = Integer.parseInt(textNutripoint.getText());
-				double prix_saisie = Integer.parseInt(textPrix.getText());
+				double prix_saisie = Double.parseDouble(textPrix.getText());
 				int idCat_saisie = Integer.parseInt(textCategorie.getText());
 				
 				String idTextArticle = textIdArticle.getText();	
 				
 				//Appel de la méthode modifier
 				if(article_saisie.isEmpty() || nutripoint_saisie == 0 || prix_saisie ==0 || idCat_saisie == 0 ) {
-					art.modifier(article_saisie, nutripoint_saisie, prix_saisie, idCat_saisie, idTextArticle);
-					
-					//afficher la table modifiée
-					art.afficherTableArticle(table);
+					art.modifier(article_saisie, nutripoint_saisie, prix_saisie, idCat_saisie, idTextArticle);	
 				}
+				//afficher la table modifiée
+				art.afficherTableArticle(table);
 			}
 		});
 		btnModifier.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -142,7 +141,7 @@ public class PanelAdminArticle extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				String article_saisie = textArticle.getText();
 				int nutripoint_saisie = Integer.parseInt(textNutripoint.getText());
-				double prix_saisie =  Integer.parseInt(textPrix.getText());
+				double prix_saisie = Double.parseDouble(textPrix.getText());
 				int idCat_saisie = Integer.parseInt(textCategorie.getText());
 				
 				String idTextArticle = textIdArticle.getText();	
@@ -150,11 +149,11 @@ public class PanelAdminArticle extends JPanel {
 				//Appel de la méthode modifier
 				if(article_saisie.isEmpty() || nutripoint_saisie == 0 || prix_saisie ==0 || idCat_saisie == 0 ) {
 					art.supprimer(idTextArticle);
-					
 					//afficher la table modifiée
 					art.afficherTableArticle(table);
 				}
-			}
+				}
+				
 		});
 		
 		btnSupprimer.setFont(new Font("Tahoma", Font.BOLD, 12));

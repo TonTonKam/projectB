@@ -201,7 +201,6 @@ public class PanelAdminUser extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				
 				String id, firstname, lastname, mail;
-				//Object stat;
 				int stat;
 				firstname =textNom.getText();
 				lastname = textPrenom.getText();
@@ -210,18 +209,11 @@ public class PanelAdminUser extends JPanel {
 				id = textIdUser.getText();	
 
 				//Appel de la méthode modifier
-				if(!firstname.isEmpty()|| lastname.isEmpty() || mail.isEmpty() || stat == 0) {
+				if(!firstname.isEmpty()|| !(lastname.isEmpty()) || !(mail.isEmpty()) || !(stat == 0)) {
 					us.modifier(firstname, lastname, mail, stat, id);
-					
 					//afficher la table modifiée
 					us.afficherTable(table);
 				}
-
-				//Appel de la methode
-				us.modifier(firstname, lastname, mail, stat, id);
-				//afficher la table modifiï¿½e
-				us.afficherTable(table);
-
 			}
 		});
 		
@@ -234,21 +226,22 @@ public class PanelAdminUser extends JPanel {
 		JButton btnSupprimer = new JButton("Supprimer");
 		btnSupprimer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String id, firstname, lastname, mail;
+				String idAsupp, firstname, lastname, mail;
 				int state;
 				firstname =textNom.getText();
 				lastname = textPrenom.getText();
 				mail  = textEmail.getText();
 				state = Integer.parseInt(textStatut.getText());
-				String idTextUser = textIdUser.getText();
+				idAsupp = textIdUser.getText();
 				
-				if(!firstname.isEmpty()|| lastname.isEmpty() || mail.isEmpty() || state == 0) {
-					us.supprimer(idTextUser);
+				if(!firstname.isEmpty()|| !(lastname.isEmpty()) || !(mail.isEmpty()) || !(state == 0)) {
+					us.supprimer(idAsupp);
 					us.afficherTable(table);
-				}
-					
+				}		
 			}
+			
 		});
+		
 		btnSupprimer.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnSupprimer.setBounds(248, 299, 98, 33);
 		Utilistaeur.add(btnSupprimer);

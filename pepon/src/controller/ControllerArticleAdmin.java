@@ -1,17 +1,12 @@
 package controller;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-
 import model.Article;
-import model.User;
 import net.proteanit.sql.DbUtils;
 
 public class ControllerArticleAdmin {
@@ -109,13 +104,12 @@ public class ControllerArticleAdmin {
 	// Méthode pour modifier un article 
 	public void modifier( String nomArticle, int nutripoint, double prix_saisie, int  idCategorie, String idTextArticle) {
 		try {
-			PreparedStatement sql = connect.prepareStatement("UPDATE article set nom_article= ?,nutripoint = ?,prix= ?,id_categorie = ?" 
-					+ " where id_article =?");
+			PreparedStatement sql = connect.prepareStatement("UPDATE article set nom_article = ?,nutripoint = ?,prix = ?,id_categorie = ?" 
+					+ " WHERE id_article =?");
 			sql.setString(1, nomArticle);
 			sql.setInt(2, nutripoint);
-			sql.setDouble(3,(double) prix_saisie);
+			sql.setDouble(3, prix_saisie);
 			sql.setInt(4, idCategorie);
-			
 			sql.setString(5, idTextArticle);
 			
 			sql.executeUpdate();
@@ -124,7 +118,6 @@ public class ControllerArticleAdmin {
 			// TODO Auto-generated catch block
 			event.printStackTrace();
 		}
-		
 	}
 	
 	public void supprimer(String textIdArticle) {
@@ -139,7 +132,6 @@ public class ControllerArticleAdmin {
 			// TODO Auto-generated catch block
 			event.printStackTrace();
 		}
-		
 	}
 	
 	//Méthode  pour vider les champs

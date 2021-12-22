@@ -84,7 +84,7 @@ public class PanelAdminCategorie extends JPanel {
 				}else {
 						if(cat.catExist(cat_saisie)) {
 							cat.ajouter(category);
-							JOptionPane.showMessageDialog(null,  "la catégorie " + category +" a bien été ajoutée");
+							JOptionPane.showMessageDialog(null,  "la catégorie " + category.getLibelle() +" a bien été ajoutée");
 							
 						}else {
 							JOptionPane.showMessageDialog(null, "Cette catégorie existe deja !","Error",JOptionPane.ERROR_MESSAGE);		

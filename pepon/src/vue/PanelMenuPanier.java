@@ -30,7 +30,7 @@ public class PanelMenuPanier extends JPanel {
 		add(labelPanier);
 		
 		//permet de visualiser le prix total du panier
-		labelPrixTotal = new JLabel("PrixTotal €");
+		labelPrixTotal = new JLabel("PrixTotal ï¿½");
 		add(labelPrixTotal);
 		
 		/*
@@ -58,7 +58,7 @@ public class PanelMenuPanier extends JPanel {
 		
 		//refresh
 		controlPanier = new ControllerMenuPanier();
-		controlPanier.affichePanierClient(this);
+		//controlPanier.affichePanierClient(this);
 	} //fin constructor
 
 	//getter & setter

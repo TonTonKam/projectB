@@ -14,8 +14,8 @@ import vue.PanelMenuPanier;
 public class ControllerMenuPanier {
 	
 	public void affichePanierClient(PanelMenuPanier panelExpedition) {
-		//int idUser = UserDao.currentUser.getIdClient;
-		int idUser = VarStatic.currentUserStatic;
+		int idUser = VarStatic.currentUserStatic.getIdUser();
+		//int idUser = VarStatic.currentUserStatic;
 		int idArticle = VarStatic.IdArticleStatic;
 		int idCommand = VarStatic.idCommandeStatic;
 		

@@ -11,7 +11,8 @@ import model.VarStatic;
 import vue.PanelArticleSelectClient;
 
 public class ControlerArticleClient {
-
+	//Connection connect = GetConnection.getConnectionWindows();
+	Connection connect = GetConnection.getConnectionMac();
 	public void modifPanArticle(PanelArticleSelectClient panelArticle) {
 		ArticleDao artDao = new ArticleDao();
 		
@@ -28,8 +29,7 @@ public class ControlerArticleClient {
 	}
 	
 	public int creerCommande() {
-		//Connection connect = GetConnection.getConnectionWindows();
-		Connection connect = GetConnection.getConnectionMac();
+		
 		//int user = UserDao.currentUser.getIdUser();
 		if(VarStatic.idCommandeStatic == 0) {
 			VarStatic.idCommandeStatic = 0;
@@ -60,7 +60,6 @@ public class ControlerArticleClient {
 	
 	public void ajouterDetail(int idCommande, int idArticle, int quantiteArticle) {
 		
-		Connection connect = GetConnection.getConnectionWindows();
 		//panier id_commande / id_article / quantite
 		try {
 			PreparedStatement req = connect.prepareStatement("INSERT INTO panier (id_commande, id_article, quantite) VALUE (?, ?, ?)");

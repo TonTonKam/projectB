@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 
 import controller.ControlerAccueilClient;
 import model.ColorPanel;
+import model.VarStatic;
 
 public class PanelAccueilClient extends JPanel{
 	
@@ -22,6 +23,7 @@ public class PanelAccueilClient extends JPanel{
 		
 		//voir la liste des articles
 		controlAccueil.afficheListArticleDefault(this, panelExpedition, longueurM);
+		System.out.println(VarStatic.currentUserStatic);
 	}
 	
 }

@@ -8,6 +8,7 @@ import java.sql.JDBCType;
 import javax.swing.JTable;
 
 import model.User;
+import model.VarStatic;
 
 public class UserDao {
 	//Appel de la connection
@@ -15,7 +16,7 @@ public class UserDao {
 		Connection connect = GetConnection.getConnectionMac();
 		//Connection connect = GetConnection.getConnectionWindows();
 
-		public static User currentUser ;
+		
 
 		private JTable table;
 		
@@ -71,7 +72,7 @@ public class UserDao {
 				ResultSet rs = sql.executeQuery();
 				
 				if(rs.next()) {
-					//currentUser = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"));
+					VarStatic.currentUserStatic = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"));
 					msg = true;
 				}
 				
@@ -96,7 +97,7 @@ public class UserDao {
 				ResultSet rs = sql.executeQuery();
 				
 				if(rs.next()) {
-					currentUser = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"),rs.getInt("id_statut"));
+					VarStatic.currentUserStatic = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"),rs.getInt("id_statut"));
 					if(rs.getInt("id_statut")==2) {
 					msg = true;}
 				}

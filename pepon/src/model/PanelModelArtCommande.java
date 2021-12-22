@@ -13,7 +13,8 @@ public class PanelModelArtCommande extends JPanel {
 	private ControllerCommandeClient controlCommand;
 	
 	//constructor
-	public PanelModelArtCommande(Article article) {
+	public PanelModelArtCommande(Article article, int longueurM) {
+		setBounds(0, 0, longueurM, 50);
 
 		controlCommand = new ControllerCommandeClient();
 		
@@ -26,7 +27,7 @@ public class PanelModelArtCommande extends JPanel {
 		
 		labelQuantite = new JLabel("quantiteArticle");
 		//la quantite vient de la table panier
-		controlCommand.getQuantPanier(article);
+		labelQuantite.setText(String.valueOf(controlCommand.getQuantPanier(article)));
 		add(labelQuantite);
 		
 		labelPrix = new JLabel();
@@ -42,8 +43,16 @@ public class PanelModelArtCommande extends JPanel {
 		
 		labelPrixTotal = new JLabel("prixTotal");
 		//prixTotal vient de la table commande
+		labelPrixTotal.setText(String.valueOf(controlCommand.getPrixTotal(article,
+				controlCommand.getQuantPanier(article))));
 		add(labelPrixTotal);
 		
 	}
+
+	public int getPrixTotalLabel() {
+		return Integer.parseInt(labelPrixTotal.getText());
+	}
+	
+	
 
 }

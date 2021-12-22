@@ -33,7 +33,7 @@ public class ControllerCommandeClient {
 			ResultSet rs = sql.executeQuery();
 			
 			while(rs.next()) {
-				
+				quantite = rs.getInt("quantite");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -43,9 +43,12 @@ public class ControllerCommandeClient {
 	}
 	
 	//on affiche le panier.id_article.prixArticle * panier.quantite dans total
-	public int getPrixTotal() {
+	public double getPrixTotal(Article article, int qte) {
+		double result = 0;
 		
-		return 0;
+		result = article.getPrix() * qte;
+		
+		return result;
 	}
 	
 	//on affiche tous les articles de la commande
@@ -53,7 +56,9 @@ public class ControllerCommandeClient {
 		ArrayList<Article> listArt = new ArrayList();
 		
 		try {
-			PreparedStatement sql = connect.prepareStatement("SELECT ");
+			//les id_article lier a la commande X
+			PreparedStatement sql = connect.prepareStatement("SELECT id_article FROM panier WHERE id_commande = ?");
+			sql.setInt(1, VarStatic.idCommandeStatic);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

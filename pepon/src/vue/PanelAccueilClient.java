@@ -4,12 +4,14 @@ import javax.swing.JPanel;
 
 import controller.ControlerAccueilClient;
 import model.ColorPanel;
+import model.User;
 import model.VarStatic;
 
 public class PanelAccueilClient extends JPanel{
 	
 	private int longueurMenu, longueur, haut;
 	private ControlerAccueilClient controlAccueil;
+	public static User currentUserStatic ;
 	
 	public PanelAccueilClient(PanelArticleSelectClient panelExpedition, int longueurM, int hauteurM) {
 		controlAccueil = new ControlerAccueilClient();
@@ -23,7 +25,7 @@ public class PanelAccueilClient extends JPanel{
 		
 		//voir la liste des articles
 		controlAccueil.afficheListArticleDefault(this, panelExpedition, longueurM);
-		System.out.println(VarStatic.currentUserStatic);
+		System.out.println(currentUserStatic);
 	}
 	
 }

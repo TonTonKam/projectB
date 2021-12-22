@@ -15,6 +15,7 @@ public class UserDao {
 
 		Connection connect = GetConnection.getConnectionMac();
 		//Connection connect = GetConnection.getConnectionWindows();
+		public static User currentUserStatic ;
 
 		
 
@@ -72,7 +73,7 @@ public class UserDao {
 				ResultSet rs = sql.executeQuery();
 				
 				if(rs.next()) {
-					VarStatic.currentUserStatic = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"));
+					currentUserStatic = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"),);
 					msg = true;
 				}
 				
@@ -97,7 +98,7 @@ public class UserDao {
 				ResultSet rs = sql.executeQuery();
 				
 				if(rs.next()) {
-					VarStatic.currentUserStatic = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"),rs.getInt("id_statut"));
+					currentUserStatic = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"),rs.getInt("id_statut"),rs.getString("id_user"));
 					if(rs.getInt("id_statut")==2) {
 					msg = true;}
 				}

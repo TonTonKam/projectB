@@ -19,12 +19,11 @@ public class Frame extends JFrame {
 	private PanelArticleSelectClient pasc;
 	private PanelCommandeClient pcc;
 	
-<<<<<<< HEAD
 	private PanelAdminMenu pam;
-=======
+
 	private PanelAdminUser pau;
 	
->>>>>>> 0e81d5dcae62dfb2a0d5450362cc5158a8d65d8d
+
 
 	/**
 	 * Create the frame.
@@ -39,13 +38,11 @@ public class Frame extends JFrame {
 		pmc = new PanelMenuClient(pac, pasc, LONGUEURMAX);
 		pmp = new PanelMenuPanier(pcc, pasc, pac, LONGUEURMAX, HAUTEURMAX);
 		
-<<<<<<< HEAD
 		pam = new PanelAdminMenu();
-=======
+
 		//Admin
 		pau = new PanelAdminUser();
 		
->>>>>>> 0e81d5dcae62dfb2a0d5450362cc5158a8d65d8d
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1000, 600);
@@ -80,14 +77,12 @@ public class Frame extends JFrame {
 	//fin accueil
 		pasc.setVisible(false);
 		pcc.setVisible(false);
-<<<<<<< HEAD
-		
+
 		pam.setVisible(false);
-=======
+
 	// Debut admin	
 		pau.setVisible(true);
 		
->>>>>>> 0e81d5dcae62dfb2a0d5450362cc5158a8d65d8d
 	}
 
 }

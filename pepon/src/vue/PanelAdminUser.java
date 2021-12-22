@@ -10,7 +10,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 
-import controller.ControllerUserAdmin;
+import controller.ControllerAdminUser;
 import model.ColorPanel;
 import model.User;
 
@@ -34,7 +34,7 @@ public class PanelAdminUser extends JPanel {
 	private JTextField textStatut;
 	
 	//Instanciation d'un objet user 
-	ControllerUserAdmin us = new ControllerUserAdmin();
+	ControllerAdminUser us = new ControllerAdminUser();
 	
 	//constructor
 	public PanelAdminUser() {
@@ -166,7 +166,7 @@ public class PanelAdminUser extends JPanel {
 				
 				User nouvelUser = new User(nom_saisie, prenom_saisie, email_saisie, pass_saisie,statut_saisie);
 				
-					ControllerUserAdmin vider = new ControllerUserAdmin();
+					ControllerAdminUser vider = new ControllerAdminUser();
 					
 					if(nom_saisie.isEmpty() || prenom_saisie.isEmpty() || email_saisie.isEmpty() || pass_saisie.isEmpty() || statut_saisie == 0) {
 						JOptionPane.showMessageDialog(null, "Remplissez tous les champs svp!","Error",JOptionPane.ERROR_MESSAGE);
@@ -320,7 +320,7 @@ public class PanelAdminUser extends JPanel {
 		btnUtilisateur.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				ControllerUserAdmin toto = new ControllerUserAdmin();
+				ControllerAdminUser toto = new ControllerAdminUser();
 				toto.switchPanels(Utilistaeur,layeredPane);
 			}
 		});
@@ -337,7 +337,7 @@ public class PanelAdminUser extends JPanel {
 		btnArticle.setBounds(301, 23, 134, 44);
 		btnArticle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ControllerUserAdmin toto = new ControllerUserAdmin();
+				ControllerAdminUser toto = new ControllerAdminUser();
 				toto.switchPanels(articles,layeredPane);
 			}
 		});
@@ -348,7 +348,7 @@ public class PanelAdminUser extends JPanel {
 		JButton btnCommandes = new JButton("Commandes");
 		btnCommandes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ControllerUserAdmin toto = new ControllerUserAdmin();
+				ControllerAdminUser toto = new ControllerAdminUser();
 				toto.switchPanels(commande,layeredPane);
 			}
 		});
@@ -360,7 +360,7 @@ public class PanelAdminUser extends JPanel {
 		JButton btnCatgories = new JButton("Cat\u00E9gories");
 		btnCatgories.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ControllerUserAdmin toto = new ControllerUserAdmin();
+				ControllerAdminUser toto = new ControllerAdminUser();
 				toto.switchPanels(categorie,layeredPane);
 			}
 		});

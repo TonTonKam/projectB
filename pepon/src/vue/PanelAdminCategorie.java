@@ -14,8 +14,8 @@ import javax.swing.border.TitledBorder;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
 
-import controller.ControllerCategorieAdmin;
-import controller.ControllerUserAdmin;
+import controller.ControllerAdminCategorie;
+import controller.ControllerAdminUser;
 import model.Categorie;
 
 import java.awt.event.ActionListener;
@@ -33,7 +33,7 @@ public class PanelAdminCategorie extends JPanel {
 	 */
 	
 	//Instanciation d'un objet user 
-		ControllerCategorieAdmin cat = new ControllerCategorieAdmin();
+		ControllerAdminCategorie cat = new ControllerAdminCategorie();
 	public PanelAdminCategorie() {
 		setBackground(Color.LIGHT_GRAY);
 		setBounds(43, 90, 900, 450);

@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 import model.User;
 import net.proteanit.sql.DbUtils;
 
-public class ControllerUserAdmin {
+public class ControllerAdminUser {
 	
 			//Appel de la connection
 			//Connection connect = GetConnection.getConnectionMac();

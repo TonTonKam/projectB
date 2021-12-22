@@ -9,7 +9,7 @@ import javax.swing.JTextField;
 import model.Article;
 import net.proteanit.sql.DbUtils;
 
-public class ControllerArticleAdmin {
+public class ControllerAdminArticle {
 	//Appel de la connection
 	//Connection connect = GetConnection.getConnectionMac();
 	Connection connect = GetConnection.getConnectionWindows();

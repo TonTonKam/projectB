@@ -10,7 +10,7 @@ import java.util.List;
 import model.Article;
 import model.VarStatic;
 
-public class ControllerCommandeClient {
+public class ControllerClientCommande {
 	
 	Connection connect = GetConnection.getConnectionWindows();
 	//Connection connect = GetConnection.getConnectionMac();

@@ -14,7 +14,7 @@ import model.Categorie;
 import model.User;
 import net.proteanit.sql.DbUtils;
 
-public class ControllerCategorieAdmin {
+public class ControllerAdminCategorie {
 	
 	//Appel de la connection
 	//Connection connect = GetConnection.getConnectionMac();

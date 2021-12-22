@@ -57,7 +57,7 @@ public class Frame extends JFrame {
 		contentPane.add(pau);
 		
 		contentPane.add(login);
-		login.setVisible(true);
+		login.setVisible(false);
 	//debut accueil
 		pmc.setVisible(false);
 		pmg.setVisible(false);
@@ -68,7 +68,7 @@ public class Frame extends JFrame {
 		pcc.setVisible(false);
 
 	// Debut admin	
-		pau.setVisible(false);
+		pau.setVisible(true);
 		
 	}
 

@@ -9,8 +9,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.ArticleDao;
-import controller.ControlerArticleClient;
-import controller.ControllerMenuPanier;
+import controller.ControlerClientArticle;
+import controller.ControllerClientMenuPanier;
 import controller.UserDao;
 import model.Article;
 import model.ColorPanel;
@@ -25,8 +25,8 @@ public class PanelArticleSelectClient extends JPanel {
 	private JTextField textFieldQuantite;
 	private JButton btnAjouterCommande, btnPrecedent;
 	private ArticleDao artDao;
-	private ControlerArticleClient controlArt;
-	private ControllerMenuPanier controlPanier;
+	private ControlerClientArticle controlArt;
+	private ControllerClientMenuPanier controlPanier;
 
 	//constructor
 	public PanelArticleSelectClient(PanelMenuPanier panelMenu, int longueurM, int hauteurM) {
@@ -39,7 +39,7 @@ public class PanelArticleSelectClient extends JPanel {
 		
 		setBounds(longueurMenu, 200, longueur, haut);
 		
-		controlArt = new ControlerArticleClient();
+		controlArt = new ControlerClientArticle();
 
 		labelImg = new JLabel("IMG");
 		add(labelImg);
@@ -88,7 +88,7 @@ public class PanelArticleSelectClient extends JPanel {
 						Integer.parseInt(textFieldQuantite.getText()));
 				
 				//refresh PanelMenuPanier
-				controlPanier = new ControllerMenuPanier();
+				controlPanier = new ControllerClientMenuPanier();
 				controlPanier.affichePanierClient(panelMenu);
 				
 				//retourner a la fonction menuClient

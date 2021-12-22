@@ -11,7 +11,9 @@ import model.PanelModelArticle;
 import model.VarStatic;
 import vue.PanelMenuPanier;
 
-public class ControllerMenuPanier {
+public class ControllerClientMenuPanier {
+	Connection connect = GetConnection.getConnectionWindows();
+	//Connection connect = GetConnection.getConnectionMac();
 	
 	public void affichePanierClient(PanelMenuPanier panelExpedition) {
 		//int idUser = UserDao.currentUser.getIdClient;
@@ -20,7 +22,6 @@ public class ControllerMenuPanier {
 		int idCommand = VarStatic.idCommandeStatic;
 		
 		String text = "Vos articles : ";
-		Connection connect = GetConnection.getConnectionWindows();
 		
 		try {
 			PreparedStatement sql = connect.prepareStatement("SELECT id_article, quantite FROM panier WHERE id_commande = ?");

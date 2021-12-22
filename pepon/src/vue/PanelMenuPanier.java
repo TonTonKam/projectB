@@ -7,7 +7,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.SpringLayout;
 
-import controller.ControllerMenuPanier;
+import controller.ControllerClientMenuPanier;
 
 public class PanelMenuPanier extends JPanel {
 
@@ -15,7 +15,7 @@ public class PanelMenuPanier extends JPanel {
 	private JLabel labelPanier, labelPrixTotal;
 	private JTextArea areaPanier;
 	private JButton btnCommande;
-	private ControllerMenuPanier controlPanier;
+	private ControllerClientMenuPanier controlPanier;
 	
 	//constructor
 	public PanelMenuPanier(JPanel expedition, JPanel reception1, JPanel reception2, int longueurM, int hauteurM) {
@@ -57,7 +57,7 @@ public class PanelMenuPanier extends JPanel {
 		add(btnCommande);
 		
 		//refresh
-		controlPanier = new ControllerMenuPanier();
+		controlPanier = new ControllerClientMenuPanier();
 		controlPanier.affichePanierClient(this);
 	} //fin constructor
 

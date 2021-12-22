@@ -213,7 +213,6 @@ public class ArticleDao {
 	
 	public Article readIdArticle(int idArticle) {
 		Article article = null;
-		Connection connect = GetConnection.getConnectionMac();
 		
 		try {
 			PreparedStatement req = connect.prepareStatement("SELECT * FROM article WHERE id_article = ?");

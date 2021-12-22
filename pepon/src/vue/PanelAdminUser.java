@@ -36,7 +36,6 @@ public class PanelAdminUser extends JPanel {
 	//Instanciation d'un objet user 
 	ControllerUserAdmin us = new ControllerUserAdmin();
 	
-	
 	//constructor
 	public PanelAdminUser() {
 		

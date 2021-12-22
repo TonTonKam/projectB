@@ -3,20 +3,20 @@ package model;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import controller.ControllerCommandeClient;
+import controller.ControllerClientCommande;
 import vue.PanelArticleSelectClient;
 
 public class PanelModelArtCommande extends JPanel {
 
 	//attibuts
 	private JLabel labelImage, labelNom, labelQuantite, labelPrix, labelNutripoint, labelTTC, labelPrixTotal;
-	private ControllerCommandeClient controlCommand;
+	private ControllerClientCommande controlCommand;
 	
 	//constructor
 	public PanelModelArtCommande(Article article, int longueurM) {
 		setBounds(0, 0, longueurM, 50);
 
-		controlCommand = new ControllerCommandeClient();
+		controlCommand = new ControllerClientCommande();
 		
 		labelImage = new JLabel("IMG");
 		add(labelImage);

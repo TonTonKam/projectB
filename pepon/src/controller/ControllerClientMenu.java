@@ -13,7 +13,7 @@ import model.Article;
 import model.PanelModelArticle;
 import vue.PanelArticleSelectClient;
 
-public class ControllerMenuClient {
+public class ControllerClientMenu {
 	
 	//attributs
 	private ArticleDao artDao = new ArticleDao();

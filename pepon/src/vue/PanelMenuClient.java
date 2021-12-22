@@ -2,7 +2,7 @@ package vue;
 
 import javax.swing.*;
 
-import controller.ControllerMenuClient;
+import controller.ControllerClientMenu;
 import model.ColorPanel;
 
 import java.awt.event.MouseAdapter;
@@ -12,13 +12,13 @@ public class PanelMenuClient extends JPanel {
 
 	//label temporaire a definir
 	private JButton btnAll, btnBoisson, btnLegume, btnFruit, btnConverve, btnCharcuterie;
-	private ControllerMenuClient controlMC;
+	private ControllerClientMenu controlMC;
 	
 	/**
 	 * Create the panel.
 	 */
 	public PanelMenuClient(JPanel panelGeneral, PanelArticleSelectClient panelExpedition, int longueurM) {
-		controlMC = new ControllerMenuClient();
+		controlMC = new ControllerClientMenu();
 		setBackground(ColorPanel.vertFoncer());
 		setBounds(0, 120, longueurM, 80);
 		

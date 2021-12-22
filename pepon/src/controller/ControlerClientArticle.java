@@ -10,7 +10,8 @@ import model.PanelModelArticle;
 import model.VarStatic;
 import vue.PanelArticleSelectClient;
 
-public class ControlerArticleClient {
+public class ControlerClientArticle {
+	Connection connect = GetConnection.getConnectionWindows();
 
 	public void modifPanArticle(PanelArticleSelectClient panelArticle) {
 		ArticleDao artDao = new ArticleDao();
@@ -24,15 +25,13 @@ public class ControlerArticleClient {
 			panelArticle.setLabelPrix(Double.toString(artDao.readIdArticle(VarStatic.IdArticleStatic).getPrix()) +" €");
 			
 		}
-		
 	}
 	
 	public int creerCommande() {
-		Connection connect = GetConnection.getConnectionWindows();
-		//int user = UserDao.currentUser.getIdUser();
+		
 		if(VarStatic.idCommandeStatic == 0) {
-			VarStatic.idCommandeStatic = 0;
-			int user = 5;
+
+			int user = VarStatic.idCommandeStatic = 0;
 			try {
 				PreparedStatement req = connect.prepareStatement("INSERT INTO commande (id_commande, prix_total, date_achat, id_user) VALUES (null, null, now(), ?)");
 				req.setInt(1, user);
@@ -59,7 +58,6 @@ public class ControlerArticleClient {
 	
 	public void ajouterDetail(int idCommande, int idArticle, int quantiteArticle) {
 		
-		Connection connect = GetConnection.getConnectionWindows();
 		//panier id_commande / id_article / quantite
 		try {
 			PreparedStatement req = connect.prepareStatement("INSERT INTO panier (id_commande, id_article, quantite) VALUE (?, ?, ?)");

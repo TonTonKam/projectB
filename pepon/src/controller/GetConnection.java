@@ -10,7 +10,7 @@ public class GetConnection {
 		public static Connection getConnectionMac() {
 			 
 			String url = "jdbc:mysql://localhost:8889/";
-			String dbName = "pepon";
+			String dbName = "peppon";
 			String user="root";
 			String pwd="root";
 			

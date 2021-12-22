@@ -20,7 +20,8 @@ public class ControllerMenuPanier {
 		int idCommand = VarStatic.idCommandeStatic;
 		
 		String text = "Vos articles : ";
-		Connection connect = GetConnection.getConnectionWindows();
+		//Connection connect = GetConnection.getConnectionWindows();
+		Connection connect = GetConnection.getConnectionMac();
 		
 		try {
 			PreparedStatement sql = connect.prepareStatement("SELECT id_article, quantite FROM panier WHERE id_commande = ?");

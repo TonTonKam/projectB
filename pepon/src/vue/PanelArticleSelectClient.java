@@ -31,6 +31,7 @@ public class PanelArticleSelectClient extends JPanel {
 	//constructor
 	public PanelArticleSelectClient(PanelMenuPanier panelMenu, int longueurM, int hauteurM) {
 		artDao = new ArticleDao();
+		setVisible(false);
 		setBackground(ColorPanel.vertClair());
 		
 		longueurMenu = longueurM / 4;

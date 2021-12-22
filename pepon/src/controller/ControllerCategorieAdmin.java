@@ -17,14 +17,14 @@ import net.proteanit.sql.DbUtils;
 public class ControllerCategorieAdmin {
 	
 	//Appel de la connection
-	//Connection connect = GetConnection.getConnectionMac();
-	Connection connect = GetConnection.getConnectionWindows();
+	Connection connect = GetConnection.getConnectionMac();
+	//Connection connect = GetConnection.getConnectionWindows();
 	//public static User currentUser ;
 	
 	public void afficherTable(JTable table) {
 		
 		try {
-			//récupération des info de  table categorie
+			//rï¿½cupï¿½ration des info de  table categorie
 			PreparedStatement sql = connect.prepareStatement("SELECT * FROM categorie");
 			// Conversion de la requete en tableau d'objets
 			ResultSet rs =sql.executeQuery();
@@ -35,7 +35,7 @@ public class ControllerCategorieAdmin {
 			e.printStackTrace();
 		}
 	}
-	// Vériifer si la catégorie est deja dans la table
+	// Vï¿½riifer si la catï¿½gorie est deja dans la table
 	public boolean catExist(String cat) {
 		Boolean msg = false;
 		try {
@@ -56,7 +56,7 @@ public class ControllerCategorieAdmin {
 		return msg;
 	}
 	
-	//Méthode pour ajouter une catégorie 
+	//Mï¿½thode pour ajouter une catï¿½gorie 
 	public void ajouter(Categorie cat) {
 		
 		try {
@@ -70,7 +70,7 @@ public class ControllerCategorieAdmin {
 			e.printStackTrace();
 		}
 	}
-	//Activer le bouton Ajouter quant'il tous les champs sont saisis pour plus de sécurité
+	//Activer le bouton Ajouter quant'il tous les champs sont saisis pour plus de sï¿½curitï¿½
 	
 	public void activerBtnAjouter( JTextField libel,JButton btn) {
 		String nom_saisie = libel.getText();
@@ -82,7 +82,7 @@ public class ControllerCategorieAdmin {
 		}
 	}
 	
-	//Méthode pour modifier une catégorie 
+	//Mï¿½thode pour modifier une catï¿½gorie 
 	
 	public void modifier( String libel,String id) {
 		try {
@@ -92,7 +92,7 @@ public class ControllerCategorieAdmin {
 			
 			
 			sql.executeUpdate();
-			JOptionPane.showMessageDialog(null, "La catégorie "+ libel +" a été bien modifiée." );
+			JOptionPane.showMessageDialog(null, "La catï¿½gorie "+ libel +" a ï¿½tï¿½ bien modifiï¿½e." );
 		} catch (SQLException event) {
 			// TODO Auto-generated catch block
 			event.printStackTrace();
@@ -100,7 +100,7 @@ public class ControllerCategorieAdmin {
 		
 	}
 	
-	//Méthode pour supprimer une catégorie 
+	//Mï¿½thode pour supprimer une catï¿½gorie 
 	
 	public void supprimer(String id) {
 		try {
@@ -109,7 +109,7 @@ public class ControllerCategorieAdmin {
 			sql.setString(1,id);
 			
 			sql.executeUpdate();
-			JOptionPane.showMessageDialog(null,"La catégorie qui a id n° "+ id +" a été bienn supprimée." );
+			JOptionPane.showMessageDialog(null,"La catï¿½gorie qui a id nï¿½ "+ id +" a ï¿½tï¿½ bienn supprimï¿½e." );
 		} catch (SQLException event) {
 			// TODO Auto-generated catch block
 			event.printStackTrace();
@@ -117,7 +117,7 @@ public class ControllerCategorieAdmin {
 		
 	}
 	
-	//Méthode pour chercher une catégorie par id
+	//Mï¿½thode pour chercher une catï¿½gorie par id
 	public void findById(String id, JTextField libel) {
 		try { 
 			PreparedStatement sql = connect.prepareStatement("SELECT  libelle  FROM categorie WHERE id_categorie = ?");

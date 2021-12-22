@@ -24,7 +24,7 @@ public class PanelCommandeClient extends JPanel {
 	public PanelCommandeClient(int longueurM, int hauteurM) {
 
 		setBackground(ColorPanel.vertClair());
-		
+		setVisible(false);
 		longueurMenu = longueurM / 4;
 		longueur = longueurM * 3 / 4 ;
 		haut = hauteurM - 200;
@@ -63,7 +63,7 @@ public class PanelCommandeClient extends JPanel {
 		labelAffichePrixTotal = new JLabel("Total achat");
 		labelAffichePrixTotal.setBounds(longueur / 2 + 80, 450, 200, 20);
 		
-		labelPrixTotal = new JLabel("prix €");
+		labelPrixTotal = new JLabel("prix ï¿½");
 		labelPrixTotal.setBounds(longueur / 2 + 150, 450, 200, 20);
 		
 		btnValidation = new JButton("Validation d'achat");

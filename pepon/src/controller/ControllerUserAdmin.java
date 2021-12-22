@@ -19,8 +19,8 @@ import net.proteanit.sql.DbUtils;
 public class ControllerUserAdmin {
 	
 			//Appel de la connection
-			//Connection connect = GetConnection.getConnectionMac();
-			Connection connect = GetConnection.getConnectionWindows();
+			Connection connect = GetConnection.getConnectionMac();
+			//Connection connect = GetConnection.getConnectionWindows();
 			
 			//public static User currentUser ;
 			
@@ -55,7 +55,7 @@ public class ControllerUserAdmin {
 			public void ajouter(User user) {
 				
 				try {
-					PreparedStatement sql = connect.prepareStatement("INSERT INTO user (nom, prenom, email, motPasse, id_statut)"
+					PreparedStatement sql = connect.prepareStatement("INSERT INTO user (nom, prenom, email, mot_passe, id_statut)"
 							+ " VALUES (?,?,?,PASSWORD(?),?)	");
 					sql.setString(1, user.getNom());
 					sql.setString(2, user.getPrenom());
@@ -180,7 +180,7 @@ public class ControllerUserAdmin {
 					
 				}
 				
-				//Méthode pour supprimer un utilisateur 
+				//Mï¿½thode pour supprimer un utilisateur 
 
 				public void supprimer(String id) {
 					try {

@@ -21,14 +21,15 @@ public class ControlerArticleClient {
 			panelArticle.setLabelNom(artDao.readIdArticle(VarStatic.IdArticleStatic).getNomArticle());
 			panelArticle.setLabelNomCategorie(artDao.idCategorieToString(artDao.readIdArticle(VarStatic.IdArticleStatic).getIdCategorie()));
 			panelArticle.setLabelNutripoint(String.valueOf(artDao.readIdArticle(VarStatic.IdArticleStatic).getNutripoint()) + " /100");
-			panelArticle.setLabelPrix(Double.toString(artDao.readIdArticle(VarStatic.IdArticleStatic).getPrix()) +" €");
+			panelArticle.setLabelPrix(Double.toString(artDao.readIdArticle(VarStatic.IdArticleStatic).getPrix()) +" ï¿½");
 			
 		}
 		
 	}
 	
 	public int creerCommande() {
-		Connection connect = GetConnection.getConnectionWindows();
+		//Connection connect = GetConnection.getConnectionWindows();
+		Connection connect = GetConnection.getConnectionMac();
 		//int user = UserDao.currentUser.getIdUser();
 		if(VarStatic.idCommandeStatic == 0) {
 			VarStatic.idCommandeStatic = 0;

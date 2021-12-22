@@ -1,33 +1,25 @@
 package vue;
 
-import javax.swing.JPanel;
-
+import model.ColorPanel;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Font;
-
 import javax.swing.*;
 
-public class PanelAdminCommande extends JPanel {
-
-	//attributs
-	private JPanel panelCommande;
+	public class PanelAdminCommande extends JPanel {
 	/**
 	 * Create the panel.
 	 */
 	public PanelAdminCommande() {
-		JLayeredPane layeredPane = new JLayeredPane();
-		layeredPane.setBounds(10, 64, 964, 486);
-		add(layeredPane);
-		layeredPane.setLayout(new CardLayout(0, 0));
-
-		panelCommande = new JPanel();
-		panelCommande.setBackground(Color.LIGHT_GRAY);
-		layeredPane.add(panelCommande, "name_727945092020900");
 		
-		JLabel lblGestionDeCommandes = new JLabel("Gestion de commandes");
-		lblGestionDeCommandes.setFont(new Font("Tahoma", Font.BOLD, 14));
-		panelCommande.add(lblGestionDeCommandes);
+		setBackground(Color.ORANGE);
+		setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Commandes");
+		lblNewLabel.setFont(new Font("Tahoma", Font.ITALIC, 14));
+		lblNewLabel.setBounds(235, 150, 268, 62);
+		add(lblNewLabel);
 	}
 
 }

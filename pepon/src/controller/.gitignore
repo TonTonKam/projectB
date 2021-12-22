@@ -13,4 +13,8 @@
 /ControllerMenuPanier.class
 /ControllerPanelMenuAdmin.class
 /ControllerUserAdmin.class
+<<<<<<< HEAD
 /ControllerCommandeClient.class
+=======
+/ControllerCategorieAdmin.class
+>>>>>>> 0e81d5dcae62dfb2a0d5450362cc5158a8d65d8d

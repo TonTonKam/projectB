@@ -6,9 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+import model.Article;
+import model.User;
 import net.proteanit.sql.DbUtils;
 
 public class ControllerArticleAdmin {
@@ -21,21 +24,49 @@ public class ControllerArticleAdmin {
 		try {
 			//récupération des info de  table article
 			PreparedStatement sql = connect.prepareStatement("SELECT * FROM article");
-			// Conversion de la requete en tableau d'objets
+			
 			ResultSet rs =sql.executeQuery();
-			/*
-			 * J'appelle la méthode setModel pour inserer les objets dans notre table
-			 * table = objet Jtable 
-			 * j'appelle setModel de l'objet Jtable.
-			 * setModel a comme parametre :
-			 * DbUtils = la libraire ?
-			 * la méthode resultSetToTableModel modifie la table Model.
-			 * cette méthode prend comme param notre tableau d'objet rs.
-			 * 
-			 * ca Modifie la variable table de type Jtable avec les instructions resultSetToTableModel
-			 *  qui contient le rs
-			 */
+
 			table.setModel(DbUtils.resultSetToTableModel(rs));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	// Méthode pour vérifier l'existance deja du produit
+	public boolean articleExist(String art) {
+		Boolean msg = false;
+		try {
+			PreparedStatement sql = connect.prepareStatement("SELECT * FROM article WHERE nom_article = ?");
+			
+			sql.setString(1, art);
+			
+			ResultSet rs = sql.executeQuery();
+			
+			if(!rs.next()) {
+				msg = true;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return msg;
+	}
+	
+	//Méthode pour ajouter uu article 
+	public void ajouter(Article art) {
+		
+		try {
+			PreparedStatement sql = connect.prepareStatement("INSERT INTO article (nom_article, nutripoint, prix, id_categorie)"
+					+ " VALUES (?,?,?,?)	");
+			sql.setString(1, art.getNomArticle());
+			sql.setInt(2, art.getNutripoint());
+			sql.setFloat(3, (float) art.getPrix());
+			sql.setInt(4, art.getIdCategorie());
+			
+			sql.executeUpdate();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -74,6 +105,41 @@ public class ControllerArticleAdmin {
 			// TODO Auto-generated catch block
 			event.printStackTrace();
 		}
+	}
+	// Méthode pour modifier un article 
+	public void modifier( String nomArticle, int nutripoint, double prix_saisie, int  idCategorie, String idTextArticle) {
+		try {
+			PreparedStatement sql = connect.prepareStatement("UPDATE article set nom_article= ?,nutripoint = ?,prix= ?,id_categorie = ?" 
+					+ " where id_article =?");
+			sql.setString(1, nomArticle);
+			sql.setInt(2, nutripoint);
+			sql.setDouble(3,(double) prix_saisie);
+			sql.setInt(4, idCategorie);
+			
+			sql.setString(5, idTextArticle);
+			
+			sql.executeUpdate();
+			JOptionPane.showMessageDialog(null, "l'article " + " "+ nomArticle +" a été bien modifié." );
+		} catch (SQLException event) {
+			// TODO Auto-generated catch block
+			event.printStackTrace();
+		}
+		
+	}
+	
+	public void supprimer(String textIdArticle) {
+		try {
+			PreparedStatement sql = connect.prepareStatement("delete from article where id_article =?");
+			
+			sql.setString(1,textIdArticle);
+			
+			sql.executeUpdate();
+			JOptionPane.showMessageDialog(null,"l'article qui a l'id n°: "+ textIdArticle +" a été bien supprimé." );
+		} catch (SQLException event) {
+			// TODO Auto-generated catch block
+			event.printStackTrace();
+		}
+		
 	}
 	
 	//Méthode  pour vider les champs

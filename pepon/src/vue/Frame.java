@@ -3,6 +3,7 @@ package vue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
 
 public class Frame extends JFrame {
 
@@ -18,7 +19,12 @@ public class Frame extends JFrame {
 	private PanelArticleSelectClient pasc;
 	private PanelCommandeClient pcc;
 	
+<<<<<<< HEAD
 	private PanelAdminMenu pam;
+=======
+	private PanelAdminUser pau;
+	
+>>>>>>> 0e81d5dcae62dfb2a0d5450362cc5158a8d65d8d
 
 	/**
 	 * Create the frame.
@@ -33,10 +39,16 @@ public class Frame extends JFrame {
 		pmc = new PanelMenuClient(pac, pasc, LONGUEURMAX);
 		pmp = new PanelMenuPanier(pcc, pasc, pac, LONGUEURMAX, HAUTEURMAX);
 		
+<<<<<<< HEAD
 		pam = new PanelAdminMenu();
+=======
+		//Admin
+		pau = new PanelAdminUser();
+		
+>>>>>>> 0e81d5dcae62dfb2a0d5450362cc5158a8d65d8d
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, LONGUEURMAX, HAUTEURMAX);
+		setBounds(100, 100, 1000, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -47,23 +59,35 @@ public class Frame extends JFrame {
 		contentPane.add(pmc);
 		contentPane.add(pmg);
 		contentPane.add(pmp);
+		pmp.setLayout(null);
 		contentPane.add(pasc);
 		contentPane.add(pcc);
+	
+		
+		//Admin
+		contentPane.add(pau);
+		
 		
 		contentPane.add(pam);
 		
 		contentPane.add(login);
 		login.setVisible(false);
 	//debut accueil
-		pmc.setVisible(true);
-		pmg.setVisible(true);
-		pmp.setVisible(true);
-		pac.setVisible(true);
+		pmc.setVisible(false);
+		pmg.setVisible(false);
+		pmp.setVisible(false);
+		pac.setVisible(false);
 	//fin accueil
 		pasc.setVisible(false);
 		pcc.setVisible(false);
+<<<<<<< HEAD
 		
 		pam.setVisible(false);
+=======
+	// Debut admin	
+		pau.setVisible(true);
+		
+>>>>>>> 0e81d5dcae62dfb2a0d5450362cc5158a8d65d8d
 	}
 
 }

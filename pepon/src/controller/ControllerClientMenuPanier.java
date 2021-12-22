@@ -17,8 +17,13 @@ public class ControllerClientMenuPanier {
 	//Connection connect = GetConnection.getConnectionMac();
 	
 	public void affichePanierClient(PanelMenuPanier panelExpedition) {
+<<<<<<< HEAD:pepon/src/controller/ControllerClientMenuPanier.java
 		//int idUser = UserDao.currentUser.getIdClient;
 		//int idUser = VarStatic.currentUserStatic.getIdUser();
+=======
+		int idUser = VarStatic.currentUserStatic.getIdUser();
+		//int idUser = VarStatic.currentUserStatic;
+>>>>>>> 3cbabb51b61a511837a56c77007ebbf14a70d325:pepon/src/controller/ControllerMenuPanier.java
 		int idArticle = VarStatic.IdArticleStatic;
 		int idCommand = VarStatic.idCommandeStatic;
 		

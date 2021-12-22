@@ -11,9 +11,14 @@ import model.VarStatic;
 import vue.PanelArticleSelectClient;
 
 public class ControlerArticleClient {
+<<<<<<< HEAD
 	Connection connect = GetConnection.getConnectionWindows();
 	//Connection connect = GetConnection.getConnectionMac();
 
+=======
+	//Connection connect = GetConnection.getConnectionWindows();
+	Connection connect = GetConnection.getConnectionMac();
+>>>>>>> 3cbabb51b61a511837a56c77007ebbf14a70d325
 	public void modifPanArticle(PanelArticleSelectClient panelArticle) {
 		ArticleDao artDao = new ArticleDao();
 		
@@ -29,7 +34,12 @@ public class ControlerArticleClient {
 	}
 	
 	public int creerCommande() {
+<<<<<<< HEAD
 
+=======
+		
+		//int user = UserDao.currentUser.getIdUser();
+>>>>>>> 3cbabb51b61a511837a56c77007ebbf14a70d325
 		if(VarStatic.idCommandeStatic == 0) {
 
 			int user = VarStatic.currentUserStatic.getIdUser();

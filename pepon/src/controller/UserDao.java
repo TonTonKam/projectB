@@ -13,8 +13,16 @@ import model.VarStatic;
 public class UserDao {
 	//Appel de la connection
 
+<<<<<<< HEAD
 		//Connection connect = GetConnection.getConnectionMac();
 		Connection connect = GetConnection.getConnectionWindows();
+=======
+		Connection connect = GetConnection.getConnectionMac();
+		//Connection connect = GetConnection.getConnectionWindows();
+		public static User currentUserStatic ;
+
+		
+>>>>>>> 3cbabb51b61a511837a56c77007ebbf14a70d325
 
 		private JTable table;
 		
@@ -71,8 +79,13 @@ public class UserDao {
 				ResultSet rs = sql.executeQuery();
 				
 				if(rs.next()) {
+<<<<<<< HEAD
 					VarStatic.currentUserStatic = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"),rs.getInt("id_statut"), rs.getInt("id_user"));
 					
+=======
+					currentUserStatic = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"),);
+					msg = true;
+>>>>>>> 3cbabb51b61a511837a56c77007ebbf14a70d325
 				}
 				
 			} catch (SQLException e) {
@@ -96,8 +109,12 @@ public class UserDao {
 				ResultSet rs = sql.executeQuery();
 				
 				if(rs.next()) {
+<<<<<<< HEAD
 					VarStatic.currentUserStatic = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"),rs.getInt("id_statut"), rs.getInt("id_user"));
 					
+=======
+					currentUserStatic = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"),rs.getInt("id_statut"),rs.getString("id_user"));
+>>>>>>> 3cbabb51b61a511837a56c77007ebbf14a70d325
 					if(rs.getInt("id_statut")==2) {
 						msg = true;
 					}

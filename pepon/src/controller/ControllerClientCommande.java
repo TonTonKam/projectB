@@ -12,8 +12,8 @@ import model.VarStatic;
 
 public class ControllerClientCommande {
 	
-	Connection connect = GetConnection.getConnectionWindows();
-	//Connection connect = GetConnection.getConnectionMac();
+	//Connection connect = GetConnection.getConnectionWindows();
+	Connection connect = GetConnection.getConnectionMac();
 
 	/*
 	 * montant total

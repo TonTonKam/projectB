@@ -22,6 +22,11 @@ public class ControllerClientMenuPanier {
 		int idCommand = VarStatic.idCommandeStatic;
 		
 		String text = "Vos articles : ";
+<<<<<<< HEAD:pepon/src/controller/ControllerClientMenuPanier.java
+=======
+		//Connection connect = GetConnection.getConnectionWindows();
+		Connection connect = GetConnection.getConnectionMac();
+>>>>>>> origin/main:pepon/src/controller/ControllerMenuPanier.java
 		
 		try {
 			PreparedStatement sql = connect.prepareStatement("SELECT id_article, quantite FROM panier WHERE id_commande = ?");

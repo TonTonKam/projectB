@@ -93,7 +93,7 @@ public class ControllerLogin {
 			}
 			else {
 				contentPane.removeAll();
-				
+				contentPane.add(pau);
 				contentPane.repaint();
 				contentPane.revalidate();
 				

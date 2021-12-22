@@ -12,8 +12,8 @@ import model.User;
 public class UserDao {
 	//Appel de la connection
 
-		//Connection connect = GetConnection.getConnectionMac();
-		Connection connect = GetConnection.getConnectionWindows();
+		Connection connect = GetConnection.getConnectionMac();
+		//Connection connect = GetConnection.getConnectionWindows();
 
 		public static User currentUser ;
 

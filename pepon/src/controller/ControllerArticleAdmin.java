@@ -16,13 +16,13 @@ import net.proteanit.sql.DbUtils;
 
 public class ControllerArticleAdmin {
 	//Appel de la connection
-	//Connection connect = GetConnection.getConnectionMac();
-	Connection connect = GetConnection.getConnectionWindows();
+	Connection connect = GetConnection.getConnectionMac();
+	//Connection connect = GetConnection.getConnectionWindows();
 	
 	public void afficherTableArticle(JTable table) {
 		
 		try {
-			//récupération des info de  table article
+			//rï¿½cupï¿½ration des info de  table article
 			PreparedStatement sql = connect.prepareStatement("SELECT * FROM article");
 			
 			ResultSet rs =sql.executeQuery();
@@ -33,7 +33,7 @@ public class ControllerArticleAdmin {
 			e.printStackTrace();
 		}
 	}
-	// Méthode pour vérifier l'existance deja du produit
+	// Mï¿½thode pour vï¿½rifier l'existance deja du produit
 	public boolean articleExist(String art) {
 		Boolean msg = false;
 		try {
@@ -54,7 +54,7 @@ public class ControllerArticleAdmin {
 		return msg;
 	}
 	
-	//Méthode pour ajouter uu article 
+	//Mï¿½thode pour ajouter uu article 
 	public void ajouter(Article art) {
 		
 		try {
@@ -73,7 +73,7 @@ public class ControllerArticleAdmin {
 		}
 	}
 	
-	//Méthode pour chercher un article  par id
+	//Mï¿½thode pour chercher un article  par id
 	public void findById(String id, JTextField nom_article, JTextField nutripoint,JTextField prix, JTextField id_categorie) {
 		try { 
 			PreparedStatement sql = connect.prepareStatement("SELECT  nom_article, nutripoint, prix, id_categorie  FROM article WHERE id_article = ?");
@@ -106,7 +106,7 @@ public class ControllerArticleAdmin {
 			event.printStackTrace();
 		}
 	}
-	// Méthode pour modifier un article 
+	// Mï¿½thode pour modifier un article 
 	public void modifier( String nomArticle, int nutripoint, double prix_saisie, int  idCategorie, String idTextArticle) {
 		try {
 			PreparedStatement sql = connect.prepareStatement("UPDATE article set nom_article= ?,nutripoint = ?,prix= ?,id_categorie = ?" 
@@ -119,7 +119,7 @@ public class ControllerArticleAdmin {
 			sql.setString(5, idTextArticle);
 			
 			sql.executeUpdate();
-			JOptionPane.showMessageDialog(null, "l'article " + " "+ nomArticle +" a été bien modifié." );
+			JOptionPane.showMessageDialog(null, "l'article " + " "+ nomArticle +" a ï¿½tï¿½ bien modifiï¿½." );
 		} catch (SQLException event) {
 			// TODO Auto-generated catch block
 			event.printStackTrace();
@@ -134,7 +134,7 @@ public class ControllerArticleAdmin {
 			sql.setString(1,textIdArticle);
 			
 			sql.executeUpdate();
-			JOptionPane.showMessageDialog(null,"l'article qui a l'id n°: "+ textIdArticle +" a été bien supprimé." );
+			JOptionPane.showMessageDialog(null,"l'article qui a l'id nï¿½: "+ textIdArticle +" a ï¿½tï¿½ bien supprimï¿½." );
 		} catch (SQLException event) {
 			// TODO Auto-generated catch block
 			event.printStackTrace();
@@ -142,7 +142,7 @@ public class ControllerArticleAdmin {
 		
 	}
 	
-	//Méthode  pour vider les champs
+	//Mï¿½thode  pour vider les champs
 	public void viderChamps(JTextField a,JTextField b,JTextField c,JTextField d,JTextField f) {
 		a.setText("");
 		b.setText("");

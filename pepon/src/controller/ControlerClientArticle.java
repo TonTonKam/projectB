@@ -22,13 +22,19 @@ public class ControlerClientArticle {
 			panelArticle.setLabelNom(artDao.readIdArticle(VarStatic.IdArticleStatic).getNomArticle());
 			panelArticle.setLabelNomCategorie(artDao.idCategorieToString(artDao.readIdArticle(VarStatic.IdArticleStatic).getIdCategorie()));
 			panelArticle.setLabelNutripoint(String.valueOf(artDao.readIdArticle(VarStatic.IdArticleStatic).getNutripoint()) + " /100");
-			panelArticle.setLabelPrix(Double.toString(artDao.readIdArticle(VarStatic.IdArticleStatic).getPrix()) +" €");
+			panelArticle.setLabelPrix(Double.toString(artDao.readIdArticle(VarStatic.IdArticleStatic).getPrix()) +" ï¿½");
 			
 		}
 	}
 	
 	public int creerCommande() {
+<<<<<<< HEAD:pepon/src/controller/ControlerClientArticle.java
 		
+=======
+		//Connection connect = GetConnection.getConnectionWindows();
+		Connection connect = GetConnection.getConnectionMac();
+		//int user = UserDao.currentUser.getIdUser();
+>>>>>>> origin/main:pepon/src/controller/ControlerArticleClient.java
 		if(VarStatic.idCommandeStatic == 0) {
 
 			int user = VarStatic.idCommandeStatic = 0;

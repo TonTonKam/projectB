@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import controller.ArticleDao;
-import controller.ControlerArticleClient;
+import controller.ControllerClientArticle;
 import vue.PanelArticleSelectClient;
 
 public class PanelModelArticle extends JPanel {
@@ -54,7 +54,7 @@ public class PanelModelArticle extends JPanel {
 				panelExpedition.setVisible(true);
 				VarStatic.IdArticleStatic = article.getIdArticle();
 				
-				ControlerArticleClient controlArt = new ControlerArticleClient();
+				ControllerClientArticle controlArt = new ControllerClientArticle();
 				controlArt.modifPanArticle(panelExpedition);
 			}
 		});

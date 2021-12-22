@@ -9,7 +9,7 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class PanelMenuGeneral extends JPanel {
+public class PanelClientGeneralMenu extends JPanel {
 
 	//attributs
 	private JLabel labelLogo, labelAssistance, labelTelephone, labelJoindre, labelBienvenue, labelNomClient;
@@ -18,7 +18,7 @@ public class PanelMenuGeneral extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PanelMenuGeneral(int longueurM) {
+	public PanelClientGeneralMenu(int longueurM) {
 		setBackground(ColorPanel.vertClair());
 		setBackground(new Color(0, 234, 117));
 		setBounds(0, 0, longueurM, 120);

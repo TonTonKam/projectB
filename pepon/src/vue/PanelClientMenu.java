@@ -8,7 +8,7 @@ import model.ColorPanel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class PanelMenuClient extends JPanel {
+public class PanelClientMenu extends JPanel {
 
 	//label temporaire a definir
 	private JButton btnAll, btnBoisson, btnLegume, btnFruit, btnConverve, btnCharcuterie;
@@ -17,7 +17,7 @@ public class PanelMenuClient extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PanelMenuClient(JPanel panelGeneral, PanelArticleSelectClient panelExpedition, int longueurM) {
+	public PanelClientMenu(JPanel panelGeneral, PanelArticleSelectClient panelExpedition, int longueurM) {
 		controlMC = new ControllerClientMenu();
 		setBackground(ColorPanel.vertFoncer());
 		setBounds(0, 120, longueurM, 80);

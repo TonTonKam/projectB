@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.ArticleDao;
-import controller.ControlerArticleClient;
+import controller.ControllerClientArticle;
 import controller.ControllerClientMenuPanier;
 import controller.UserDao;
 import model.Article;
@@ -24,11 +24,11 @@ public class PanelArticleSelectClient extends JPanel {
 	private JLabel labelImg, labelNom, labelNomCategorie, labelNutripoint, labelPrix, labelNomQuantite;
 	private JTextField textFieldQuantite;
 	private JButton btnAjouterCommande, btnPrecedent;
-	private ControlerArticleClient controlArt;
+	private ControllerClientArticle controlArt;
 	private ControllerClientMenuPanier controlPanier;
 
 	//constructor
-	public PanelArticleSelectClient(PanelMenuPanier panelMenu, int longueurM, int hauteurM) {
+	public PanelArticleSelectClient(PanelClientPanierMenu panelMenu, int longueurM, int hauteurM) {
 		
 		if(VarStatic.currentUserStatic != null) {
 			System.out.println(VarStatic.currentUserStatic.getIdUser() + " pasc");
@@ -45,7 +45,7 @@ public class PanelArticleSelectClient extends JPanel {
 		
 		setBounds(longueurMenu, 200, longueur, haut);
 		
-		controlArt = new ControlerArticleClient();
+		controlArt = new ControllerClientArticle();
 
 		labelImg = new JLabel("IMG");
 		add(labelImg);

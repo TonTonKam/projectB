@@ -12,12 +12,12 @@ public class Frame extends JFrame {
 	private final int HAUTEURMAX = 800;
 
 	private PanelLogin login;
-	private PanelMenuClient pmc;
-	private PanelMenuGeneral pmg;
-	private PanelMenuPanier pmp;
-	private PanelAccueilClient pac;
+	private PanelClientMenu pmc;
+	private PanelClientGeneralMenu pmg;
+	private PanelClientPanierMenu pmp;
+	private PanelClientAccueil pac;
 	private PanelArticleSelectClient pasc;
-	private PanelCommandeClient pcc;
+	private PanelClientCommande pcc;
 
 	private PanelAdminUser pau;
 	
@@ -27,11 +27,11 @@ public class Frame extends JFrame {
 	public Frame() {
 		
 		//instanciantion des panels
-		pmg = new PanelMenuGeneral(LONGUEURMAX);
-		pcc = new PanelCommandeClient(LONGUEURMAX, HAUTEURMAX);
+		pmg = new PanelClientGeneralMenu(LONGUEURMAX);
+		pcc = new PanelClientCommande(LONGUEURMAX, HAUTEURMAX);
 		pasc = new PanelArticleSelectClient(pmp, LONGUEURMAX, HAUTEURMAX);
-		pac = new PanelAccueilClient(pasc, LONGUEURMAX, HAUTEURMAX);
-		pmc = new PanelMenuClient(pac, pasc, LONGUEURMAX);
+		pac = new PanelClientAccueil(pasc, LONGUEURMAX, HAUTEURMAX);
+		pmc = new PanelClientMenu(pac, pasc, LONGUEURMAX);
 		//pmp = new PanelMenuPanier(pcc, pasc, pac, LONGUEURMAX, HAUTEURMAX);
 
 		//Admin

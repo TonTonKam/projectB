@@ -20,15 +20,15 @@ import javax.swing.JOptionPane;
 import java.util.regex.Pattern;
 
 import vue.Frame;
-import vue.PanelAccueilClient;
+import vue.PanelClientAccueil;
 import vue.PanelAdminArticle;
 import vue.PanelArticleSelectClient;
-import vue.PanelCommandeClient;
+import vue.PanelClientCommande;
 import vue.PanelInscription;
 import vue.PanelLogin;
-import vue.PanelMenuClient;
-import vue.PanelMenuGeneral;
-import vue.PanelMenuPanier;
+import vue.PanelClientMenu;
+import vue.PanelClientGeneralMenu;
+import vue.PanelClientPanierMenu;
 import vue.PanelAdminUser;
 
 public class ControllerLogin {
@@ -40,22 +40,22 @@ public class ControllerLogin {
 	private JPanel PanelAdminArticle;
 	private JPanel PanelAccueilClient;
 	private JPanel login;
-	private PanelMenuClient pmc;
-	private PanelMenuGeneral pmg;
-	private PanelMenuPanier pmp;
-	private PanelAccueilClient pac;
+	private PanelClientMenu pmc;
+	private PanelClientGeneralMenu pmg;
+	private PanelClientPanierMenu pmp;
+	private PanelClientAccueil pac;
 	private PanelArticleSelectClient pasc;
-	private PanelCommandeClient pcc;
+	private PanelClientCommande pcc;
 	private PanelAdminUser pau;
 	
 	public void connecter(JTextField identifiant,JTextField password,JPanel contentPane,int longueurMax, int hauteurMax) {
 	
-		pcc = new PanelCommandeClient(longueurMax, hauteurMax);
+		pcc = new PanelClientCommande(longueurMax, hauteurMax);
 		pasc = new PanelArticleSelectClient(pmp, longueurMax, hauteurMax);
-		pac = new PanelAccueilClient(pasc, longueurMax, hauteurMax);
-		pmc = new PanelMenuClient(pac, pasc, longueurMax);
-		pmg = new PanelMenuGeneral(longueurMax);
-		pmp = new PanelMenuPanier(pcc, pasc, pac, longueurMax, hauteurMax);
+		pac = new PanelClientAccueil(pasc, longueurMax, hauteurMax);
+		pmc = new PanelClientMenu(pac, pasc, longueurMax);
+		pmg = new PanelClientGeneralMenu(longueurMax);
+		pmp = new PanelClientPanierMenu(pcc, pasc, pac, longueurMax, hauteurMax);
 		pau = new PanelAdminUser();
 		
 		

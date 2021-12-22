@@ -8,7 +8,7 @@ import javax.swing.*;
 
 import model.ColorPanel;
 
-public class PanelCommandeClient extends JPanel {
+public class PanelClientCommande extends JPanel {
 
 	//attributs
 	private int longueurMenu, longueur, haut;
@@ -21,7 +21,7 @@ public class PanelCommandeClient extends JPanel {
 	private JButton btnValidation, btnPrecedent;
 
 	//constructor
-	public PanelCommandeClient(int longueurM, int hauteurM) {
+	public PanelClientCommande(int longueurM, int hauteurM) {
 
 		setBackground(ColorPanel.vertClair());
 		setVisible(false);

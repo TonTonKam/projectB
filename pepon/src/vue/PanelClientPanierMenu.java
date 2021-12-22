@@ -9,7 +9,7 @@ import javax.swing.SpringLayout;
 
 import controller.ControllerClientMenuPanier;
 
-public class PanelMenuPanier extends JPanel {
+public class PanelClientPanierMenu extends JPanel {
 
 	//attributs
 	private JLabel labelPanier, labelPrixTotal;
@@ -18,7 +18,7 @@ public class PanelMenuPanier extends JPanel {
 	private ControllerClientMenuPanier controlPanier;
 	
 	//constructor
-	public PanelMenuPanier(JPanel expedition, JPanel reception1, JPanel reception2, int longueurM, int hauteurM) {
+	public PanelClientPanierMenu(JPanel expedition, JPanel reception1, JPanel reception2, int longueurM, int hauteurM) {
 		setBackground(new Color(128, 128, 255));
 		int longueur = longueurM / 4;
 		int haut = hauteurM - 200;
@@ -57,14 +57,9 @@ public class PanelMenuPanier extends JPanel {
 		add(btnCommande);
 		
 		//refresh
-<<<<<<< HEAD
 		//controlPanier = new ControllerClientMenuPanier();
 		//controlPanier.affichePanierClient(this);
-		
-=======
-		controlPanier = new ControllerMenuPanier();
-		//controlPanier.affichePanierClient(this);
->>>>>>> 3cbabb51b61a511837a56c77007ebbf14a70d325
+
 	} //fin constructor
 
 	//getter & setter

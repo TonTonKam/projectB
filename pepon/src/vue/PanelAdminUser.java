@@ -208,6 +208,7 @@ public class PanelAdminUser extends JPanel {
 				mail  = textEmail.getText();
 				stat = Integer.parseInt(textStatut.getText());
 				id = textIdUser.getText();	
+<<<<<<< HEAD
 				//Appel de la méthode modifier
 				if(!firstname.isEmpty()|| lastname.isEmpty() || mail.isEmpty() || stat == 0) {
 					us.modifier(firstname, lastname, mail, stat, id);
@@ -215,6 +216,12 @@ public class PanelAdminUser extends JPanel {
 					//afficher la table modifiée
 					us.afficherTable(table);
 				}
+=======
+				//Appel de la mï¿½thode
+				us.modifier(firstname, lastname, mail, stat, id);
+				//afficher la table modifiï¿½e
+				us.afficherTable(table);
+>>>>>>> origin/mainBertrand
 			}
 		});
 		

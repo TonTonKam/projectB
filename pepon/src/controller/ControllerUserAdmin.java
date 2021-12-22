@@ -20,7 +20,7 @@ public class ControllerUserAdmin {
 	
 			//Appel de la connection
 			//Connection connect = GetConnection.getConnectionMac();
-			Connection connect = GetConnection.getConnectionWindows();
+			Connection connect = GetConnection.getConnectionMac();
 			public static User currentUser ;
 			
 			public void switchPanels(JPanel panel,JLayeredPane layeredPane) {
@@ -50,7 +50,7 @@ public class ControllerUserAdmin {
 				return msg;
 			}
 			
-			//Méthode pour ajouter un utilisateur 
+			//Mï¿½thode pour ajouter un utilisateur 
 			public void ajouter(User user) {
 				
 				try {
@@ -70,7 +70,7 @@ public class ControllerUserAdmin {
 				}
 			}
 			
-			//Activer le bouton Ajouter quant'il tous les champs sont saisis pour plus de sécurité
+			//Activer le bouton Ajouter quant'il tous les champs sont saisis pour plus de sï¿½curitï¿½
 			
 			public void activerBtnAjouter( JTextField nom, JTextField prenom, JTextField email, JTextField password,JTextField statut ,JButton btn) {
 				String nom_saisie = nom.getText();
@@ -86,7 +86,7 @@ public class ControllerUserAdmin {
 				}
 			}
 			
-			//Méthode  pour vider les champs
+			//Mï¿½thode  pour vider les champs
 			public void viderChamps(JTextField a,JTextField b,JTextField c,JTextField d,JTextField status,JTextField f) {
 				a.setText("");
 				b.setText("");
@@ -100,18 +100,18 @@ public class ControllerUserAdmin {
 			public void afficherTable(JTable table) {
 				
 				try {
-					//récupération des info de  table user
+					//rï¿½cupï¿½ration des info de  table user
 					PreparedStatement sql = connect.prepareStatement("SELECT * FROM user");
 					// Conversion de la requete en tableau d'objets
 					ResultSet rs =sql.executeQuery();
 					/*
-					 * J'appelle la méthode setModel pour inserer les objets dans notre table
+					 * J'appelle la mï¿½thode setModel pour inserer les objets dans notre table
 					 * table = objet Jtable 
 					 * j'appelle setModel de l'objet Jtable.
 					 * setModel a comme parametre :
 					 * DbUtils = la libraire ?
-					 * la méthode resultSetToTableModel modifie la table Model.
-					 * cette méthode prend comme param notre tableau d'objet rs.
+					 * la mï¿½thode resultSetToTableModel modifie la table Model.
+					 * cette mï¿½thode prend comme param notre tableau d'objet rs.
 					 * 
 					 * ca Modifie la variable table de type Jtable avec les instructions resultSetToTableModel
 					 *  qui contient le rs
@@ -124,7 +124,7 @@ public class ControllerUserAdmin {
 			}
 			
 			
-			//Méthode pour chercher un utilisateur par id
+			//Mï¿½thode pour chercher un utilisateur par id
 			public void findById(String id, JTextField nom, JTextField prenom, JTextField email, JTextField status) {
 				try { 
 					PreparedStatement sql = connect.prepareStatement("SELECT  nom, prenom, email, id_statut  FROM user WHERE id_user = ?");
@@ -158,7 +158,7 @@ public class ControllerUserAdmin {
 				}
 			}
 			
-			//Méthode pour modifier un utilisateur 
+			//Mï¿½thode pour modifier un utilisateur 
 			
 				public void modifier( String nom, String prenom, String email, int statu, String id) {
 					try {
@@ -171,7 +171,7 @@ public class ControllerUserAdmin {
 						sql.setString(5,id);
 						
 						sql.executeUpdate();
-						JOptionPane.showMessageDialog(null, nom + " "+prenom +" a été bien modifié(e)." );
+						JOptionPane.showMessageDialog(null, nom + " "+prenom +" a ï¿½tï¿½ bien modifiï¿½(e)." );
 					} catch (SQLException event) {
 						// TODO Auto-generated catch block
 						event.printStackTrace();
@@ -179,7 +179,11 @@ public class ControllerUserAdmin {
 					
 				}
 				
+<<<<<<< HEAD
 				//Méthode pour supprimer un utilisateur 
+=======
+				//Mï¿½thode pour modifier un utilisateur 
+>>>>>>> origin/mainBertrand
 				
 				public void supprimer(String id) {
 					try {
@@ -188,7 +192,7 @@ public class ControllerUserAdmin {
 						sql.setString(1,id);
 						
 						sql.executeUpdate();
-						JOptionPane.showMessageDialog(null,"l'utilisateur qui a l'id n°: "+ id +" a été bien supprimé." );
+						JOptionPane.showMessageDialog(null,"l'utilisateur qui a l'id nï¿½: "+ id +" a ï¿½tï¿½ bien supprimï¿½." );
 					} catch (SQLException event) {
 						// TODO Auto-generated catch block
 						event.printStackTrace();

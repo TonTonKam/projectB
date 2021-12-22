@@ -11,9 +11,15 @@ import model.User;
 
 public class UserDao {
 	//Appel de la connection
+<<<<<<< HEAD
 		//Connection connect = GetConnection.getConnectionMac();
 		Connection connect = GetConnection.getConnectionWindows();
 
+=======
+		Connection connect = GetConnection.getConnectionMac();
+		//Connection connect = GetConnection.getConnectionWindows();
+		public static User currentUser ;
+>>>>>>> origin/mainBertrand
 		private JTable table;
 		
 		public boolean mailExist(String email) {
@@ -40,8 +46,8 @@ public class UserDao {
 		public void inscription(User user) {
 			
 			try {
-				PreparedStatement sql = connect.prepareStatement("INSERT INTO user (nom, prenom, email, mot_passe, id_status)"
-						+ " VALUES (?,?,?,PASSWORD(?), 1)");
+				PreparedStatement sql = connect.prepareStatement("INSERT INTO user (nom, prenom, email, mot_passe)"
+						+ " VALUES (?,?,?,PASSWORD(?))");
 				sql.setString(1, user.getNom());
 				sql.setString(2, user.getPrenom());
 				sql.setString(3, user.getEmail());
@@ -81,7 +87,31 @@ public class UserDao {
 			
 		}
 
-
+		public boolean isAdmin(String identifiant, String motPasse) {
+			  
+			Boolean msg = false;
+			try {
+				PreparedStatement sql = connect.prepareStatement("SELECT * FROM user WHERE email=? AND mot_passe=PASSWORD(?)");
+				sql.setString(1, identifiant);
+				sql.setString(2, motPasse);
+				
+				///System.out.println(sql);
+				ResultSet rs = sql.executeQuery();
+				
+				if(rs.next()) {
+					currentUser = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"),rs.getInt("id_statut"));
+					if(rs.getInt("id_statut")==2) {
+					msg = true;}
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return msg;
+			
+		}
 
 
 }

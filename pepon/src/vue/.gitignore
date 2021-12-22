@@ -73,6 +73,7 @@
 /PanelAdminMenu$4.class
 /PanelAdminMenu$5.class
 <<<<<<< HEAD
+<<<<<<< HEAD
 /PanelCommandeClient$1.class
 /PanelCommandeClient$2.class
 =======
@@ -112,3 +113,6 @@
 /PanelAdminArticle$5.class
 /PanelAdminArticle$6.class
 >>>>>>> 0e81d5dcae62dfb2a0d5450362cc5158a8d65d8d
+=======
+/test.class
+>>>>>>> origin/mainBertrand

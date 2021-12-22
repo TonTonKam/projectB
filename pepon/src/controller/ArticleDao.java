@@ -12,7 +12,7 @@ import model.Article;
 public class ArticleDao {
 
 	//Connection connect = GetConnection.getConnectionMac();
-	Connection connect = GetConnection.getConnectionWindows();
+	Connection connect = GetConnection.getConnectionMac();
 	
 	public boolean ajout(Article object) {
 		boolean message = false;
@@ -213,7 +213,7 @@ public class ArticleDao {
 	
 	public Article readIdArticle(int idArticle) {
 		Article article = null;
-		Connection connect = GetConnection.getConnectionWindows();
+		Connection connect = GetConnection.getConnectionMac();
 		
 		try {
 			PreparedStatement req = connect.prepareStatement("SELECT * FROM article WHERE id_article = ?");

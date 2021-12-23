@@ -111,7 +111,7 @@ public class ControllerClientCommande {
 	private String afficherMontantTotal() {
 		
 		ArrayList<Integer> listQuantite = new ArrayList();
-		int prixTotal = 0;
+		Double prixTotal = null;
 		
 		try {
 			PreparedStatement sql = connect.prepareStatement("SELECT quantite FROM panier WHERE id_commande = ?");
@@ -159,7 +159,7 @@ public class ControllerClientCommande {
 		if(VarStatic.idCommandeStatic != 0) {
 			panelExpedition.setLabelAfficheMoyenNutripoint(moyenneNutripoint());
 			panelExpedition.setLabelAfficheNbArticleTotal(afficheNbArticleTotal());
-			panelExpedition.setLabelAffichePrixTotal(afficherMontantTotal());
+			panelExpedition.setLabelAffichePrixTotal(afficherMontantTotal() + " euros");
 		}
 	}
 

@@ -17,7 +17,7 @@ public class ControllerAdminArticle {
 	public void afficherTableArticle(JTable table) {
 		
 		try {
-			//r�cup�ration des info de  table article
+			//recuperation des info de  table article
 			PreparedStatement sql = connect.prepareStatement("SELECT * FROM article");
 			
 			ResultSet rs =sql.executeQuery();
@@ -28,7 +28,7 @@ public class ControllerAdminArticle {
 			e.printStackTrace();
 		}
 	}
-	// M�thode pour v�rifier l'existance deja du produit
+	// M�thode pour verifier l'existance deja du produit
 	public boolean articleExist(String art) {
 		Boolean msg = false;
 		try {
@@ -49,7 +49,7 @@ public class ControllerAdminArticle {
 		return msg;
 	}
 	
-	//M�thode pour ajouter uu article 
+	//Methode pour ajouter uu article 
 	public void ajouter(Article art) {
 		
 		try {
@@ -68,7 +68,7 @@ public class ControllerAdminArticle {
 		}
 	}
 	
-	//M�thode pour chercher un article  par id
+	//Methode pour chercher un article  par id
 	public void findById(String id, JTextField nom_article, JTextField nutripoint,JTextField prix, JTextField id_categorie) {
 		try { 
 			PreparedStatement sql = connect.prepareStatement("SELECT  nom_article, nutripoint, prix, id_categorie  FROM article WHERE id_article = ?");
@@ -101,7 +101,7 @@ public class ControllerAdminArticle {
 			event.printStackTrace();
 		}
 	}
-	// M�thode pour modifier un article 
+	// Methode pour modifier un article 
 	public void modifier( String nomArticle, int nutripoint, double prix_saisie, int  idCategorie, String idTextArticle) {
 		try {
 			PreparedStatement sql = connect.prepareStatement("UPDATE article set nom_article = ?,nutripoint = ?,prix = ?,id_categorie = ?" 
@@ -113,7 +113,7 @@ public class ControllerAdminArticle {
 			sql.setString(5, idTextArticle);
 			
 			sql.executeUpdate();
-			JOptionPane.showMessageDialog(null, "l'article " + " "+ nomArticle +" a �t� bien modifi�." );
+			JOptionPane.showMessageDialog(null, "l'article " + " "+ nomArticle +" a ete bien modifie." );
 		} catch (SQLException event) {
 			// TODO Auto-generated catch block
 			event.printStackTrace();
@@ -127,14 +127,14 @@ public class ControllerAdminArticle {
 			sql.setString(1,textIdArticle);
 			
 			sql.executeUpdate();
-			JOptionPane.showMessageDialog(null,"l'article qui a l'id n�: "+ textIdArticle +" a �t� bien supprim�." );
+			JOptionPane.showMessageDialog(null,"l'article qui a l'id n: "+ textIdArticle +" a ete bien supprime" );
 		} catch (SQLException event) {
 			// TODO Auto-generated catch block
 			event.printStackTrace();
 		}
 	}
 	
-	//M�thode  pour vider les champs
+	//Methode  pour vider les champs
 	public void viderChamps(JTextField a,JTextField b,JTextField c,JTextField d,JTextField f) {
 		a.setText("");
 		b.setText("");

@@ -23,14 +23,15 @@ public class PanelAdminArticle extends JPanel {
 
 	public PanelAdminArticle() {
 		
-		setBackground(Color.LIGHT_GRAY);
+		setBackground(Color.GRAY);
 		setLayout(null);
 		setBounds(43, 90, 900, 450);
 		
 		JLabel lblNewLabel = new JLabel("Gestion des articles");
+		lblNewLabel.setForeground(Color.BLACK);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel.setBounds(300, 0, 268, 52);
+		lblNewLabel.setFont(new Font("Rockwell Extra Bold", Font.BOLD, 17));
+		lblNewLabel.setBounds(366, 11, 218, 48);
 		add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nom article");

@@ -113,7 +113,7 @@ public class ControllerAdminArticle {
 			sql.setString(5, idTextArticle);
 			
 			sql.executeUpdate();
-			JOptionPane.showMessageDialog(null, "l'article " + " "+ nomArticle +" a �t� bien modifi�." );
+			JOptionPane.showMessageDialog(null, "l'article " + " "+ nomArticle +" a ete bien modifie." );
 		} catch (SQLException event) {
 			// TODO Auto-generated catch block
 			event.printStackTrace();
@@ -127,7 +127,7 @@ public class ControllerAdminArticle {
 			sql.setString(1,textIdArticle);
 			
 			sql.executeUpdate();
-			JOptionPane.showMessageDialog(null,"l'article qui a l'id n�: "+ textIdArticle +" a �t� bien supprim�." );
+			JOptionPane.showMessageDialog(null,"l'article qui a l'id n: "+ textIdArticle +" a ete bien supprime" );
 		} catch (SQLException event) {
 			// TODO Auto-generated catch block
 			event.printStackTrace();

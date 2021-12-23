@@ -1,14 +1,13 @@
 package vue;
-
-import model.ColorPanel;
-import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
-
 import controller.ControllerAdminPanier;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 	public class PanelAdminPanier extends JPanel {
 		private JTextField textIdCommande;
@@ -62,20 +61,24 @@ import controller.ControllerAdminPanier;
 		textQuantite.setBounds(168, 172, 154, 23);
 		add(textQuantite);
 		
-		JButton btnAjouter = new JButton("Ajouter");
-		btnAjouter.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnAjouter.setBounds(23, 232, 85, 32);
-		add(btnAjouter);
-		
 		JButton btnModifier = new JButton("Modifier");
+		btnModifier.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				int id_article = Integer.parseInt(textIdArticle.getText());
+				int quantity = Integer.parseInt(textQuantite.getText());
+				String idArticleText = textIdArticle.getText();	
+				String id_commd = textIdCommande.getText();	
+				
+				if(!(id_commd.isEmpty())  || id_article == 0 || quantity ==0) {
+					panier.modifier(id_article, quantity, id_commd, idArticleText );
+					panier.afficherTableCommandePanier(table);
+				}
+			}
+		});
 		btnModifier.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnModifier.setBounds(129, 232, 91, 32);
+		btnModifier.setBounds(35, 232, 119, 32);
 		add(btnModifier);
-		
-		JButton btnSupprimer = new JButton("Supprimer");
-		btnSupprimer.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnSupprimer.setBounds(237, 232, 85, 32);
-		add(btnSupprimer);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(null, "Chercher", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -98,11 +101,30 @@ import controller.ControllerAdminPanier;
 		add(scrollPane);
 		
 		table = new JTable();
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+//				int i = table.getSelectedRow();
+//				DefaultTableModel model =(DefaultTableModel) (table.getModel());
+//				textIdCommande.setText(model.getValueAt(i, 0).toString());
+//				textIdArticle.setText( model.getValueAt(i, 4).toString());
+//				textQuantite.setText( model.getValueAt(i, 5).toString());
+				panier.seletRow(textIdCommande, textIdArticle, textQuantite, table);
+			}
+		});
 		scrollPane.setViewportView(table);
 		
 		JButton btnEffacer = new JButton("Effacer");
+		btnEffacer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textIdCommande.setText("");
+				textIdArticle.setText("");
+				textQuantite.setText("");
+				idCherche.setText("");
+			}
+		});
 		btnEffacer.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnEffacer.setBounds(23, 396, 129, 32);
+		btnEffacer.setBounds(179, 232, 129, 32);
 		add(btnEffacer);
 		
 		JButton btnAjouter_1_1 = new JButton("Quitter");

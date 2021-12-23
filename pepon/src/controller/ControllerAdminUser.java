@@ -1,4 +1,6 @@
 package controller;
+import java.awt.Component;
+import java.awt.Graphics;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -103,7 +105,7 @@ public class ControllerAdminUser {
 				
 				try {
 					//recuperation des info de  table user
-					PreparedStatement sql = connect.prepareStatement("SELECT * FROM user");
+					PreparedStatement sql = connect.prepareStatement("SELECT user.*,statut.libelle FROM statut, user where user.id_statut = statut.id_statut");
 					// Conversion de la requete en tableau d'objets
 					ResultSet rs =sql.executeQuery();
 					/*
@@ -119,6 +121,22 @@ public class ControllerAdminUser {
 					 *  qui contient le rs
 					 */
 					table.setModel(DbUtils.resultSetToTableModel(rs));
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			public void nbrClient(JTable table) {
+				
+				try {
+					
+					PreparedStatement sql = connect.prepareStatement("SELECT count(id_user) as NombreClient from user where user.id_statut = 1");
+					// Conversion de la requete en tableau d'objets
+					ResultSet rs =sql.executeQuery();
+					table.setModel(DbUtils.resultSetToTableModel(rs));
+					
+					
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -40,6 +41,7 @@ public class PanelClientArticleSelect extends JPanel {
 		setBounds(longueurMenu, 200, longueur, haut);
 		
 		controlArt = new ControllerClientArticle();
+		PanelClientArticleSelect panelThis = this;
 
 		labelImg = new JLabel("IMG");
 		add(labelImg);
@@ -74,9 +76,7 @@ public class PanelClientArticleSelect extends JPanel {
 				/*
 				 * creer dans la table commande LA commande
 				 * "INSERT INTO commande (id_commande, date, id_user) VALUES (null, now(), currentUser)";
-				 */
-				controlArt.creerCommande();
-				/*
+				 * 
 				 * ajouterPanier(INSERT INTO) dans la table panier + la quantite =>
 				 * INSERT INTO panier (id_commande, id_article, quantite) VALUES (commande.last_id_bdd(), this.article.idArticle, 2)
 				 */
@@ -84,9 +84,9 @@ public class PanelClientArticleSelect extends JPanel {
 				/*
 				 * dans commande le calcule de l'article + quantite est mis dans prixTotal
 				 */
-				System.out.println(VarStatic.idCommandeStatic + " valeur de idCommande PanelArtSel ligne 88");
-				controlArt.ajouterDetail(VarStatic.idCommandeStatic, VarStatic.IdArticleStatic,
-						Integer.parseInt(textFieldQuantite.getText()));
+				controlArt.creerCommandeAndAddPanier(Integer.parseInt(textFieldQuantite.getText()));
+				
+				panelThis.setVisible(false);
 				
 				/* probleme en attente
 				//refresh PanelMenuPanier

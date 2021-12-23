@@ -90,7 +90,7 @@ public class UserDao {
 			
 			Boolean msg = false;
 			
-			if(user.getIdStatut() == 2) {
+			if(user.getIdStatut() == 1) {
 				msg = true;
 			}
 				

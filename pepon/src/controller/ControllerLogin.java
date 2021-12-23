@@ -50,14 +50,11 @@ public class ControllerLogin {
 	
 	private ControllerClientMenuGeneral controlMG;
 	
-	public void connecter(JTextField identifiant,JTextField password,JPanel contentPane,int longueurMax, int hauteurMax) {
-	
+	public void connecter(JTextField identifiant, JTextField password, JPanel contentPane, int longueurMax, int hauteurMax) {
 		
 		login = new PanelLogin(contentPane, longueurMax, hauteurMax);
 		String identifiant_saisi = identifiant.getText();
 		String pwd_saisie = password.getText();
-		//String pwd_saisie = String.valueOf(password.getPassword());
-		
 		
 		UserDao usDao = new UserDao();
 		
@@ -73,15 +70,15 @@ public class ControllerLogin {
 			JOptionPane.showMessageDialog(null, "Felicitation");
 			login.setVisible(false);
 			
-			if(!usDao.isAdmin(VarStatic.currentUserStatic)) {
+			if(usDao.isAdmin(VarStatic.currentUserStatic)) {
 			//debut accueil
+				
 				pcc = new PanelClientCommande(longueurMax, hauteurMax);
-				pasc = new PanelClientArticleSelect( pmp, longueurMax, hauteurMax);
-				pac = new PanelClientAccueil( pasc, longueurMax, hauteurMax);
-				pmc = new PanelClientMenu( pac, pasc, longueurMax);
-				pmg = new PanelClientGeneralMenu( longueurMax);
-				pmp = new PanelClientPanierMenu( pcc, pasc, pac, longueurMax, hauteurMax);
-				pau = new PanelAdminUser();
+				pasc = new PanelClientArticleSelect(pmp, longueurMax, hauteurMax);
+				pac = new PanelClientAccueil(pasc, longueurMax, hauteurMax);
+				pmc = new PanelClientMenu(pac, pasc, longueurMax);
+				pmg = new PanelClientGeneralMenu(longueurMax);
+				pmp = new PanelClientPanierMenu(pcc, pasc, pac, longueurMax, hauteurMax);
 				
 				contentPane.removeAll();
 				contentPane.add(pac);
@@ -92,8 +89,10 @@ public class ControllerLogin {
 				contentPane.add(pcc);
 				contentPane.repaint();
 				contentPane.revalidate();
+				
 			}else {
 					
+				pau = new PanelAdminUser();
 				contentPane.removeAll();
 				contentPane.add(pau);
 				contentPane.repaint();

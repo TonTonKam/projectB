@@ -6,65 +6,52 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.*;
 
+import controller.ControllerClientCommande;
 import model.ColorPanel;
 
 public class PanelClientCommande extends JPanel {
 
 	//attributs
 	private int longueurMenu, longueur, haut;
-	private JScrollPane scrollPan;
-	private JPanel panScroll;
+	private PanelClientListArticleCommande panelListAticle;
 	private JLabel labelPanierNutripoint, labelAfficheMoyenNutripoint,
 		labelNomNbArticleTotal, labelAfficheNbArticleTotal, labelAffichePrixTotal, labelPrixTotal;
-	//label test
-	private JLabel labelPanierNutripoint1, labelAfficheMoyenNutripoint1, labelNomNbArticleTotal1, labelAfficheNbArticleTotal1;
+
 	private JButton btnValidation, btnPrecedent;
+	private ControllerClientCommande controleClient;
 
 	//constructor
 	public PanelClientCommande(int longueurM, int hauteurM) {
 
 		setBackground(ColorPanel.vertClair());
 		setVisible(false);
-		longueurMenu = longueurM / 4;
-		longueur = longueurM * 3 / 4 ;
+		longueurMenu = longueurM / 4 ;
+		longueur = longueurM * 3 / 4 - 10;
 		haut = hauteurM - 200;
 		
 		setLayout(null);
-		setBounds(longueurMenu, 200, longueur, haut);
-		System.out.println(longueurMenu +" "+ 200 +" "+ longueur +" PanelClient ligne 34 "+ haut);
-		panScroll = new JPanel();
-		scrollPan = new JScrollPane(panScroll);
-		
-		scrollPan.setBounds(10, 10, longueur / 2, haut);
-		
-		panScroll.setBackground(ColorPanel.vertFoncer());
-		add(scrollPan);
-		
-		//scroll panel
-		labelPanierNutripoint1 = new JLabel("n points 1");
-		labelAfficheMoyenNutripoint1 = new JLabel("moyenne points 1");
-		labelNomNbArticleTotal1 = new JLabel("nb article 1");
-		labelAfficheNbArticleTotal1 = new JLabel("t total 1");
-		
+		setBounds(longueurMenu, 200, longueur, haut);		
 		
 		//panel
-		labelPanierNutripoint = new JLabel("Moyenne nutripoint");
-		labelPanierNutripoint.setBounds(longueur / 2 + 30, 10, 200, 20);
+		controleClient = new ControllerClientCommande();
 		
-		labelAfficheMoyenNutripoint = new JLabel("90");
-		labelAfficheMoyenNutripoint.setBounds(longueur / 2 + 30, 30, 45, 20);
+		labelPanierNutripoint = new JLabel("Moyenne nutripoint");
+		labelPanierNutripoint.setBounds(longueur / 2 + 30, 410, 200, 20);
+		
+		labelAfficheMoyenNutripoint = new JLabel();
+		labelAfficheMoyenNutripoint.setBounds(longueur / 2 + 180, 410, 45, 20);
 		
 		labelNomNbArticleTotal = new JLabel("Nombre article total");
-		labelNomNbArticleTotal.setBounds(longueur / 2 + 30, 250, 200, 20);
+		labelNomNbArticleTotal.setBounds(longueur / 2 + 30, 440, 200, 20);
 		
-		labelAfficheNbArticleTotal = new JLabel("5");
-		labelAfficheNbArticleTotal.setBounds(longueur / 2 + 30, 270, 45, 20);
+		labelAfficheNbArticleTotal = new JLabel();
+		labelAfficheNbArticleTotal.setBounds(longueur / 2 + 180, 440, 45, 20);
 		
-		labelAffichePrixTotal = new JLabel("Total achat");
-		labelAffichePrixTotal.setBounds(longueur / 2 + 80, 450, 200, 20);
+		labelPrixTotal = new JLabel("Total achat");
+		labelPrixTotal.setBounds(longueur / 2 + 80, 470, 200, 20);
 		
-		labelPrixTotal = new JLabel("prix ï¿½");
-		labelPrixTotal.setBounds(longueur / 2 + 150, 450, 200, 20);
+		labelAffichePrixTotal = new JLabel( " €");
+		labelAffichePrixTotal.setBounds(longueur / 2 + 150, 470, 200, 20);
 		
 		btnValidation = new JButton("Validation d'achat");
 		btnValidation.setBounds(longueur / 2 + 30, 500, 200, 20);
@@ -97,15 +84,21 @@ public class PanelClientCommande extends JPanel {
 		add(btnValidation);
 		add(labelAffichePrixTotal);
 		add(labelPrixTotal);
+		
 		//add(btnPrecedent);
-		
-		//scrollPanel
-		panScroll.add(labelPanierNutripoint1);
-		panScroll.add(labelAfficheMoyenNutripoint1);
-		panScroll.add(labelNomNbArticleTotal1);
-		panScroll.add(labelAfficheNbArticleTotal1);
-		
 	}
 
+	//setter
+	public void setLabelAfficheMoyenNutripoint(String labelAfficheMoyenNutripoint) {
+		this.labelAfficheMoyenNutripoint.setText(labelAfficheMoyenNutripoint);;
+	}
+
+	public void setLabelAfficheNbArticleTotal(String labelAfficheNbArticleTotal) {
+		this.labelAfficheNbArticleTotal.setText(labelAfficheNbArticleTotal);;
+	}
+
+	public void setLabelAffichePrixTotal(String labelAffichePrixTotal) {
+		this.labelAffichePrixTotal.setText(labelAffichePrixTotal);;
+	}
 	
 }

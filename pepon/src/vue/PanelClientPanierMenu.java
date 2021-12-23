@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import controller.ControllerClientCommande;
 import controller.ControllerClientMenuPanier;
 
 public class PanelClientPanierMenu extends JPanel {
@@ -14,9 +15,10 @@ public class PanelClientPanierMenu extends JPanel {
 	private JTextArea areaPanier;
 	private JButton btnCommande;
 	private ControllerClientMenuPanier controlPanier;
+	private ControllerClientCommande controleCommande;
 	
 	//constructor
-	public PanelClientPanierMenu(JPanel expedition, JPanel reception1, JPanel reception2, int longueurM, int hauteurM) {
+	public PanelClientPanierMenu(PanelClientCommande panelExpedition, JPanel panelReception1, JPanel panelReception2, int longueurM, int hauteurM) {
 		setBackground(new Color(128, 128, 255));
 		int longueur = longueurM / 4;
 		int haut = hauteurM - 200;
@@ -47,9 +49,16 @@ public class PanelClientPanierMenu extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				//envoie vers la page CommandeClient
-				expedition.setVisible(true);
-				reception1.setVisible(false);
-				reception2.setVisible(false);
+				PanelClientListArticleCommande panelListAticle = new PanelClientListArticleCommande(longueurM, hauteurM);
+				controleCommande = new ControllerClientCommande();
+				panelExpedition.add(panelListAticle);
+				panelExpedition.setVisible(true);
+				panelListAticle.setVisible(true);
+				panelListAticle.repaint();
+				panelListAticle.revalidate();
+				controleCommande.modifPanel(panelExpedition);
+				panelReception1.setVisible(false);
+				panelReception2.setVisible(false);
 			}
 		});
 		add(btnCommande);

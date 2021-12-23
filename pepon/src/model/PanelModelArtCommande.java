@@ -22,20 +22,20 @@ public class PanelModelArtCommande extends JPanel {
 		add(labelImage);
 		
 		labelNom = new JLabel();
-		labelNom.setText(article.getNomArticle());
+		labelNom.setText("Nom de l'article : "+ article.getNomArticle());
 		add(labelNom);
 		
 		labelQuantite = new JLabel("quantiteArticle");
 		//la quantite vient de la table panier
-		labelQuantite.setText(String.valueOf(controlCommand.getQuantPanier(article)));
+		labelQuantite.setText("Quantite de choisi : "+ String.valueOf(controlCommand.getQuantPanier(article)));
 		add(labelQuantite);
 		
 		labelPrix = new JLabel();
-		labelNom.setText(String.valueOf(article.getPrix()));
+		labelPrix.setText("Prix unitaire : "+ String.valueOf(article.getPrix()) + " €");
 		add(labelPrix);
 		
 		labelNutripoint = new JLabel();
-		labelNom.setText(String.valueOf(article.getNutripoint()));
+		labelNutripoint.setText("Nutripoint : "+ String.valueOf(article.getNutripoint()) + "/100");
 		add(labelNutripoint);
 		
 		labelTTC = new JLabel("TTC");
@@ -44,7 +44,7 @@ public class PanelModelArtCommande extends JPanel {
 		labelPrixTotal = new JLabel("prixTotal");
 		//prixTotal vient de la table commande
 		labelPrixTotal.setText(String.valueOf(controlCommand.getPrixTotal(article,
-				controlCommand.getQuantPanier(article))));
+				controlCommand.getQuantPanier(article))) + " €");
 		add(labelPrixTotal);
 		
 	}

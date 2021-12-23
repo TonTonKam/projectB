@@ -11,7 +11,6 @@ public class PanelClientAccueil extends JPanel{
 	
 	private int longueurMenu, longueur, haut;
 	private ControllerClientAccueil controlAccueil;
-	public static User currentUserStatic ;
 	
 	public PanelClientAccueil(PanelClientArticleSelect panelExpedition, int longueurM, int hauteurM) {
 		controlAccueil = new ControllerClientAccueil();
@@ -25,7 +24,7 @@ public class PanelClientAccueil extends JPanel{
 		
 		//voir la liste des articles
 		controlAccueil.afficheListArticleDefault(this, panelExpedition, longueurM);
-		System.out.println(currentUserStatic);
+		System.out.println("ligne 28 panelClientAccueil null");
 	}
 	
 }

@@ -104,11 +104,6 @@ import java.awt.event.ActionEvent;
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
-//				int i = table.getSelectedRow();
-//				DefaultTableModel model =(DefaultTableModel) (table.getModel());
-//				textIdCommande.setText(model.getValueAt(i, 0).toString());
-//				textIdArticle.setText( model.getValueAt(i, 4).toString());
-//				textQuantite.setText( model.getValueAt(i, 5).toString());
 				panier.seletRow(textIdCommande, textIdArticle, textQuantite, table);
 			}
 		});

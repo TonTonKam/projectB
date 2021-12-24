@@ -50,6 +50,7 @@ public class PanelModelArticle extends JPanel {
 		btnConsulter.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				
 				panelRecep.setVisible(false);
 				panelExpedition.setVisible(true);
 				VarStatic.IdArticleStatic = article.getIdArticle();

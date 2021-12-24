@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Article;
+import model.Categorie;
 
 public class ArticleDao {
 
@@ -56,120 +57,11 @@ public class ArticleDao {
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
-			System.out.println("Insertion KO - KO - KO");
 		}
 		return listeArticle;
 	}
 	
-	//afficher une categorie uniquement
-	public List<Article>  readCategorieLegumes(){
-		List<Article> listeArticle = new ArrayList<>();
-		
-		try {
-			PreparedStatement req = connect.prepareStatement("SELECT * FROM article WHERE id_categorie = 2");
-			
-			ResultSet rs = req.executeQuery();
-			while(rs.next()) {
-				//String nom_article, int nutripoint, double prix, int categorie
-				Article article = new Article(rs.getString("nom_article"),rs.getInt("nutripoint"),rs.getDouble("prix"),rs.getInt("id_categorie"),rs.getInt("id_article"));
-				
-				
-				listeArticle.add(article);
-			}
-		}catch(Exception e) {
-			e.printStackTrace();
-			System.out.println("Insertion KO - KO - KO");
-		}
-		return listeArticle;
-	}
 	
-	//afficher une categorie uniquement
-	public List<Article>  readCategorieFruits(){
-		List<Article> listeArticle = new ArrayList<>();
-		
-		try {
-			PreparedStatement req = connect.prepareStatement("SELECT * FROM article WHERE id_categorie = 1");
-			
-			ResultSet rs = req.executeQuery();
-			while(rs.next()) {
-				//String nom_article, int nutripoint, double prix, int categorie
-				Article article = new Article(rs.getString("nom_article"),rs.getInt("nutripoint"),rs.getDouble("prix"),rs.getInt("id_categorie"),rs.getInt("id_article"));
-				
-				
-				listeArticle.add(article);
-			}
-		}catch(Exception e) {
-			e.printStackTrace();
-			System.out.println("Insertion KO - KO - KO");
-		}
-		return listeArticle;
-	}
-	
-	//afficher une categorie uniquement
-	public List<Article>  readCategorieCharcuteries(){
-		List<Article> listeArticle = new ArrayList<>();
-		
-		try {
-			PreparedStatement req = connect.prepareStatement("SELECT * FROM article WHERE id_categorie = 4");
-			
-			ResultSet rs = req.executeQuery();
-			while(rs.next()) {
-				//String nom_article, int nutripoint, double prix, int categorie
-				Article article = new Article(rs.getString("nom_article"),rs.getInt("nutripoint"),rs.getDouble("prix"),rs.getInt("id_categorie"),rs.getInt("id_article"));
-				
-				
-				listeArticle.add(article);
-			}
-		}catch(Exception e) {
-			e.printStackTrace();
-			System.out.println("Insertion KO - KO - KO");
-		}
-		return listeArticle;
-	}
-	
-	//afficher une categorie uniquement
-	public List<Article>  readCategorieBoisson(){
-		List<Article> listeArticle = new ArrayList<>();
-		
-		try {
-			PreparedStatement req = connect.prepareStatement("SELECT * FROM article WHERE id_categorie = 3");
-			
-			ResultSet rs = req.executeQuery();
-			while(rs.next()) {
-				//String nom_article, int nutripoint, double prix, int categorie
-				Article article = new Article(rs.getString("nom_article"),rs.getInt("nutripoint"),rs.getDouble("prix"),rs.getInt("id_categorie"),rs.getInt("id_article"));
-				
-				
-				listeArticle.add(article);
-			}
-		}catch(Exception e) {
-			e.printStackTrace();
-			System.out.println("Insertion KO - KO - KO");
-		}
-		return listeArticle;
-	}
-	
-	//afficher une categorie uniquement
-	public List<Article>  readCategorieConcerves(){
-		List<Article> listeArticle = new ArrayList<>();
-		
-		try {
-			PreparedStatement req = connect.prepareStatement("SELECT * FROM article WHERE id_categorie = 5");
-			
-			ResultSet rs = req.executeQuery();
-			while(rs.next()) {
-				//String nom_article, int nutripoint, double prix, int categorie
-				Article article = new Article(rs.getString("nom_article"),rs.getInt("nutripoint"),rs.getDouble("prix"),rs.getInt("id_categorie"),rs.getInt("id_article"));
-				
-				listeArticle.add(article);
-			}
-		}catch(Exception e) {
-			e.printStackTrace();
-			System.out.println("Insertion KO - KO - KO");
-		}
-		return listeArticle;
-	}
-
 	//cherche id d'un article est en ressortir une list??
 	public List<Article> findById(int id) {
 		List<Article> listearticle = new ArrayList<>();
@@ -187,7 +79,6 @@ public class ArticleDao {
 			System.out.println(listearticle);
 		}catch(Exception e) {
 			e.printStackTrace();
-			System.out.println("Insertion KO - KO - KO");
 		}
 		return listearticle;
 	}

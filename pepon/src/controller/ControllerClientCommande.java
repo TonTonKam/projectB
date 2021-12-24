@@ -111,24 +111,35 @@ public class ControllerClientCommande {
 	private String afficherMontantTotal() {
 		
 		ArrayList<Integer> listQuantite = new ArrayList();
-		Double prixTotal = null;
+		Double prixTotal = 4145641.0;
 		
 		try {
+			//on recupere les quantite de la commande
 			PreparedStatement sql = connect.prepareStatement("SELECT quantite FROM panier WHERE id_commande = ?");
 			sql.setInt(1, VarStatic.idCommandeStatic);
 			
 			ResultSet rs = sql.executeQuery();
 			while(rs.next()) {
+				//on stock chacune des quantite dans une liste qui va se rapporte au nombre d'article dans la commande
 				listQuantite.add(rs.getInt("quantite"));
 			}
+			
+//			//integration du prix total dans la bdd
+//			PreparedStatement req = connect.prepareStatement("UPDATE commande SET prix_total = ? WHERE commande.id_commande = ? ");
+//			req.setDouble(1, prixTotal);
+//			req.setInt(2, VarStatic.idCommandeStatic);
+//			
+//			req.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		//on multiplie chacune des lignes dans le prixTotal et a chaque passage prixTotal va additionner l'ancienne valeur avec la nouvelle
 		for(int i = 0; i < listCommand().size(); i++) {
 			prixTotal += listCommand().get(i).getPrix() * listQuantite.get(i);
 		}
+		System.out.println(prixTotal + " : prix total, taille listQuant : "+ listCommand().size()+ ", controllerClientCommande 131 ");
 		
 		return String.valueOf(prixTotal);
 	}
@@ -138,7 +149,8 @@ public class ControllerClientCommande {
 		
 		int resultat = 0;
 		try {
-			PreparedStatement sql = connect.prepareStatement("SELECT article.nutripoint, AVG(article.nutripoint) AS moyenneNut "+
+			//on demande a la BDD de calculer automatiquement la moyenne des nutripoints de la commande
+			PreparedStatement sql = connect.prepareStatement("SELECT AVG(article.nutripoint) AS moyenneNut "+
 					"FROM article, panier WHERE article.id_article = panier.id_article AND panier.id_commande = ?");
 			
 			sql.setInt(1, VarStatic.idCommandeStatic);
@@ -157,9 +169,11 @@ public class ControllerClientCommande {
 	//modifier le panelClientCommande quand on appuye sur le bouton "voir commande"
 	public void modifPanel(PanelClientCommande panelExpedition) {
 		if(VarStatic.idCommandeStatic != 0) {
+			
 			panelExpedition.setLabelAfficheMoyenNutripoint(moyenneNutripoint());
 			panelExpedition.setLabelAfficheNbArticleTotal(afficheNbArticleTotal());
-			panelExpedition.setLabelAffichePrixTotal(afficherMontantTotal() + " euros");
+			panelExpedition.setLabelAffichePrixTotal(afficherMontantTotal());
+			
 		}
 	}
 

@@ -61,7 +61,12 @@ public class ControllerInscription {
 		else {
 			
 			marco.inscription(marc);
-			
+			JOptionPane.showMessageDialog(null, "Vous etes bien inscrit(e)");
+			PanelLogin back = new PanelLogin(contentPane,longueurMax,hauteurMax);
+			contentPane.removeAll();
+			contentPane.add(back);
+			contentPane.repaint();
+			contentPane.revalidate();
 		}
 		
 		

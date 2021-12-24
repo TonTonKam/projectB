@@ -16,6 +16,8 @@ public class ControllerClientMenuPanier {
 	Connection connect = GetConnection.getConnectionWindows();
 	//Connection connect = GetConnection.getConnectionMac();
 	
+	//BUG cette fonction n'est appeler qu'au moment de la creation du panelPanierMenu
+	//on affiche le panier du client pour chaque
 	public void affichePanierClient(PanelClientPanierMenu panelExpedition) {
 
 		int idCommand = VarStatic.idCommandeStatic;
@@ -28,9 +30,9 @@ public class ControllerClientMenuPanier {
 			
 			ResultSet rs = sql.executeQuery();
 			
+			//on affiche le texte qui va etre mis dans le JTextArea
 			while(rs.next()) {
-				text = rs.getInt("id_article") + " " + rs.getInt("quantite") +"\n";
-				System.out.println(text + "controlerPanier ligne 33");
+				text += "- Id article : "+ rs.getInt("id_article") + ", quantite du produit : " + rs.getInt("quantite") +"\n";
 			}
 			panelExpedition.setAreaPanier(text);
 		} catch (SQLException e) {

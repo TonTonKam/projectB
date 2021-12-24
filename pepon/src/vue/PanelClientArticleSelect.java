@@ -85,7 +85,6 @@ public class PanelClientArticleSelect extends JPanel {
 				 * dans commande le calcule de l'article + quantite est mis dans prixTotal
 				 */
 				controlArt.creerCommandeAndAddPanier(Integer.parseInt(textFieldQuantite.getText()));
-				
 				panelThis.setVisible(false);
 				
 				/* probleme en attente

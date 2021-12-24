@@ -64,7 +64,7 @@ public class PanelInscription extends JPanel {
 		lblNewLabel.setBounds(2*longueurMax/8, 2*hauteurMax/8, 61, 16);
 		this.add(lblNewLabel);
 		
-		JLabel lblPrnom = new JLabel("Prénom");
+		JLabel lblPrnom = new JLabel("Prenom");
 		lblPrnom.setBounds(2*longueurMax/8, 3*hauteurMax/8, 61, 16);
 		this.add(lblPrnom);
 		
@@ -77,40 +77,40 @@ public class PanelInscription extends JPanel {
 		this.add(lblPasseword);
 		
 		
-		JButton btnNewButton = new JButton("S'inscrire");
-		btnNewButton.setEnabled(false);
+		JButton btnInscrire = new JButton("S'inscrire");
+		btnInscrire.setEnabled(false);
 		
 		nom.addCaretListener(new CaretListener() {
 			public void caretUpdate(CaretEvent e) {
-				controllerInscription.activer(nom,prenom,email,password,btnNewButton);
+				controllerInscription.activer(nom,prenom,email,password,btnInscrire);
 			}
 		});
 		prenom.addCaretListener(new CaretListener() {
 			public void caretUpdate(CaretEvent e) {
-				controllerInscription.activer(nom,prenom,email,password,btnNewButton);
+				controllerInscription.activer(nom,prenom,email,password,btnInscrire);
 			}
 		});
 		email.addCaretListener(new CaretListener() {
 			public void caretUpdate(CaretEvent e) {
-				controllerInscription.activer(nom,prenom,email,password,btnNewButton);
+				controllerInscription.activer(nom,prenom,email,password,btnInscrire);
 			}
 		});
 		
-		btnNewButton.addActionListener(new ActionListener() {
+		btnInscrire.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controllerInscription.inscrire(nom,prenom,email,password,contentPane, longueurMax, hauteurMax);
 			}
 		});
 		
-		btnNewButton.setBounds(3*longueurMax/8, 6*hauteurMax/8, 117, 29);
-		this.add(btnNewButton);
+		btnInscrire.setBounds(3*longueurMax/8, 6*hauteurMax/8, 117, 29);
+		this.add(btnInscrire);
 		
 		
 		
 		password = new JPasswordField();
 		password.addCaretListener(new CaretListener() {
 			public void caretUpdate(CaretEvent e) {
-				controllerInscription.activer(nom, prenom, email, password, btnNewButton);
+				controllerInscription.activer(nom, prenom, email, password, btnInscrire);
 			}
 		});
 		password.setBounds(4*longueurMax/8, 5*hauteurMax/8, 127, 26);

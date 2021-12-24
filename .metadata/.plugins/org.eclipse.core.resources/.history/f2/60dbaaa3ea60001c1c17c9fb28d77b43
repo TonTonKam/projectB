@@ -1,0 +1,1021 @@
+package vue;
+
+import java.awt.Color;
+
+import javax.swing.*;
+
+import model.ColorPanel;
+
+public class PanelCommandeClient extends JPanel {
+
+	//attributs
+	private int longueurMenu, longueur, haut;
+	private JScrollPane scrollPan;
+	private JPanel panScroll;
+	private JLabel labelPanierNutripoint, labelAfficheMoyenNutripoint, labelNomNbArticleTotal, labelAfficheNbArticleTotal;
+
+	//constructor
+	public PanelCommandeClient(int longueurM, int hauteurM) {
+
+		setBackground(ColorPanel.vertClair());
+		
+		longueurMenu = longueurM / 4;
+		longueur = longueurM * 3 / 4 ;
+		haut = hauteurM - 200;
+		
+		setLayout(null);
+		setBounds(longueurMenu, 200, longueur, haut);
+		
+		panScroll = new JPanel();
+		scrollPan = new JScrollPane(panScroll);
+		
+		scrollPan.setBounds(longueurMenu + 10, 210, longueur / 2, haut);
+		scrollPan.createVerticalScrollBar();
+		
+		panScroll.setBackground(ColorPanel.vertFoncer());
+		add(scrollPan);
+		
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+		labelPanierNutripoint = new JLabel("n points");
+		labelAfficheMoyenNutripoint = new JLabel("moyenne points");
+		labelNomNbArticleTotal = new JLabel("nb article");
+		labelAfficheNbArticleTotal = new JLabel("t total");
+		
+		panScroll.add(labelPanierNutripoint);
+		panScroll.add(labelAfficheMoyenNutripoint);
+		panScroll.add(labelNomNbArticleTotal);
+		panScroll.add(labelAfficheNbArticleTotal);
+	}
+
+}

@@ -1,0 +1,22 @@
+package vue;
+
+import javax.swing.*;
+import javax.swing.JPanel;
+
+public class PanelCommandClient extends JPanel {
+
+	private JScrollPane scrollPan;
+	private JLabel labelTest;
+	/**
+	 * Create the panel.
+	 */
+	public PanelCommandClient() {
+
+		scrollPan = new JScrollPane();
+		add(scrollPan);
+		
+		labelTest = new JLabel();
+		scrollPan.add(labelTest);
+	}
+
+}

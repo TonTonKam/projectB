@@ -1,0 +1,29 @@
+package vue;
+
+import javax.swing.JPanel;
+import javax.swing.*;
+
+import model.ColorPanel;
+
+public class PanelCommandeClient extends JPanel {
+
+	//attributs
+	private int longueurMenu, longueur, haut;
+	private JLabel labelPanierNutripoint, labelAfficheMoyenNutripoint, labelNomNbArticleTotal, labelAfficheNbArticleTotal;
+
+	//constructor
+	public PanelCommandeClient(int longueurM, int hauteurM) {
+
+		ColorPanel color = new ColorPanel();
+		setBackground(color.vertClair());
+		
+		longueurMenu = longueurM / 4;
+		longueur = longueurM * 3 / 4 ;
+		haut = hauteurM - 200;
+		
+		setBounds(longueurMenu, 200, longueur, haut);
+		
+		
+	}
+
+}

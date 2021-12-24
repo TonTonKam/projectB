@@ -1,0 +1,2 @@
+		ControlerArticleClient controlArt = new ControlerArticleClient();
+		controlArt.modifPanArticle(this);

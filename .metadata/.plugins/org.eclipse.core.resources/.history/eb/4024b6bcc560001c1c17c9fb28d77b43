@@ -1,0 +1,14 @@
+package vue;
+
+import javax.swing.JPanel;
+
+public class PanelCommandClient extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public PanelCommandClient() {
+
+	}
+
+}

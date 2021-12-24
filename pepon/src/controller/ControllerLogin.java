@@ -49,36 +49,35 @@ public class ControllerLogin {
 	
 	public void connecter(JTextField identifiant,JTextField password,JPanel contentPane,int longueurMax, int hauteurMax) {
 	
-		pcc = new PanelCommandeClient(longueurMax, hauteurMax);
-		pasc = new PanelArticleSelectClient(pmp, longueurMax, hauteurMax);
-		pac = new PanelAccueilClient(pasc, longueurMax, hauteurMax);
-		pmc = new PanelMenuClient(pac, pasc, longueurMax);
-		pmg = new PanelMenuGeneral(longueurMax);
-		pmp = new PanelMenuPanier(pcc, pasc, pac, longueurMax, hauteurMax);
-		pau = new PanelAdminUser();
+		
 		
 		
 		login = new PanelLogin(contentPane,longueurMax, hauteurMax);
-		String identifiant_saisi = identifiant.getText();
-		String pwd_saisie = password.getText();
+		String identifiantSaisi = identifiant.getText();
+		String pwdSaisie = password.getText();
 		//String pwd_saisie = String.valueOf(password.getPassword());
 		
 		
 		UserDao usDao = new UserDao();
 		
-		usDao.login(identifiant_saisi,pwd_saisie);
+		//usDao.login(identifiant_saisi,pwd_saisie);
 		
 		
-		if(!(Pattern.matches("^[a-zA-Z0-9_.-]+[@][a-zA-Z0-9-]+[.]+[a-zA-Z0-9]+$", identifiant_saisi) )) {
+		if(!(Pattern.matches("^[a-zA-Z0-9_.-]+[@][a-zA-Z0-9-]+[.]+[a-zA-Z0-9]+$", identifiantSaisi) )) {
 			JOptionPane.showMessageDialog(null, "Veuillez vérifier le format de votre identifiant","Error",JOptionPane.ERROR_MESSAGE);}
-		else if(usDao.mailExist(identifiant_saisi)) {
+		else if(usDao.mailExist(identifiantSaisi)||usDao.incorectPassword(identifiantSaisi,pwdSaisie)) {
 			JOptionPane.showMessageDialog(null, "Vos identifiants semblent incorrects, si vous êtes un nouveau client, veuillez vous inscrire");
 		}
-		else if(usDao.login(identifiant_saisi, pwd_saisie)) {
-			JOptionPane.showMessageDialog(null, "F�licitation");
-			login.setVisible(false);
-			if(usDao.isAdmin(identifiant_saisi, pwd_saisie)) {
-				
+		else if(usDao.isAdmin(identifiantSaisi, pwdSaisie)) {
+				JOptionPane.showMessageDialog(null, "F�licitation");
+				login.setVisible(false);
+				pcc = new PanelCommandeClient(longueurMax, hauteurMax);
+				pasc = new PanelArticleSelectClient(pmp, longueurMax, hauteurMax);
+				pac = new PanelAccueilClient(pasc, longueurMax, hauteurMax);
+				pmc = new PanelMenuClient(pac, pasc, longueurMax);
+				pmg = new PanelMenuGeneral(contentPane,longueurMax);
+				pmp = new PanelMenuPanier(pcc, pasc, pac, longueurMax, hauteurMax);
+				pau = new PanelAdminUser();
 			//debut accueil
 				contentPane.removeAll();
 				contentPane.add(pac);
@@ -92,6 +91,8 @@ public class ControllerLogin {
 			
 			}
 			else {
+				JOptionPane.showMessageDialog(null, "F�licitation");
+				login.setVisible(false);
 				contentPane.removeAll();
 				contentPane.add(pau);
 				contentPane.repaint();
@@ -99,11 +100,8 @@ public class ControllerLogin {
 				
 			
 		}}
-		else {
-			JOptionPane.showMessageDialog(null, "Identifiant ou Mot de Passe incorrect");
-			
-		}
+		
 	}
 	
-}
+
 	

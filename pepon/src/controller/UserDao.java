@@ -73,7 +73,7 @@ public class UserDao {
 				ResultSet rs = sql.executeQuery();
 				
 				if(rs.next()) {
-					currentUserStatic = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"),);
+					currentUserStatic = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"));
 					msg = true;
 				}
 				
@@ -98,7 +98,7 @@ public class UserDao {
 				ResultSet rs = sql.executeQuery();
 				
 				if(rs.next()) {
-					currentUserStatic = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"),rs.getInt("id_statut"),rs.getString("id_user"));
+					currentUserStatic = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"),rs.getInt("id_statut"),rs.getInt("id_user"));
 					if(rs.getInt("id_statut")==2) {
 					msg = true;}
 				}
@@ -112,5 +112,31 @@ public class UserDao {
 			
 		}
 
+		public boolean incorectPassword(String identifiant, String motPasse) {
+			Boolean msg = true;
+			try {
+				PreparedStatement sql = connect.prepareStatement("SELECT * FROM user WHERE email=? AND mot_passe=PASSWORD(?)");
+				sql.setString(1, identifiant);
+				sql.setString(2, motPasse);
+				
+				///System.out.println(sql);
+				ResultSet rs = sql.executeQuery();
+				
+				if(rs.next()) {
+					currentUserStatic = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"),rs.getInt("id_statut"),rs.getInt("id_user"));
+					if(motPasse !=rs.getString("mot_passe")) {
+						
+					msg = false;
+					}
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return msg;
+			
+		}
 
 }

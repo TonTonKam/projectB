@@ -27,7 +27,7 @@ public class Frame extends JFrame {
 	public Frame() {
 		
 		//instanciantion des panels
-		pmg = new PanelMenuGeneral(LONGUEURMAX);
+		pmg = new PanelMenuGeneral(contentPane,LONGUEURMAX);
 		pcc = new PanelCommandeClient(LONGUEURMAX, HAUTEURMAX);
 		pasc = new PanelArticleSelectClient(pmp, LONGUEURMAX, HAUTEURMAX);
 		pac = new PanelAccueilClient(pasc, LONGUEURMAX, HAUTEURMAX);

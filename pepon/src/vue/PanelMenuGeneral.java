@@ -13,11 +13,14 @@ public class PanelMenuGeneral extends JPanel {
 	//attributs
 	private JLabel labelLogo, labelAssistance, labelTelephone, labelJoindre, labelBienvenue, labelNomClient;
 	private JButton btnDeconnexion;
+	private JPanel PanelLogin;
+	private JPanel contentPane;
+	private int longueurMax, hauteurMax;
 	
 	/**
 	 * Create the panel.
 	 */
-	public PanelMenuGeneral(int longueurM) {
+	public PanelMenuGeneral(JPanel contentPane, int longueurM) {
 		setBackground(ColorPanel.vertClair());
 		setBackground(new Color(0, 234, 117));
 		setBounds(0, 0, longueurM, 120);
@@ -26,7 +29,7 @@ public class PanelMenuGeneral extends JPanel {
 		labelLogo = new JLabel("IMG");
 		add(labelLogo);
 		
-		labelAssistance = new JLabel("Assistance téléphonique");
+		labelAssistance = new JLabel("Assistance tï¿½lï¿½phonique");
 		add(labelAssistance);
 		
 		labelTelephone = new JLabel("01.58.79.63.53");
@@ -45,7 +48,11 @@ public class PanelMenuGeneral extends JPanel {
 		btnDeconnexion.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				//on se redirige vers la page login avec les variables du client a null
+				PanelLogin deconect = new PanelLogin(contentPane, longueurM, longueurM);
+				contentPane.removeAll();
+				contentPane.add(deconect);
+				contentPane.repaint();
+				contentPane.revalidate();
 			}
 		});
 		add(btnDeconnexion);

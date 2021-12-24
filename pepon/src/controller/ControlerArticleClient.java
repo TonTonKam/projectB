@@ -74,4 +74,22 @@ public class ControlerArticleClient {
 			e.printStackTrace();
 		}
 	}
+
+	public void ajouterPanier(String nomArticle, double prix, int qteArticle) {
+		try {
+			PreparedStatement req = connect.prepareStatement("INSERT INTO Panie (designation, prix, quantite) VALUE (?, ?, ?)");
+			req.setString(1, nomArticle);
+			req.setDouble(2, prix);
+			req.setInt(3, qteArticle);
+			
+			
+			req.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 }
+

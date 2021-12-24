@@ -72,11 +72,12 @@ public class PanelArticleSelectClient extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				
+				
 				/*
 				 * creer dans la table commande LA commande
 				 * "INSERT INTO commande (id_commande, date, id_user) VALUES (null, now(), currentUser)";
 				 */
-				controlArt.creerCommande();
+				//controlArt.creerCommande();
 				/*
 				 * ajouterPanier(INSERT INTO) dans la table panier + la quantite =>
 				 * INSERT INTO panier (id_commande, id_article, quantite) VALUES (commande.last_id_bdd(), this.article.idArticle, 2)
@@ -85,18 +86,23 @@ public class PanelArticleSelectClient extends JPanel {
 				/*
 				 * dans commande le calcule de l'article + quantite est mis dans prixTotal
 				 */
-				controlArt.ajouterDetail(VarStatic.idCommandeStatic, VarStatic.IdArticleStatic,
-						Integer.parseInt(textFieldQuantite.getText()));
+				//controlArt.ajouterDetail(VarStatic.idCommandeStatic, VarStatic.IdArticleStatic,
+				//		Integer.parseInt(textFieldQuantite.getText()));
 				
 				//refresh PanelMenuPanier
-				controlPanier = new ControllerMenuPanier();
-				controlPanier.affichePanierClient(panelMenu);
+				//controlPanier = new ControllerMenuPanier();
+				//controlPanier.affichePanierClient(panelMenu);
 				
 				//retourner a la fonction menuClient
-				setVisible(false);
-				//panelAccueilClient.setVisible(true);
+				//setVisible(false);
+				//panelAccueilClient.setVisible(true); 
+				
+				
+				
+		
 			}
 		});
+		
 		add(btnAjouterCommande);
 		
 		

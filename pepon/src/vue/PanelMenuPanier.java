@@ -41,7 +41,7 @@ public class PanelMenuPanier extends JPanel {
 		 * le panier affiche la contenance de la panier de l'utilisateur connecte
 		 */
 		areaPanier = new JTextArea();
-		areaPanier.setColumns(25);
+		areaPanier.setColumns(15);
 		add(areaPanier);
 		
 		btnCommande = new JButton("Voir commande");

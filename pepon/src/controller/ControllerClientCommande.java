@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.JPanel;
 
@@ -98,7 +97,7 @@ public class ControllerClientCommande {
 			ResultSet rs = sql.executeQuery();
 			
 			while(rs.next()) {
-				resultat =+ rs.getInt("quantite");
+				resultat += rs.getInt("quantite");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -111,8 +110,7 @@ public class ControllerClientCommande {
 	private String afficherMontantTotal() {
 		
 		ArrayList<Integer> listQuantite = new ArrayList();
-		Double prixTotal = 4145641.0;
-		
+		double prixTotal = 0;
 		try {
 			//on recupere les quantite de la commande
 			PreparedStatement sql = connect.prepareStatement("SELECT quantite FROM panier WHERE id_commande = ?");
@@ -124,22 +122,22 @@ public class ControllerClientCommande {
 				listQuantite.add(rs.getInt("quantite"));
 			}
 			
-//			//integration du prix total dans la bdd
-//			PreparedStatement req = connect.prepareStatement("UPDATE commande SET prix_total = ? WHERE commande.id_commande = ? ");
-//			req.setDouble(1, prixTotal);
-//			req.setInt(2, VarStatic.idCommandeStatic);
-//			
-//			req.executeUpdate();
+			//on multiplie chacune des lignes dans le prixTotal et a chaque passage prixTotal va additionner l'ancienne valeur avec la nouvelle
+			for(int i = 0; i < listCommand().size(); i++) {
+				prixTotal += listCommand().get(i).getPrix() * listQuantite.get(i);
+			}
+			
+			//integration du prix total dans la bdd
+			PreparedStatement req = connect.prepareStatement("UPDATE commande SET prix_total = ? WHERE commande.id_commande = ? ");
+			req.setDouble(1, prixTotal);
+			req.setInt(2, VarStatic.idCommandeStatic);
+			
+			req.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		//on multiplie chacune des lignes dans le prixTotal et a chaque passage prixTotal va additionner l'ancienne valeur avec la nouvelle
-		for(int i = 0; i < listCommand().size(); i++) {
-			prixTotal += listCommand().get(i).getPrix() * listQuantite.get(i);
-		}
-		System.out.println(prixTotal + " : prix total, taille listQuant : "+ listCommand().size()+ ", controllerClientCommande 131 ");
 		
 		return String.valueOf(prixTotal);
 	}
@@ -172,7 +170,7 @@ public class ControllerClientCommande {
 			
 			panelExpedition.setLabelAfficheMoyenNutripoint(moyenneNutripoint());
 			panelExpedition.setLabelAfficheNbArticleTotal(afficheNbArticleTotal());
-			panelExpedition.setLabelAffichePrixTotal(afficherMontantTotal());
+			panelExpedition.setLabelAffichePrixTotal(afficherMontantTotal() + " \u20ac");
 			
 		}
 	}

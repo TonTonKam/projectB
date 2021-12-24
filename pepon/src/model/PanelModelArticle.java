@@ -36,7 +36,7 @@ public class PanelModelArticle extends JPanel {
 		add(labelNutripoint);
 		
 		labelPrix = new JLabel();
-		labelPrix.setText("Prix : "+ String.valueOf(article.getPrix() + " € "));
+		labelPrix.setText("Prix : "+ String.valueOf(article.getPrix() + " \u20ac"));
 		add(labelPrix);
 		
 		labelCategorie = new JLabel();

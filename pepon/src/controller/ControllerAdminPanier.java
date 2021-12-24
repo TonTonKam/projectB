@@ -53,16 +53,14 @@ public class ControllerAdminPanier {
 		
 		//Methode vider les champs
 		
-		public void viderChamps(JTextField a, JTextField b, JTextField c, JTextField d, JTextField e) {
+		public void viderChamps(JTextField a, JTextField b, JTextField c, JTextField d) {
 			a.setText("");
 			b.setText("");
 			c.setText("");
 			d.setText("");
-			e.setText("");
 		}
 		
 		// Methode pour modifier la quantite d'article
-		
 		public void modifier(int idArticle, int  quantite, String idCommande, String idArticle1) {
 			try {
 				

@@ -32,12 +32,33 @@ public class ControllerAdminPanier {
 		
 		//Methode pour selectionner une ligne dans le tableau
 		
-		public void seletRow( JTextField textIdCommande, JTextField textIdArticle, JTextField textQuantite,JTable table) {
+		public void selectRow( JTextField textIdCommande, JTextField textIdArticle, JTextField textQuantite,JTable table) {
 			int i = table.getSelectedRow();
 			DefaultTableModel model =(DefaultTableModel) (table.getModel());
 			textIdCommande.setText(model.getValueAt(i, 0).toString());
 			textIdArticle.setText( model.getValueAt(i, 4).toString());
 			textQuantite.setText( model.getValueAt(i, 5).toString());
+			//test = (int) model.getValueAt(i, 4);
+		}
+		
+		//Methode pour selectionner une valeur d'un champs dans le tableau
+		
+		public void selectChamps( JTextField IdArticle,JTable table) {
+			int i = table.getSelectedRow();
+			DefaultTableModel model =(DefaultTableModel) (table.getModel());
+			
+			IdArticle.setText( model.getValueAt(i, 4).toString());
+			
+		}
+		
+		//Methode vider les champs
+		
+		public void viderChamps(JTextField a, JTextField b, JTextField c, JTextField d, JTextField e) {
+			a.setText("");
+			b.setText("");
+			c.setText("");
+			d.setText("");
+			e.setText("");
 		}
 		
 		// Methode pour modifier la quantite d'article
@@ -45,7 +66,7 @@ public class ControllerAdminPanier {
 		public void modifier(int idArticle, int  quantite, String idCommande, String idArticle1) {
 			try {
 				
-				PreparedStatement sql = connect.prepareStatement("UPDATE panier set id_article = ?,quantite = ?  WHERE id_commande =? AND id_article =?");
+				PreparedStatement sql = connect.prepareStatement("UPDATE panier set id_article = ? ,quantite = ?  WHERE id_commande =? AND id_article =?");
 				sql.setInt(1, idArticle);
 				sql.setInt(2, quantite);
 				sql.setString(3, idCommande);

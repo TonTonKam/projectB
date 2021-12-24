@@ -13,8 +13,8 @@ import java.awt.event.ActionEvent;
 		private JTextField textIdCommande;
 		private JTextField textIdArticle;
 		private JTextField textQuantite;
-		private JTextField idCherche;
 		private JTable table;
+		private JTextField IdArticleBddCache;
 	/**
 	 * Create the panel.
 	 */
@@ -58,8 +58,14 @@ import java.awt.event.ActionEvent;
 		
 		textQuantite = new JTextField();
 		textQuantite.setColumns(10);
-		textQuantite.setBounds(168, 172, 154, 23);
+		textQuantite.setBounds(168, 172, 77, 23);
 		add(textQuantite);
+		
+		IdArticleBddCache = new JTextField();
+		IdArticleBddCache.setBounds(23, 402, 14, 20);
+		add(IdArticleBddCache);
+		IdArticleBddCache.setColumns(10);
+		IdArticleBddCache.setVisible(false);
 		
 		JButton btnModifier = new JButton("Modifier");
 		btnModifier.addActionListener(new ActionListener() {
@@ -67,34 +73,19 @@ import java.awt.event.ActionEvent;
 				
 				int id_article = Integer.parseInt(textIdArticle.getText());
 				int quantity = Integer.parseInt(textQuantite.getText());
-				String idArticleText = textIdArticle.getText();	
+				String testArticle = IdArticleBddCache.getText();
 				String id_commd = textIdCommande.getText();	
 				
-				if(!(id_commd.isEmpty())  || id_article == 0 || quantity ==0) {
-					panier.modifier(id_article, quantity, id_commd, idArticleText );
+				if(!(id_commd.isEmpty())  || !(id_article == 0) || !(quantity ==0)) {
+					panier.modifier(id_article, quantity, id_commd, testArticle );
 					panier.afficherTableCommandePanier(table);
+					panier.viderChamps(textIdCommande, IdArticleBddCache, textIdArticle, textQuantite, idCherche);
 				}
 			}
 		});
 		btnModifier.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnModifier.setBounds(35, 232, 119, 32);
 		add(btnModifier);
-		
-		JPanel panel = new JPanel();
-		panel.setBorder(new TitledBorder(null, "Chercher", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel.setBounds(23, 289, 299, 84);
-		add(panel);
-		panel.setLayout(null);
-		
-		JLabel lblNewLabel_2 = new JLabel("ID Commande");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
-		lblNewLabel_2.setBounds(10, 32, 106, 26);
-		panel.add(lblNewLabel_2);
-		
-		idCherche = new JTextField();
-		idCherche.setBounds(140, 32, 120, 26);
-		panel.add(idCherche);
-		idCherche.setColumns(10);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(332, 70, 558, 358);
@@ -104,7 +95,17 @@ import java.awt.event.ActionEvent;
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
+<<<<<<< HEAD
 				panier.seletRow(textIdCommande, textIdArticle, textQuantite, table);
+=======
+//				int i = table.getSelectedRow();
+//				DefaultTableModel model =(DefaultTableModel) (table.getModel());
+//				textIdCommande.setText(model.getValueAt(i, 0).toString());
+//				textIdArticle.setText( model.getValueAt(i, 4).toString());
+//				textQuantite.setText( model.getValueAt(i, 5).toString());
+				panier.selectRow(textIdCommande, textIdArticle, textQuantite, table);
+				panier.selectChamps(IdArticleBddCache, table);
+>>>>>>> 0cde94539967c60e6da576e7e8628ab7a8fbd983
 			}
 		});
 		scrollPane.setViewportView(table);
@@ -112,10 +113,7 @@ import java.awt.event.ActionEvent;
 		JButton btnEffacer = new JButton("Effacer");
 		btnEffacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textIdCommande.setText("");
-				textIdArticle.setText("");
-				textQuantite.setText("");
-				idCherche.setText("");
+				panier.viderChamps(textIdCommande, IdArticleBddCache, textIdArticle, textQuantite, idCherche);
 			}
 		});
 		btnEffacer.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -123,10 +121,11 @@ import java.awt.event.ActionEvent;
 		add(btnEffacer);
 		
 		JButton btnAjouter_1_1 = new JButton("Quitter");
-		btnAjouter_1_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnAjouter_1_1.setBounds(193, 396, 129, 32);
+		btnAjouter_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnAjouter_1_1.setBounds(93, 320, 129, 48);
 		add(btnAjouter_1_1);
 		
 		panier.afficherTableCommandePanier(table);
+		
 	}
 }

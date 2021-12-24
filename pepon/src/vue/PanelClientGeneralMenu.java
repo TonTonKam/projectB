@@ -2,6 +2,7 @@ package vue;
 
 import javax.swing.*;
 
+import controller.ControllerClientMenuGeneral;
 import model.ColorPanel;
 import model.VarStatic;
 
@@ -14,7 +15,7 @@ public class PanelClientGeneralMenu extends JPanel {
 	//attributs
 	private JLabel labelLogo, labelAssistance, labelTelephone, labelJoindre, labelBienvenue, labelNomClient;
 	private JButton btnDeconnexion;
-	
+	private ControllerClientMenuGeneral controlMenuG;
 	/**
 	 * Create the panel.
 	 */
@@ -23,6 +24,8 @@ public class PanelClientGeneralMenu extends JPanel {
 		setBackground(new Color(0, 234, 117));
 		setBounds(0, 0, longueurM, 120);
 		//setLayout(new SpringLayout());
+		
+		controlMenuG = new ControllerClientMenuGeneral();
 		
 		labelLogo = new JLabel("IMG");
 		add(labelLogo);
@@ -39,10 +42,9 @@ public class PanelClientGeneralMenu extends JPanel {
 		labelBienvenue = new JLabel("Bienvenue");
 		add(labelBienvenue);
 		
+		//modifie la valeur
 		labelNomClient = new JLabel("Utilisateur");
-		if(VarStatic.currentUserStatic != null) {
-			labelNomClient.setText(VarStatic.currentUserStatic.getNom());
-		}
+		controlMenuG.afficheUser(this);
 		add(labelNomClient);
 		
 		btnDeconnexion = new JButton("Quitter");
@@ -55,5 +57,10 @@ public class PanelClientGeneralMenu extends JPanel {
 		});
 		add(btnDeconnexion);
 	}
+	
+	public void setLabelNomClient(String labelNomClient) {
+		this.labelNomClient.setText(labelNomClient);
+	}
 
+	
 }

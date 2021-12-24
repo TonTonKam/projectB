@@ -19,11 +19,8 @@ public class PanelAdminArticle extends JPanel {
 	private JTextField textIdArticle;
 	private JTable table;
 	
-	
 	ControllerAdminArticle art = new ControllerAdminArticle();
-	
-	
-	
+
 	public PanelAdminArticle() {
 		
 		setBackground(Color.GRAY);

@@ -6,11 +6,19 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/salah/Desktop/mysql-connector-java-8.0.27.jar">
+=======
+	<classpathentry kind="lib" path="E:/dossier en vrac/java/mysql-connector-java-8.0.27.jar">
+>>>>>>> 2eab3aa8ac15307a4a6b38585e6bf2491253f9cb
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/salah/Desktop/rs2xml/rs2xml.jar"/>
+=======
+	<classpathentry kind="lib" path="E:/dossier en vrac/java/rs2xml.jar"/>
+>>>>>>> 2eab3aa8ac15307a4a6b38585e6bf2491253f9cb
 	<classpathentry kind="output" path="bin"/>
 </classpath>

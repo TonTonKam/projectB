@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.JDBCType;
 import javax.swing.JTable;
 
+import model.Article;
 import model.User;
 import model.VarStatic;
 
@@ -73,7 +74,7 @@ public class UserDao {
 				if(rs.next()) {
 
 					VarStatic.currentUserStatic = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"),rs.getInt("id_statut"), rs.getInt("id_user"));
-					
+					msg = true;
 				}
 				
 			} catch (SQLException e) {
@@ -85,31 +86,14 @@ public class UserDao {
 			
 		}
 		
-		public boolean isAdmin(String identifiant, String motPasse) {
+		public boolean isAdmin(User user) {
 			
 			Boolean msg = false;
-			try {
-				PreparedStatement sql = connect.prepareStatement("SELECT * FROM user WHERE email=? AND mot_passe=PASSWORD(?)");
-				sql.setString(1, identifiant);
-				sql.setString(2, motPasse);
-				
-				///System.out.println(sql);
-				ResultSet rs = sql.executeQuery();
-				
-				if(rs.next()) {
-
-					VarStatic.currentUserStatic = new User(rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("mot_passe"),rs.getInt("id_statut"), rs.getInt("id_user"));
-					
-					if(rs.getInt("id_statut")==2) {
-						msg = true;
-					}
-				}
-				
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			
+			if(user.getIdStatut() == 1) {
+				msg = true;
+			}
+				
 			return msg;
 			
 		}

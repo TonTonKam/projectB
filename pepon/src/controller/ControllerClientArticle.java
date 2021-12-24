@@ -5,17 +5,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 import model.Article;
 import model.PanelModelArticle;
 import model.VarStatic;
-import vue.PanelArticleSelectClient;
+import vue.PanelClientArticleSelect;
 
 public class ControllerClientArticle {
 
 	Connection connect = GetConnection.getConnectionWindows();
 	//Connection connect = GetConnection.getConnectionMac();
-
-	public void modifPanArticle(PanelArticleSelectClient panelArticle) {
+	
+	public void modifPanArticle(PanelClientArticleSelect panelArticle) {
 		ArticleDao artDao = new ArticleDao();
 		
 		if(VarStatic.IdArticleStatic != 0) {
@@ -29,10 +31,10 @@ public class ControllerClientArticle {
 		}
 	}
 	
-	public int creerCommande() {
+	//creer une commande
+	public void creerCommandeAndAddPanier(int quantiteArticl) {
 
 		if(VarStatic.idCommandeStatic == 0) {
-
 			int user = VarStatic.currentUserStatic.getIdUser();
 			try {
 				PreparedStatement req = connect.prepareStatement("INSERT INTO commande (id_commande, prix_total, date_achat, id_user) VALUES (null, null, now(), ?)");
@@ -40,38 +42,47 @@ public class ControllerClientArticle {
 				
 				req.executeUpdate();
 				
-				//cree un count
-				PreparedStatement sql = connect.prepareStatement("SELECT LAST_INSERT_ID() FROM commande WHERE id_user = ?");
-				sql.setInt(1, user);
+				//cette requete recupere la derniere valeur de l'id cree
+				PreparedStatement sql = connect.prepareStatement("SELECT MAX(id_commande) AS idCommande FROM commande");
 				
 				ResultSet rs = sql.executeQuery();
 				
 				while(rs.next()) {
-					VarStatic.idCommandeStatic++;
+					VarStatic.idCommandeStatic = rs.getInt("idCommande");
 				}
+				ajouterDetail(VarStatic.idCommandeStatic, VarStatic.IdArticleStatic, quantiteArticl);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else {
+			ajouterDetail(VarStatic.idCommandeStatic, VarStatic.IdArticleStatic, quantiteArticl);
+		}
+	}
+	
+	//ajouter des elements au panier
+	private void ajouterDetail(int idCommande, int idArticle, int quantiteArticle) {
+		
+		/*
+		 * faire un control sur la duplication de cle
+		 */
+		
+		if(VarStatic.idCommandeStatic != 0) {
+			//panier id_commande / id_article / quantite
+			try {
+				PreparedStatement req = connect.prepareStatement("INSERT INTO panier (id_commande, id_article, quantite) VALUE (?, ?, ?)");
+				req.setInt(1, idCommande);
+				req.setInt(2, idArticle);
+				req.setInt(3, quantiteArticle);
+				
+				req.executeUpdate();
+				JOptionPane.showMessageDialog(null, "Article Ajouter avec succee");
 				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		return VarStatic.idCommandeStatic;
 	}
 	
-	public void ajouterDetail(int idCommande, int idArticle, int quantiteArticle) {
-		
-		//panier id_commande / id_article / quantite
-		try {
-			PreparedStatement req = connect.prepareStatement("INSERT INTO panier (id_commande, id_article, quantite) VALUE (?, ?, ?)");
-			req.setInt(1, idCommande);
-			req.setInt(2, idArticle);
-			req.setInt(3, quantiteArticle);
-			
-			req.executeUpdate();
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 }

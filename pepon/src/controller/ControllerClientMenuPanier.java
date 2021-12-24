@@ -30,7 +30,7 @@ public class ControllerClientMenuPanier {
 			
 			while(rs.next()) {
 				text = rs.getInt("id_article") + " " + rs.getInt("quantite") +"\n";
-				System.out.println(text);
+				System.out.println(text + "controlerPanier ligne 33");
 			}
 			panelExpedition.setAreaPanier(text);
 		} catch (SQLException e) {

@@ -15,6 +15,7 @@ import java.awt.event.ActionEvent;
 		private JTextField textQuantite;
 		private JTextField idCherche;
 		private JTable table;
+		private JTextField IdArticleBddCache;
 	/**
 	 * Create the panel.
 	 */
@@ -61,18 +62,25 @@ import java.awt.event.ActionEvent;
 		textQuantite.setBounds(168, 172, 154, 23);
 		add(textQuantite);
 		
+		IdArticleBddCache = new JTextField();
+		IdArticleBddCache.setBounds(23, 402, 54, 20);
+		add(IdArticleBddCache);
+		IdArticleBddCache.setColumns(10);
+		IdArticleBddCache.setVisible(false);
+		
 		JButton btnModifier = new JButton("Modifier");
 		btnModifier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				int id_article = Integer.parseInt(textIdArticle.getText());
 				int quantity = Integer.parseInt(textQuantite.getText());
-				String idArticleText = textIdArticle.getText();	
+				String testArticle = IdArticleBddCache.getText();
 				String id_commd = textIdCommande.getText();	
 				
 				if(!(id_commd.isEmpty())  || id_article == 0 || quantity ==0) {
-					panier.modifier(id_article, quantity, id_commd, idArticleText );
+					panier.modifier(id_article, quantity, id_commd, testArticle );
 					panier.afficherTableCommandePanier(table);
+					panier.viderChamps(textIdCommande, IdArticleBddCache, textIdArticle, textQuantite, idCherche);
 				}
 			}
 		});
@@ -109,7 +117,8 @@ import java.awt.event.ActionEvent;
 //				textIdCommande.setText(model.getValueAt(i, 0).toString());
 //				textIdArticle.setText( model.getValueAt(i, 4).toString());
 //				textQuantite.setText( model.getValueAt(i, 5).toString());
-				panier.seletRow(textIdCommande, textIdArticle, textQuantite, table);
+				panier.selectRow(textIdCommande, textIdArticle, textQuantite, table);
+				panier.selectChamps(IdArticleBddCache, table);
 			}
 		});
 		scrollPane.setViewportView(table);
@@ -117,10 +126,7 @@ import java.awt.event.ActionEvent;
 		JButton btnEffacer = new JButton("Effacer");
 		btnEffacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textIdCommande.setText("");
-				textIdArticle.setText("");
-				textQuantite.setText("");
-				idCherche.setText("");
+				panier.viderChamps(textIdCommande, IdArticleBddCache, textIdArticle, textQuantite, idCherche);
 			}
 		});
 		btnEffacer.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -133,5 +139,7 @@ import java.awt.event.ActionEvent;
 		add(btnAjouter_1_1);
 		
 		panier.afficherTableCommandePanier(table);
+		
+		
 	}
 }

@@ -14,7 +14,7 @@ import java.awt.event.ActionEvent;
 		private JTextField textIdArticle;
 		private JTextField textQuantite;
 		private JTable table;
-		private JTextField IdArticleBddCache;
+		private JTextField idCherche;
 	/**
 	 * Create the panel.
 	 */
@@ -24,27 +24,27 @@ import java.awt.event.ActionEvent;
 		setLayout(null);
 		setBounds(43, 90, 900, 450);
 		
-		JLabel lblNewLabel = new JLabel("Gestion de paniers");
-		lblNewLabel.setForeground(Color.BLACK);
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Rockwell Extra Bold", Font.BOLD, 17));
-		lblNewLabel.setBounds(366, 11, 218, 48);
-		add(lblNewLabel);
+		JLabel lblPanier = new JLabel("Gestion de paniers");
+		lblPanier.setForeground(Color.BLACK);
+		lblPanier.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPanier.setFont(new Font("Rockwell Extra Bold", Font.BOLD, 17));
+		lblPanier.setBounds(366, 11, 218, 48);
+		add(lblPanier);
 		
-		JLabel lblNewLabel_1 = new JLabel("ID Commande");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblNewLabel_1.setBounds(23, 72, 119, 25);
-		add(lblNewLabel_1);
+		JLabel lblCommande = new JLabel("ID Commande");
+		lblCommande.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblCommande.setBounds(23, 72, 119, 25);
+		add(lblCommande);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("ID Article");
-		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblNewLabel_1_1.setBounds(23, 122, 119, 25);
-		add(lblNewLabel_1_1);
+		JLabel lblArticle = new JLabel("ID Article");
+		lblArticle.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblArticle.setBounds(23, 122, 119, 25);
+		add(lblArticle);
 		
-		JLabel lblNewLabel_1_2 = new JLabel("Quantit\u00E9");
-		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblNewLabel_1_2.setBounds(23, 170, 119, 25);
-		add(lblNewLabel_1_2);
+		JLabel lblQuantite = new JLabel("Quantit\u00E9");
+		lblQuantite.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblQuantite.setBounds(23, 170, 119, 25);
+		add(lblQuantite);
 		
 		textIdCommande = new JTextField();
 		textIdCommande.setBounds(168, 74, 154, 23);
@@ -61,11 +61,11 @@ import java.awt.event.ActionEvent;
 		textQuantite.setBounds(168, 172, 77, 23);
 		add(textQuantite);
 		
-		IdArticleBddCache = new JTextField();
-		IdArticleBddCache.setBounds(23, 402, 14, 20);
-		add(IdArticleBddCache);
-		IdArticleBddCache.setColumns(10);
-		IdArticleBddCache.setVisible(false);
+		idCherche = new JTextField();
+		idCherche.setBounds(23, 402, 14, 20);
+		add(idCherche);
+		idCherche.setColumns(10);
+		idCherche.setVisible(false);
 		
 		JButton btnModifier = new JButton("Modifier");
 		btnModifier.addActionListener(new ActionListener() {
@@ -73,13 +73,13 @@ import java.awt.event.ActionEvent;
 				
 				int id_article = Integer.parseInt(textIdArticle.getText());
 				int quantity = Integer.parseInt(textQuantite.getText());
-				String testArticle = IdArticleBddCache.getText();
+				String testArticle = idCherche.getText();
 				String id_commd = textIdCommande.getText();	
 				
 				if(!(id_commd.isEmpty())  || !(id_article == 0) || !(quantity ==0)) {
 					panier.modifier(id_article, quantity, id_commd, testArticle );
 					panier.afficherTableCommandePanier(table);
-					panier.viderChamps(textIdCommande, IdArticleBddCache, textIdArticle, textQuantite, idCherche);
+					panier.viderChamps(textIdCommande, idCherche, textIdArticle, textQuantite);
 				}
 			}
 		});
@@ -101,7 +101,7 @@ import java.awt.event.ActionEvent;
 //				textIdArticle.setText( model.getValueAt(i, 4).toString());
 //				textQuantite.setText( model.getValueAt(i, 5).toString());
 				panier.selectRow(textIdCommande, textIdArticle, textQuantite, table);
-				panier.selectChamps(IdArticleBddCache, table);
+				panier.selectChamps(idCherche, table);
 			}
 		});
 		scrollPane.setViewportView(table);
@@ -109,7 +109,7 @@ import java.awt.event.ActionEvent;
 		JButton btnEffacer = new JButton("Effacer");
 		btnEffacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panier.viderChamps(textIdCommande, IdArticleBddCache, textIdArticle, textQuantite, idCherche);
+				panier.viderChamps(textIdCommande, idCherche, textIdArticle, textQuantite);
 			}
 		});
 		btnEffacer.setFont(new Font("Tahoma", Font.BOLD, 11));

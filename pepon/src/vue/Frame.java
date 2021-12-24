@@ -43,10 +43,10 @@ public class Frame extends JFrame {
 		contentPane.add(pau);
 		contentPane.add(login);
 		
-		login.setVisible(false);
+		login.setVisible(true);
 
 	// Debut admin	
-		pau.setVisible(true);
+		pau.setVisible(false);
 		
 	}
 

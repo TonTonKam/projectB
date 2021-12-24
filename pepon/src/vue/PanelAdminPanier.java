@@ -79,11 +79,9 @@ import java.awt.event.ActionEvent;
 				if(!(id_commd.isEmpty())  || !(id_article == 0) || !(quantity ==0)) {
 					panier.modifier(id_article, quantity, id_commd, testArticle );
 					panier.afficherTableCommandePanier(table);
-<<<<<<< HEAD
-					panier.viderChamps(textIdCommande, IdArticleBddCache, textIdArticle, textQuantite);
-=======
+
 					panier.viderChamps(textIdCommande, idCherche, textIdArticle, textQuantite);
->>>>>>> origin/mainSalah
+
 				}
 			}
 		});
@@ -101,12 +99,9 @@ import java.awt.event.ActionEvent;
 			public void mouseReleased(MouseEvent e) {
 
 				panier.selectRow(textIdCommande, textIdArticle, textQuantite, table);
-<<<<<<< HEAD
-				panier.selectChamps(IdArticleBddCache, table);
 
-=======
 				panier.selectChamps(idCherche, table);
->>>>>>> origin/mainSalah
+
 			}
 		});
 		scrollPane.setViewportView(table);
@@ -114,11 +109,9 @@ import java.awt.event.ActionEvent;
 		JButton btnEffacer = new JButton("Effacer");
 		btnEffacer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
-				panier.viderChamps(textIdCommande, IdArticleBddCache, textIdArticle, textQuantite);
-=======
+
 				panier.viderChamps(textIdCommande, idCherche, textIdArticle, textQuantite);
->>>>>>> origin/mainSalah
+
 			}
 		});
 		btnEffacer.setFont(new Font("Tahoma", Font.BOLD, 11));

@@ -43,8 +43,8 @@ public class UserDao {
 		public void inscription(User user) {
 			
 			try {
-				PreparedStatement sql = connect.prepareStatement("INSERT INTO user (nom, prenom, email, mot_passe)"
-						+ " VALUES (?,?,?,PASSWORD(?))");
+				PreparedStatement sql = connect.prepareStatement("INSERT INTO user (nom, prenom, email, mot_passe, id_statut)"
+						+ " VALUES (?,?,?,PASSWORD(?), 1)");
 				sql.setString(1, user.getNom());
 				sql.setString(2, user.getPrenom());
 				sql.setString(3, user.getEmail());

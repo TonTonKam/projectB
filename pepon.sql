@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 21 déc. 2021 à 11:42
+-- Généré le : Dim 02 jan. 2022 à 13:17
 -- Version du serveur :  10.4.11-MariaDB
 -- Version de PHP : 7.4.3
 
@@ -138,7 +138,7 @@ CREATE TABLE `user` (
   `prenom` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `mot_passe` varchar(255) NOT NULL,
-  `id_statut` int(11) NOT NULL
+  `id_statut` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -146,8 +146,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `nom`, `prenom`, `email`, `mot_passe`, `id_statut`) VALUES
-(5, 'ton', 'kam', 'tonkam@test.fr', '1234', 1),
-(6, 'admin', 'admin', 'admin@admin.admin', '1234', 2);
+(7, 'ton', 'kam', 'test@test.fr', '*A4B6157319038724E3560894F7F932C8886EBFCF', 1),
+(8, 'admin', 'admin', 'admin@admin.fr', '*A4B6157319038724E3560894F7F932C8886EBFCF', 2);
 
 --
 -- Index pour les tables déchargées
@@ -226,7 +226,7 @@ ALTER TABLE `statut`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Contraintes pour les tables déchargées
@@ -237,25 +237,6 @@ ALTER TABLE `user`
 --
 ALTER TABLE `article`
   ADD CONSTRAINT `fk_id_categorie` FOREIGN KEY (`id_categorie`) REFERENCES `categorie` (`id_categorie`);
-
---
--- Contraintes pour la table `commande`
---
-ALTER TABLE `commande`
-  ADD CONSTRAINT `fk_id_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
-
---
--- Contraintes pour la table `panier`
---
-ALTER TABLE `panier`
-  ADD CONSTRAINT `pk_id_article` FOREIGN KEY (`id_article`) REFERENCES `article` (`id_article`),
-  ADD CONSTRAINT `pk_id_commande` FOREIGN KEY (`id_commande`) REFERENCES `commande` (`id_commande`);
-
---
--- Contraintes pour la table `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `fk_id_statut` FOREIGN KEY (`id_statut`) REFERENCES `statut` (`id_statut`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
